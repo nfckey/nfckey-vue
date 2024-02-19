@@ -79,34 +79,105 @@
 }
 
 @layer components {
-  .logo {
-    @apply h-11 transition duration-300 hover:logo-filter;
+  section {
+    @apply py-24;
   }
 
-  .logo-filter {
-    filter: invert(72%) sepia(30%) saturate(593%) hue-rotate(139deg) brightness(95%) contrast(82%);
+  .logo {
+    @apply hover:logo_filter h-11 transition duration-300;
+
+    &_filter {
+      filter: invert(72%) sepia(30%) saturate(593%) hue-rotate(139deg) brightness(95%) contrast(82%);
+    }
   }
 
   .menu {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-top: 84px;
+    @apply absolute left-0 right-0 top-0 mt-[84px] flex items-center justify-center bg-white pb-4 lg:pb-0;
+
+    &_desktop {
+      margin-top: 0px;
+      position: initial;
+      display: initial;
+    }
+
+    &-link {
+      @apply text-center font-inter text-vneutral-200;
+    }
   }
 
-  .menu--desktop {
-    margin-top: 0px;
-    position: initial;
-    display: initial;
+  .faq-list {
+    @apply w-full max-w-3xl font-inter;
+
+    &__content {
+      @apply para-sm-regular text-vneutral-400;
+
+      & > a {
+        @apply cursor-pointer text-brand-400 hover:text-brand-300;
+      }
+
+      & > ol {
+        @apply list-decimal pl-8;
+
+        & > li {
+          @apply py-2;
+        }
+      }
+
+      & > ul {
+        @apply list-disc pl-8;
+
+        & > li {
+          @apply py-2;
+        }
+      }
+    }
   }
 
-  .menu-link {
-    @apply text-center text-vneutral-200 font-inter;
+  .subtitle_ca {
+    @apply flex max-w-3xl flex-col items-center justify-center gap-4;
+
+    &__subheading {
+      @apply self-stretch text-balance text-center text-brand-400;
+    }
+
+    &__title {
+      @apply h300-32-semibold md:h400-40-semibold self-stretch text-balance text-center text-vneutral-50;
+
+      &_gradient {
+        @apply bg-gradient-to-r from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
+      }
+    }
+
+    &__text {
+      @apply para-sm-regular md:para-md-regular max-w-xl text-balance text-center text-vneutral-400;
+    }
   }
 
-  .h50-16-medium {
-    @apply text-base font-inter font-medium leading-5;
+  .h400-40-semibold {
+    @apply font-manrope font-semibold;
+    font-size: 2.5rem; /* 40px */
+    line-height: 3rem; /* 48px */
+  }
+
+  .h300-32-semibold {
+    @apply font-manrope font-semibold;
+    font-size: 2rem; /* 32px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  .para {
+    &-sm {
+      &-regular {
+        @apply font-inter font-normal;
+        font-size: 1rem; /* 16px */
+        line-height: 1.75rem; /* 28px */
+      }
+    }
+
+    &-md {
+      &-regular {
+        @apply font-inter text-lg font-normal;
+      }
+    }
   }
 }

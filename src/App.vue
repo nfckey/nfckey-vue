@@ -3,7 +3,7 @@ import HeaderComponent from './components/HeaderComponent.vue'
 </script>
 
 <template>
-  <div class="container mx-auto min-h-screen bg-white">
+  <div class="container min-h-screen bg-white">
     <HeaderComponent />
 
     <main>

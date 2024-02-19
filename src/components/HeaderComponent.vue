@@ -74,27 +74,24 @@ const teamLinks = [
 </script>
 
 <template>
-  <header class="bg-white mx-auto w-full md:px-8 px-4 py-5">
-    <div class="items-center max-w-screen-xl justify-between lg:flex lg:px-8">
+  <header class="mx-auto w-full bg-white py-5">
+    <div class="max-w-screen-xl items-center justify-between lg:flex lg:px-8">
       <div class="flex items-center justify-between lg:block">
         <router-link to="/">
           <img class="logo" src="../assets/logo.svg" alt="Логотип NFCKEY" />
         </router-link>
         <div class="lg:hidden">
           <Button variant="outline" size="icon" @click="isOpen = !isOpen">
-            <X class="w-4 h-4" v-if="isOpen" />
-            <Menu class="w-4 h-4" v-else />
+            <X class="h-4 w-4" v-if="isOpen" />
+            <Menu class="h-4 w-4" v-else />
           </Button>
         </div>
       </div>
 
       <collapse-transition>
-        <div
-          v-show="isOpen || isLargeScreen"
-          class="menu lg:menu--desktop bg-white flex justify-center justify-self-center"
-        >
+        <div v-show="isOpen || isLargeScreen" class="menu lg:menu_desktop">
           <NavigationMenu>
-            <NavigationMenuList class="flex-col sm:flex-row flex-1">
+            <NavigationMenuList class="flex-1 flex-col sm:flex-row">
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
                   <p class="menu-link">Арендодателям</p>
@@ -134,7 +131,7 @@ const teamLinks = [
                   <p class="menu-link">О проекте</p>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul class="grid gap-3 p-4 lg:grid-cols-2 md:w-[400px] lg:w-[500px]">
+                  <ul class="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
                     <NavigationMenuListItem
                       v-for="component in teamLinks"
                       :key="component.title"
