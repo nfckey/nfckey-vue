@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ivanv/vue-collapse-transition": "^1.0.2",
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-vue-next": "^0.330.0",
@@ -31,7 +32,8 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.21.1",
     "postcss": "^8.4.35",
-    "prettier": "^3.0.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1",
     "vite": "^5.0.11"
   }
