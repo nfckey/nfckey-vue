@@ -3,10 +3,10 @@ import HeaderComponent from './components/HeaderComponent.vue'
 </script>
 
 <template>
-  <div class="container min-h-screen bg-white">
+  <div class="min-h-screen bg-white">
     <HeaderComponent />
 
-    <main>
+    <main class="container">
       <router-view></router-view>
     </main>
 

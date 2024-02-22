@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
+import { gsap } from 'gsap'
 import { Menu, X, Home } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import {
@@ -25,6 +26,16 @@ const handleResize = () => {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
+
+  const tl = gsap.timeline()
+  tl.fromTo('.logo', { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 1.7)
+    .fromTo('#menuBtn', { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 2.5)
+    .fromTo(
+      '.menu .group li',
+      { y: -50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, stagger: 0.15 },
+      2.5
+    )
 })
 
 onBeforeUnmount(() => {
@@ -74,13 +85,13 @@ const teamLinks = [
 </script>
 
 <template>
-  <header class="mx-auto w-full bg-white py-5">
+  <header class="container relative z-[5] mx-auto w-full py-5" :class="{ 'bg-white': isOpen }">
     <div class="max-w-screen-xl items-center justify-between lg:flex lg:px-8">
       <div class="flex items-center justify-between lg:block">
         <router-link to="/">
           <img class="logo" src="../assets/logo.svg" alt="Логотип NFCKEY" />
         </router-link>
-        <div class="lg:hidden">
+        <div class="lg:hidden" id="menuBtn">
           <Button variant="outline" size="icon" @click="isOpen = !isOpen">
             <X class="h-4 w-4" v-if="isOpen" />
             <Menu class="h-4 w-4" v-else />

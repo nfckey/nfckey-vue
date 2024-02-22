@@ -105,6 +105,62 @@
     }
   }
 
+  .hero {
+    @apply container flex items-center justify-center py-0;
+    min-height: calc(100dvh - 84px);
+
+    &-btn {
+      @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-gradient-to-br 
+      from-brand-400 via-[#94bce9] to-violet-300 bg-size-200 bg-pos-0 px-4 
+      py-6 text-white transition-all duration-500 hover:bg-pos-100;
+    }
+
+    &__content {
+      @apply z-[2] flex max-w-xl flex-col items-center justify-center gap-4 lg:items-start;
+
+      &-title {
+        @apply h400-40-semibold sm:h600-56-semibold whitespace-nowrap text-balance text-center text-vneutral-50 lg:text-left;
+      }
+
+      &-subtitle {
+        @apply sm:para-md-regular para-sm-regular text-balance text-center text-vneutral-400 lg:text-left;
+      }
+
+      &-btn-group {
+        @apply flex items-center gap-2 pt-4;
+      }
+    }
+
+    &__image {
+      @apply max-w-full ease-in sm:max-w-xl lg:max-w-full;
+      transition: opacity 0.3s;
+
+      &_transitioning {
+        opacity: 0;
+        transition: opacity 0.4s ease-out;
+      }
+    }
+
+    &__gradient {
+      @apply relative left-0 top-[-32rem] z-[1] h-0 w-0 shrink-0 sm:top-[-40rem] lg:top-[-20rem];
+
+      &__ellipse {
+        @apply absolute h-52 w-52 shrink-0 rounded-full blur-[61px] sm:h-80 sm:w-80 sm:blur-[124px];
+
+        &_1 {
+          z-index: 0;
+          background: linear-gradient(313deg, #77fff7 45%, rgba(1, 255, 179, 0) 100%);
+        }
+
+        &_2 {
+          left: 5rem;
+          z-index: -1;
+          background: linear-gradient(313deg, #0038ff 0%, rgba(246, 252, 255, 0) 100%);
+        }
+      }
+    }
+  }
+
   .faq-list {
     @apply w-full max-w-3xl font-inter;
 
@@ -141,7 +197,7 @@
     }
 
     &__title {
-      @apply h300-32-semibold md:h400-40-semibold self-stretch text-balance text-center text-vneutral-50;
+      @apply h400-40-semibold self-stretch text-balance text-center text-vneutral-50;
 
       &_gradient {
         @apply bg-gradient-to-r from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
@@ -151,6 +207,12 @@
     &__text {
       @apply para-sm-regular md:para-md-regular max-w-xl text-balance text-center text-vneutral-400;
     }
+  }
+
+  .h600-56-semibold {
+    @apply font-manrope font-semibold;
+    font-size: 3.5rem; /* 56px */
+    line-height: 4.25rem; /* 68px */
   }
 
   .h400-40-semibold {
@@ -163,6 +225,12 @@
     @apply font-manrope font-semibold;
     font-size: 2rem; /* 32px */
     line-height: 2.5rem; /* 40px */
+  }
+
+  .h100-20-semibold {
+    @apply font-manrope font-semibold;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5rem; /* 24px */
   }
 
   .para {

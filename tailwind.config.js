@@ -115,6 +115,13 @@ module.exports = {
           to: { height: 0 }
         }
       },
+      backgroundSize: {
+        'size-200': '200% 200%'
+      },
+      backgroundPosition: {
+        'pos-0': '0% 0%',
+        'pos-100': '100% 100%'
+      },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
