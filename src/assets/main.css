@@ -80,7 +80,12 @@
 
 @layer components {
   section {
-    @apply py-24;
+    @apply min-h-dvh py-24;
+
+    &#hero {
+      @apply container flex items-center justify-center py-0;
+      min-height: calc(100dvh - 84px);
+    }
   }
 
   .logo {
@@ -106,9 +111,6 @@
   }
 
   .hero {
-    @apply container flex items-center justify-center py-0;
-    min-height: calc(100dvh - 84px);
-
     &-btn {
       @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-gradient-to-br 
       from-brand-400 via-[#94bce9] to-violet-300 bg-size-200 bg-pos-0 px-4 
@@ -119,7 +121,7 @@
       @apply z-[2] flex max-w-xl flex-col items-center justify-center gap-4 lg:items-start;
 
       &-title {
-        @apply h400-40-semibold sm:h600-56-semibold whitespace-nowrap text-balance text-center text-vneutral-50 lg:text-left;
+        @apply h500-semibold sm:h600-semibold whitespace-nowrap text-balance text-center text-vneutral-50 lg:text-left;
       }
 
       &-subtitle {
@@ -183,6 +185,36 @@
     }
   }
 
+  .features {
+    &__content {
+      @apply flex flex-col items-center gap-8 xl:items-start;
+    }
+
+    &__list {
+      @apply flex flex-col items-start gap-8;
+
+      .feature {
+        @apply flex items-start gap-4 self-stretch;
+
+        &__content {
+          @apply flex flex-col items-start justify-center gap-1;
+        }
+
+        &__title {
+          @apply para-md-medium max-w-xl text-vneutral-50;
+        }
+
+        &__text {
+          @apply para-sm-regular max-w-xl text-vneutral-400;
+        }
+      }
+    }
+
+    &__image {
+      @apply h-[456px] object-cover object-center xl:h-full;
+    }
+  }
+
   .faq-list {
     @apply w-full max-w-3xl font-inter;
 
@@ -211,23 +243,41 @@
     }
   }
 
-  .subtitle_ca {
-    @apply flex max-w-3xl flex-col items-center justify-center gap-4;
+  .subtitle {
+    &_ca {
+      @apply flex max-w-3xl flex-col items-center justify-center gap-4;
 
-    &__subheading {
-      @apply self-stretch text-balance text-center text-brand-400;
-    }
+      &__subheading {
+        @apply self-stretch text-balance text-center text-brand-400;
+      }
 
-    &__title {
-      @apply h400-40-semibold self-stretch text-balance text-center text-vneutral-50;
+      &__title {
+        @apply h400-semibold self-stretch text-balance text-center text-vneutral-50;
 
-      &_gradient {
-        @apply bg-gradient-to-r from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
+        &_gradient {
+          @apply bg-gradient-to-b from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
+        }
+      }
+
+      &__text {
+        @apply para-sm-regular md:para-md-regular max-w-xl text-balance text-center text-vneutral-400;
       }
     }
 
-    &__text {
-      @apply para-sm-regular md:para-md-regular max-w-xl text-balance text-center text-vneutral-400;
+    &_la {
+      @apply flex max-w-2xl flex-col items-start justify-center gap-4;
+
+      &__title {
+        @apply h400-semibold self-stretch text-balance text-vneutral-50;
+
+        &_gradient {
+          @apply bg-gradient-to-br from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
+        }
+      }
+
+      &__text {
+        @apply para-sm-regular md:para-md-regular max-w-2xl text-balance text-vneutral-400;
+      }
     }
   }
 
@@ -237,28 +287,52 @@
     }
   }
 
-  .h600-56-semibold {
-    @apply font-manrope font-semibold;
-    font-size: 3.5rem; /* 56px */
-    line-height: 4.25rem; /* 68px */
+  .h600 {
+    &-semibold {
+      @apply font-manrope font-semibold;
+      font-size: 3.5rem; /* 56px */
+      line-height: 4.25rem; /* 68px */
+    }
   }
 
-  .h400-40-semibold {
-    @apply font-manrope font-semibold;
-    font-size: 2.5rem; /* 40px */
-    line-height: 3rem; /* 48px */
+  .h500 {
+    &-semibold {
+      @apply font-manrope font-semibold;
+      font-size: 3rem; /* 48px */
+      line-height: 3.5rem; /* 56px */
+    }
   }
 
-  .h300-32-semibold {
-    @apply font-manrope font-semibold;
-    font-size: 2rem; /* 32px */
-    line-height: 2.5rem; /* 40px */
+  .h400 {
+    &-semibold {
+      @apply font-manrope font-semibold;
+      font-size: 2.5rem; /* 40px */
+      line-height: 3rem; /* 48px */
+    }
   }
 
-  .h100-20-semibold {
-    @apply font-manrope font-semibold;
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.5rem; /* 24px */
+  .h300 {
+    &-semibold {
+      @apply font-manrope font-semibold;
+      font-size: 2rem; /* 32px */
+      line-height: 2.5rem; /* 40px */
+    }
+  }
+
+  .h200 {
+    &-semibold {
+      @apply font-manrope font-semibold;
+      font-size: 1.5rem; /* 24px */
+      line-height: 2rem; /* 32px */
+    }
+  }
+
+  .h100 {
+    &-semibold {
+      @apply font-manrope font-semibold;
+      font-size: 1.25rem; /* 20px */
+      line-height: 1.5rem; /* 24px */
+    }
   }
 
   .para {

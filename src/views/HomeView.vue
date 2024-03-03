@@ -1,5 +1,5 @@
 <script setup>
-import { ChevronRight, Bell } from 'lucide-vue-next'
+import { ChevronRight, Bell, Sparkles } from 'lucide-vue-next'
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
@@ -52,7 +52,8 @@ onMounted(() => {
       end: 'top center'
     },
     opacity: 0,
-    y: -50
+    y: -50,
+    duration: 1
   })
 
   gsap.from('.advantages-item', {
@@ -63,6 +64,40 @@ onMounted(() => {
     },
     opacity: 0,
     stagger: 0.3,
+    duration: 1
+  })
+
+  gsap.from('.subtitle_la', {
+    scrollTrigger: {
+      trigger: '#features',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    x: -50,
+    duration: 1
+  })
+
+  gsap.from('.feature', {
+    scrollTrigger: {
+      trigger: '#features',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    x: -50,
+    stagger: 0.5,
+    duration: 1
+  })
+
+  gsap.from('.features__image', {
+    scrollTrigger: {
+      trigger: '#features',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    y: 100,
     duration: 1
   })
 })
@@ -120,7 +155,7 @@ const advantages = [
 </script>
 
 <template>
-  <section class="hero">
+  <section id="hero">
     <div class="hero__gradient">
       <div class="hero__gradient__ellipse hero__gradient__ellipse_1"></div>
       <div class="hero__gradient__ellipse hero__gradient__ellipse_2"></div>
@@ -134,7 +169,7 @@ const advantages = [
         </p>
         <div class="hero__content-btn-group">
           <button class="hero-btn">
-            <p class="h100-20-semibold">Будьте в числе первых</p>
+            <p class="h100-semibold">Будьте в числе первых</p>
             <ChevronRight class="ml-2 h-6 w-6" />
           </button>
           <TooltipProvider>
@@ -161,7 +196,7 @@ const advantages = [
     </div>
   </section>
   <section id="advantages">
-    <div class="flex h-dvh flex-col items-center gap-24">
+    <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
         <h1 class="subtitle_ca__title subtitle_ca__title_gradient">
           Открывайте дверь одним касанием смартфона
@@ -181,6 +216,68 @@ const advantages = [
           <div class="icon_big text-brand-400" v-html="item.icon"></div>
         </AdvantagesListItem>
       </AdvantagesList>
+    </div>
+  </section>
+  <section id="features">
+    <div class="grid justify-items-center gap-8 xl:grid-cols-2">
+      <div class="features__content">
+        <div class="subtitle_la text-center xl:text-left">
+          <h2 class="subtitle_la__title subtitle_la__title_gradient">
+            Откройте новые возможности с помощью умных замков
+          </h2>
+          <p class="subtitle_la__text">
+            Замки NFCKEY созданы для тех, кто хочет нового уровня комфорта, удобства и безопасности.
+            Вы легко сможете контролировать, кто и когда открывает дверь вашего дома. Всегда.
+          </p>
+        </div>
+        <div class="features__list">
+          <div class="feature">
+            <Sparkles class="text-brand-400" />
+            <div class="feature__content">
+              <p class="feature__title">Технология NFC</p>
+              <p class="feature__text">
+                Открывайте двери одним касанием телефона с помощью технологии Near Field
+                Communication
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <Sparkles class="text-brand-400" />
+            <div class="feature__content">
+              <p class="feature__title">Удобное мобильное приложение</p>
+              <p class="feature__text">
+                Наше интуитивно понятное мобильное приложение создано для беспрепятственного
+                управления доступом и множеством других функций вашего замка
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <Sparkles class="text-brand-400" />
+            <div class="feature__content">
+              <p class="feature__title">Открытие дверей без интернета</p>
+              <p class="feature__text">
+                Вы можете открывать двери без подключения к интернету, получая бесперебойный доступ
+                при любых ситуациях
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <Sparkles class="text-brand-400" />
+            <div class="feature__content">
+              <p class="feature__title">Эффективность и элегантность</p>
+              <p class="feature__text">
+                Наш умный замок сочетает в себе длительное время работы от батареек и утонченный
+                дизайн, позволяющий придать вашей двери современный шарм
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="../assets/waves-mockup.png"
+        alt="Мобильный телефон с технологией NFC"
+        class="features__image"
+      />
     </div>
   </section>
 </template>
