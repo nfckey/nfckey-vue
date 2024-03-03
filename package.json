@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ivanv/vue-collapse-transition": "^1.0.2",
+    "@studio-freight/lenis": "^1.0.37",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

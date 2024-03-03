@@ -1,11 +1,15 @@
 <script setup>
 import { ChevronRight, Bell } from 'lucide-vue-next'
+import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ref, onMounted } from 'vue'
 import heroImg100 from '../assets/hero-o100.png'
 import heroImg50 from '../assets/hero-o50.png'
+
+gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
   const tl = gsap.timeline()
@@ -40,6 +44,27 @@ onMounted(() => {
       { y: 0, opacity: 1, duration: 1 },
       1.7
     )
+
+  gsap.from('.subtitle_ca', {
+    scrollTrigger: {
+      trigger: '#advantages',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    y: -50
+  })
+
+  gsap.from('.advantages-item', {
+    scrollTrigger: {
+      trigger: '#advantages',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    stagger: 0.3,
+    duration: 1
+  })
 })
 
 const isHovered = ref(false)
@@ -53,6 +78,45 @@ const heroImgHover = () => {
     heroImg.classList.remove('hero__image_transitioning')
   }, 295)
 }
+
+const advantages = [
+  {
+    title: 'Доступ без препятствий',
+    description:
+      'Попрощайтесь с поиском ключей – телефон позволит мгновенно получить доступ к вашему пространству',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>'
+  },
+  {
+    title: 'Временный ключ одной кнопкой',
+    description:
+      'Вы можете выдать ключ вашим гостям или арендаторам и отозвать его в удобное для вас время. Быстро',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
+  },
+  {
+    title: 'Полная безопасность',
+    description:
+      'Мы используем современные и проверенные технологии шифрования данных и механической защиты замков',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+  },
+  {
+    title: 'Мгновенные оповещения',
+    description:
+      'Получайте уведомления, кто и когда<br> открывает дверь, в режиме <br>реального времени',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-dot"><path d="M19.4 14.9C20.2 16.4 21 17 21 17H3s3-2 3-9c0-3.3 2.7-6 6-6 .7 0 1.3.1 1.9.3"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><circle cx="18" cy="8" r="3"/></svg>'
+  },
+  {
+    title: 'Дистанционное управление',
+    description:
+      'Легко управляйте доступом на расстоянии и гибко настраивайте расписание доступа к замку',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>'
+  },
+  {
+    title: 'Снижение ответственности',
+    description:
+      'Избавьтесь от неудобств и рисков несанкционированного доступа при использовании физических ключей',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>'
+  }
+]
 </script>
 
 <template>
@@ -96,15 +160,27 @@ const heroImgHover = () => {
       />
     </div>
   </section>
-  <!-- <section>
-    <div class="flex flex-col items-center gap-24">
+  <section id="advantages">
+    <div class="flex h-dvh flex-col items-center gap-24">
       <div class="subtitle_ca">
-        <h1 class="subtitle_ca__title subtitle_ca__title_gradient">Узнайте больше об NFCKEY</h1>
+        <h1 class="subtitle_ca__title subtitle_ca__title_gradient">
+          Открывайте дверь одним касанием смартфона
+        </h1>
         <p class="subtitle_ca__text">
-          Изучите раздел с часто задаваемыми вопросами и узнайте, как NFCKEY может органично
-          вписаться в ваш образ жизни
+          Переосмысляем традиционные способы открытия дверей и расширяем возможности удобства и
+          безопасности для частных лиц и арендодателей
         </p>
       </div>
+      <AdvantagesList>
+        <AdvantagesListItem
+          v-for="(item, index) in advantages"
+          :key="index"
+          :title="item.title"
+          :description="item.description"
+        >
+          <div class="icon_big text-brand-400" v-html="item.icon"></div>
+        </AdvantagesListItem>
+      </AdvantagesList>
     </div>
-  </section> -->
+  </section>
 </template>

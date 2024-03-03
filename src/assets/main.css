@@ -161,6 +161,28 @@
     }
   }
 
+  .advantages {
+    &-item {
+      @apply flex flex-col items-center justify-center gap-4 p-4;
+
+      &__content {
+        @apply flex flex-col items-center gap-2;
+      }
+
+      &__title {
+        @apply para-md-medium max-w-sm text-balance text-center text-vneutral-50 sm:w-96;
+      }
+
+      &__text {
+        @apply para-sm-regular max-w-xs text-balance text-center text-vneutral-400 sm:w-80;
+      }
+
+      &:nth-child(n + 4) {
+        @apply hidden md:flex;
+      }
+    }
+  }
+
   .faq-list {
     @apply w-full max-w-3xl font-inter;
 
@@ -209,6 +231,12 @@
     }
   }
 
+  .icon {
+    &_big {
+      @apply flex items-center justify-center gap-2 rounded-full bg-brand-1200 p-4;
+    }
+  }
+
   .h600-56-semibold {
     @apply font-manrope font-semibold;
     font-size: 3.5rem; /* 56px */
@@ -245,6 +273,9 @@
     &-md {
       &-regular {
         @apply font-inter text-lg font-normal;
+      }
+      &-medium {
+        @apply font-inter text-lg font-medium;
       }
     }
   }
