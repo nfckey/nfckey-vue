@@ -5,11 +5,13 @@ import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { TextPlugin } from 'gsap/TextPlugin'
 import { ref, onMounted } from 'vue'
 import heroImg100 from '../assets/hero-o100.png'
 import heroImg50 from '../assets/hero-o50.png'
 
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(TextPlugin)
 
 onMounted(() => {
   const tl = gsap.timeline()
@@ -100,6 +102,27 @@ onMounted(() => {
     y: 100,
     duration: 1
   })
+
+  gsap.from('.how-it-works__title', {
+    scrollTrigger: {
+      trigger: '#how-it-works',
+      start: '30% center',
+      end: '30% center'
+    },
+    duration: 2,
+    text: ''
+  })
+
+  gsap.from('.how-it-works__video', {
+    scrollTrigger: {
+      trigger: '#how-it-works',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    x: 25,
+    duration: 2
+  })
 })
 
 const isHovered = ref(false)
@@ -169,7 +192,7 @@ const advantages = [
         </p>
         <div class="hero__content-btn-group">
           <button class="hero-btn">
-            <p class="h100-semibold">Будьте в числе первых</p>
+            <p class="hero-btn__text">Будьте в числе первых</p>
             <ChevronRight class="ml-2 h-6 w-6" />
           </button>
           <TooltipProvider>
@@ -232,7 +255,7 @@ const advantages = [
         </div>
         <div class="features__list">
           <div class="feature">
-            <Sparkles class="text-brand-400" />
+            <Sparkles class="shrink-0 text-brand-400" />
             <div class="feature__content">
               <p class="feature__title">Технология NFC</p>
               <p class="feature__text">
@@ -242,7 +265,7 @@ const advantages = [
             </div>
           </div>
           <div class="feature">
-            <Sparkles class="text-brand-400" />
+            <Sparkles class="shrink-0 text-brand-400" />
             <div class="feature__content">
               <p class="feature__title">Удобное мобильное приложение</p>
               <p class="feature__text">
@@ -252,7 +275,7 @@ const advantages = [
             </div>
           </div>
           <div class="feature">
-            <Sparkles class="text-brand-400" />
+            <Sparkles class="shrink-0 text-brand-400" />
             <div class="feature__content">
               <p class="feature__title">Открытие дверей без интернета</p>
               <p class="feature__text">
@@ -262,7 +285,7 @@ const advantages = [
             </div>
           </div>
           <div class="feature">
-            <Sparkles class="text-brand-400" />
+            <Sparkles class="shrink-0 text-brand-400" />
             <div class="feature__content">
               <p class="feature__title">Эффективность и элегантность</p>
               <p class="feature__text">
@@ -278,6 +301,20 @@ const advantages = [
         alt="Мобильный телефон с технологией NFC"
         class="features__image"
       />
+    </div>
+  </section>
+  <section id="how-it-works" class="how-it-works">
+    <div class="flex items-center justify-center">
+      <div class="how-it-works__content">
+        <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
+        <video
+          src="../assets/how-it-works.mp4"
+          class="how-it-works__video"
+          preload="metadata"
+          controls
+          playsinline
+        ></video>
+      </div>
     </div>
   </section>
 </template>

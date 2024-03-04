@@ -115,17 +115,21 @@
       @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-gradient-to-br 
       from-brand-400 via-[#94bce9] to-violet-300 bg-size-200 bg-pos-0 px-4 
       py-6 text-white transition-all duration-500 hover:bg-pos-100;
+
+      &__text {
+        @apply h100 font-semibold;
+      }
     }
 
     &__content {
       @apply z-[2] flex max-w-xl flex-col items-center justify-center gap-4 lg:items-start;
 
       &-title {
-        @apply h500-semibold sm:h600-semibold whitespace-nowrap text-balance text-center text-vneutral-50 lg:text-left;
+        @apply h500 sm:h600 whitespace-nowrap text-balance text-center font-semibold text-vneutral-50 lg:text-left;
       }
 
       &-subtitle {
-        @apply sm:para-md-regular para-sm-regular text-balance text-center text-vneutral-400 lg:text-left;
+        @apply sm:para-md para-sm text-balance text-center font-normal text-vneutral-400 lg:text-left;
       }
 
       &-btn-group {
@@ -172,11 +176,11 @@
       }
 
       &__title {
-        @apply para-md-medium max-w-sm text-balance text-center text-vneutral-50 sm:w-96;
+        @apply para-md max-w-sm text-balance text-center font-medium text-vneutral-50 sm:w-96;
       }
 
       &__text {
-        @apply para-sm-regular max-w-xs text-balance text-center text-vneutral-400 sm:w-80;
+        @apply para-sm max-w-xs text-balance text-center font-normal text-vneutral-400 sm:w-80;
       }
 
       &:nth-child(n + 4) {
@@ -201,11 +205,11 @@
         }
 
         &__title {
-          @apply para-md-medium max-w-xl text-vneutral-50;
+          @apply para-md max-w-xl font-medium text-vneutral-50;
         }
 
         &__text {
-          @apply para-sm-regular max-w-xl text-vneutral-400;
+          @apply para-sm max-w-xl font-normal text-vneutral-400;
         }
       }
     }
@@ -215,11 +219,27 @@
     }
   }
 
+  .how-it-works {
+    @apply flex items-center;
+
+    &__content {
+      @apply flex flex-col items-start gap-4 xl:flex-row xl:items-center;
+    }
+
+    &__title {
+      @apply h600 sm:h800 font-medium sm:w-[496px];
+    }
+
+    &__video {
+      @apply h-auto w-full max-w-3xl rounded-[32px];
+    }
+  }
+
   .faq-list {
     @apply w-full max-w-3xl font-inter;
 
     &__content {
-      @apply para-sm-regular text-vneutral-400;
+      @apply para-sm font-normal text-vneutral-400;
 
       & > a {
         @apply cursor-pointer text-brand-400 hover:text-brand-300;
@@ -252,7 +272,7 @@
       }
 
       &__title {
-        @apply h400-semibold self-stretch text-balance text-center text-vneutral-50;
+        @apply h400 self-stretch text-balance text-center font-semibold text-vneutral-50;
 
         &_gradient {
           @apply bg-gradient-to-b from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
@@ -260,7 +280,7 @@
       }
 
       &__text {
-        @apply para-sm-regular md:para-md-regular max-w-xl text-balance text-center text-vneutral-400;
+        @apply para-sm md:para-md max-w-xl text-balance text-center font-normal text-vneutral-400;
       }
     }
 
@@ -268,7 +288,7 @@
       @apply flex max-w-2xl flex-col items-start justify-center gap-4;
 
       &__title {
-        @apply h400-semibold self-stretch text-balance text-vneutral-50;
+        @apply h400 self-stretch text-balance font-semibold text-vneutral-50;
 
         &_gradient {
           @apply bg-gradient-to-br from-vneutral-100 to-brand-400 bg-clip-text text-transparent;
@@ -276,7 +296,7 @@
       }
 
       &__text {
-        @apply para-sm-regular md:para-md-regular max-w-2xl text-balance text-vneutral-400;
+        @apply para-sm md:para-md max-w-2xl text-balance font-normal text-vneutral-400;
       }
     }
   }
@@ -287,70 +307,63 @@
     }
   }
 
+  .h800 {
+    @apply font-manrope;
+    font-size: 4.5rem; /* 72px */
+    line-height: 5.375rem; /* 86px */
+  }
+
+  .h700 {
+    @apply font-manrope;
+    font-size: 3.875rem; /* 62px */
+    line-height: 4.5rem; /* 72px */
+  }
+
   .h600 {
-    &-semibold {
-      @apply font-manrope font-semibold;
-      font-size: 3.5rem; /* 56px */
-      line-height: 4.25rem; /* 68px */
-    }
+    @apply font-manrope;
+    font-size: 3.5rem; /* 56px */
+    line-height: 4.25rem; /* 68px */
   }
 
   .h500 {
-    &-semibold {
-      @apply font-manrope font-semibold;
-      font-size: 3rem; /* 48px */
-      line-height: 3.5rem; /* 56px */
-    }
+    @apply font-manrope;
+    font-size: 3rem; /* 48px */
+    line-height: 3.5rem; /* 56px */
   }
 
   .h400 {
-    &-semibold {
-      @apply font-manrope font-semibold;
-      font-size: 2.5rem; /* 40px */
-      line-height: 3rem; /* 48px */
-    }
+    @apply font-manrope;
+    font-size: 2.5rem; /* 40px */
+    line-height: 3rem; /* 48px */
   }
 
   .h300 {
-    &-semibold {
-      @apply font-manrope font-semibold;
-      font-size: 2rem; /* 32px */
-      line-height: 2.5rem; /* 40px */
-    }
+    @apply font-manrope;
+    font-size: 2rem; /* 32px */
+    line-height: 2.5rem; /* 40px */
   }
 
   .h200 {
-    &-semibold {
-      @apply font-manrope font-semibold;
-      font-size: 1.5rem; /* 24px */
-      line-height: 2rem; /* 32px */
-    }
+    @apply font-manrope;
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
   }
 
   .h100 {
-    &-semibold {
-      @apply font-manrope font-semibold;
-      font-size: 1.25rem; /* 20px */
-      line-height: 1.5rem; /* 24px */
-    }
+    @apply font-manrope;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5rem; /* 24px */
   }
 
   .para {
     &-sm {
-      &-regular {
-        @apply font-inter font-normal;
-        font-size: 1rem; /* 16px */
-        line-height: 1.75rem; /* 28px */
-      }
+      @apply font-inter;
+      font-size: 1rem; /* 16px */
+      line-height: 1.75rem; /* 28px */
     }
 
     &-md {
-      &-regular {
-        @apply font-inter text-lg font-normal;
-      }
-      &-medium {
-        @apply font-inter text-lg font-medium;
-      }
+      @apply font-inter text-lg;
     }
   }
 }
