@@ -1,5 +1,5 @@
 <script setup>
-import { ChevronRight, Bell, Sparkles } from 'lucide-vue-next'
+import { Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
@@ -7,6 +7,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
 import { ref, onMounted } from 'vue'
+import OpportunitiesCard from '../components/OpportunitiesCard.vue'
 import heroImg100 from '../assets/hero-o100.png'
 import heroImg50 from '../assets/hero-o50.png'
 
@@ -47,14 +48,14 @@ onMounted(() => {
       1.7
     )
 
-  gsap.from('.subtitle_ca', {
+  gsap.from('#advantages .subtitle_ca', {
     scrollTrigger: {
       trigger: '#advantages',
-      start: 'top center',
-      end: 'top center'
+      start: '-30% center',
+      end: '-30% center'
     },
     opacity: 0,
-    y: -50,
+    y: 50,
     duration: 1
   })
 
@@ -69,11 +70,11 @@ onMounted(() => {
     duration: 1
   })
 
-  gsap.from('.subtitle_la', {
+  gsap.from('#features .subtitle_la', {
     scrollTrigger: {
       trigger: '#features',
-      start: 'top center',
-      end: 'top center'
+      start: '-30% center',
+      end: '-30%   center'
     },
     opacity: 0,
     x: -50,
@@ -122,6 +123,58 @@ onMounted(() => {
     opacity: 0,
     x: 25,
     duration: 2
+  })
+
+  gsap.from('#pricing .subtitle_ca', {
+    scrollTrigger: {
+      trigger: '#pricing',
+      start: '-30% center',
+      end: '-30% center'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1
+  })
+
+  gsap.from('.pricing__image', {
+    scrollTrigger: {
+      trigger: '#pricing',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    duration: 1
+  })
+
+  gsap.from('.pricing__content', {
+    scrollTrigger: {
+      trigger: '#pricing',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    duration: 1
+  })
+
+  gsap.from('#pricing .bullet-point', {
+    scrollTrigger: {
+      trigger: '#pricing',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    stagger: 0.3
+  })
+
+  gsap.from('.pricing__price-clarification', {
+    scrollTrigger: {
+      trigger: '#pricing',
+      start: 'top center',
+      end: 'top center'
+    },
+    duration: 3,
+    delay: 2,
+    text: ''
   })
 })
 
@@ -221,9 +274,9 @@ const advantages = [
   <section id="advantages">
     <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
-        <h1 class="subtitle_ca__title subtitle_ca__title_gradient">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
           Открывайте дверь одним касанием смартфона
-        </h1>
+        </h2>
         <p class="subtitle_ca__text">
           Переосмысляем традиционные способы открытия дверей и расширяем возможности удобства и
           безопасности для частных лиц и арендодателей
@@ -304,16 +357,46 @@ const advantages = [
     </div>
   </section>
   <section id="how-it-works" class="how-it-works">
-    <div class="flex items-center justify-center">
-      <div class="how-it-works__content">
-        <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
-        <video
-          src="../assets/how-it-works.mp4"
-          class="how-it-works__video"
-          preload="metadata"
-          controls
-          playsinline
-        ></video>
+    <div class="how-it-works__content">
+      <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
+      <video
+        src="../assets/how-it-works.mp4"
+        class="how-it-works__video"
+        preload="metadata"
+        controls
+        playsinline
+      ></video>
+    </div>
+  </section>
+  <section id="pricing">
+    <div class="flex flex-col items-center gap-24">
+      <div class="subtitle_ca">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
+          Инвестируйте в безопасность своего будущего с NFCKEY
+        </h2>
+        <p class="subtitle_ca__text">
+          Замок NFCKEY – одноразовая покупка, которая обеспечивает безопасность вашего дома на
+          неограниченный срок
+        </p>
+      </div>
+      <div class="flex flex-col items-center justify-around gap-8 xl:flex-row">
+        <img
+          src="../assets/nfckey-doorlock-ltr.png"
+          alt="Умный замок NFCKEY"
+          class="pricing__image"
+        />
+        <div class="pricing__content">
+          <div class="pricing__price">
+            <p class="h800">15 990 ₽</p>
+            <p class="h200">*</p>
+          </div>
+          <div class="flex flex-col items-center justify-center gap-4">
+            <OpportunitiesCard />
+            <p class="pricing__price-clarification">
+              * Цена является ориентировочной и может измениться к моменту выхода на рынок
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
