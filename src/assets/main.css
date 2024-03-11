@@ -408,6 +408,36 @@
     }
   }
 
+  .team {
+    &__person {
+      @apply flex w-36 flex-col items-center justify-center gap-4;
+
+      &__avatar {
+        @apply h-32 w-32 rounded-full border-2 border-white;
+      }
+
+      &__content {
+        @apply flex flex-col items-center gap-1;
+      }
+
+      &__name {
+        @apply h50 self-stretch whitespace-pre text-center font-medium text-vneutral-50;
+      }
+
+      &__role {
+        @apply para-xs self-stretch whitespace-pre text-center text-vneutral-400;
+      }
+
+      &__socials {
+        @apply flex items-center justify-center gap-3 p-2;
+
+        &__social {
+          @apply h-6 w-6 transition-all hover:-translate-y-0.5;
+        }
+      }
+    }
+  }
+
   .badge {
     @apply h05 font-medium !important;
 
@@ -433,7 +463,7 @@
       @apply flex max-w-3xl flex-col items-center justify-center gap-4;
 
       &__subheading {
-        @apply self-stretch text-balance text-center text-brand-400;
+        @apply self-stretch text-balance text-center font-semibold text-brand-400;
       }
 
       &__title {

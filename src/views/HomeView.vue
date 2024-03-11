@@ -1,6 +1,7 @@
 <script setup>
 import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
+import { AvatarList } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { gsap } from 'gsap'
@@ -221,6 +222,27 @@ const initializeAnimations = () => {
     opacity: 0,
     y: 50,
     duration: 1
+  })
+
+  gsap.from('#team .subtitle_ca', {
+    scrollTrigger: {
+      trigger: '#team',
+      start: '-30% center',
+      end: '-30% center'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1
+  })
+
+  gsap.from('#team .team__person', {
+    scrollTrigger: {
+      trigger: '#team',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    stagger: 0.2
   })
 }
 
@@ -464,6 +486,19 @@ const advantages = [
         </router-link>
       </div>
       <SubscriptionCardList :items="subscriptions.data" />
+    </div>
+  </section>
+  <section id="team">
+    <div class="flex flex-col items-center gap-24">
+      <div class="subtitle_ca">
+        <p class="subtitle_ca__subheading subtitle_ca__title_gradient bg-gradient-to-r">
+          Наша команда
+        </p>
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient bg-gradient-to-r">
+          Воплощаем инновации в жизнь
+        </h2>
+      </div>
+      <AvatarList />
     </div>
   </section>
 </template>
