@@ -1,20 +1,55 @@
 <script setup>
-import { Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
+import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
+import axios from 'axios'
 import OpportunitiesCard from '../components/OpportunitiesCard.vue'
+import SubscriptionCardList from '../components/SubscriptionCardList.vue'
 import heroImg100 from '../assets/hero-o100.png'
 import heroImg50 from '../assets/hero-o50.png'
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
 
+const subscriptions = ref([])
+
 onMounted(() => {
+  initializeAnimations()
+})
+
+onMounted(async () => {
+  try {
+    const { data } = await axios.get(
+      'https://api.nfckey.tech/api/v1/subscriptions?type=Семьям&limits=true'
+    )
+    subscriptions.value = data
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+watch(subscriptions, () => {
+  nextTick(() => {
+    gsap.from('#subscription .sub-card', {
+      scrollTrigger: {
+        trigger: '#subscription',
+        start: 'top center',
+        end: 'top center'
+      },
+      opacity: 0,
+      y: -50,
+      stagger: 0.5,
+      duration: 1
+    })
+  })
+})
+
+const initializeAnimations = () => {
   const tl = gsap.timeline()
   tl.fromTo(
     '.hero__content-title',
@@ -176,7 +211,18 @@ onMounted(() => {
     delay: 2,
     text: ''
   })
-})
+
+  gsap.from('#subscription .subtitle_ca', {
+    scrollTrigger: {
+      trigger: '#subscription',
+      start: '-30% center',
+      end: '-30% center'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1
+  })
+}
 
 const isHovered = ref(false)
 const heroImgHover = () => {
@@ -398,6 +444,26 @@ const advantages = [
           </div>
         </div>
       </div>
+    </div>
+  </section>
+  <section id="subscription">
+    <div class="flex flex-col items-center gap-16">
+      <div class="subtitle_ca">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
+          Раскройте весь потенциал умного замка с помощью подписки
+        </h2>
+        <p class="subtitle_ca__text">
+          Дополните преимущества бесплатного тарифа, выбрав вариант подписки под ваши уникальные
+          потребности
+        </p>
+        <router-link to="/pricing">
+          <Button variant="link" class="subtitle_ca__action">
+            <p>Посмотреть все варианты</p>
+            <ArrowRight class="h-5 w-5 text-brand-400" />
+          </Button>
+        </router-link>
+      </div>
+      <SubscriptionCardList :items="subscriptions.data" />
     </div>
   </section>
 </template>

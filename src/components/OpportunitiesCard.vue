@@ -36,29 +36,3 @@ import { Check } from 'lucide-vue-next'
     </div>
   </div>
 </template>
-
-<style lang="postcss" scoped>
-.ops-card {
-  @apply flex max-w-2xl flex-col items-center justify-center gap-6 rounded-2xl border border-vneutral-1300 bg-white p-6 shadow-sm;
-
-  &__title {
-    @apply h200 self-center text-center font-semibold text-vneutral-50;
-  }
-
-  &__bullet-points {
-    @apply flex flex-col flex-wrap items-start justify-center gap-x-8 gap-y-4 sm:flex-row;
-
-    & .bullet-point {
-      @apply flex items-start gap-2 sm:min-w-72;
-
-      & .icon {
-        @apply h-6 w-6 leading-6 text-brand-400;
-      }
-
-      & p {
-        @apply para-sm font-medium leading-6 text-vneutral-200;
-      }
-    }
-  }
-}
-</style>

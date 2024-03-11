@@ -223,7 +223,7 @@
     @apply flex items-center justify-center;
 
     &__content {
-      @apply flex flex-col items-start gap-4 xl:flex-row xl:items-center;
+      @apply flex flex-col items-start gap-8 xl:flex-row xl:items-center xl:gap-4;
     }
 
     &__title {
@@ -231,7 +231,7 @@
     }
 
     &__video {
-      @apply h-auto w-full max-w-3xl rounded-[32px];
+      @apply h-auto w-full max-w-3xl rounded-3xl;
     }
   }
 
@@ -285,6 +285,149 @@
     }
   }
 
+  .ops-card {
+    @apply flex max-w-2xl flex-col items-center justify-center gap-6 rounded-2xl border border-vneutral-1300 bg-white p-6 shadow-sm;
+
+    &__title {
+      @apply h200 self-center text-center font-semibold text-vneutral-50;
+    }
+
+    &__bullet-points {
+      @apply flex flex-col flex-wrap items-start justify-center gap-x-8 gap-y-4 sm:flex-row;
+
+      & .bullet-point {
+        @apply flex items-start gap-2 sm:min-w-72;
+
+        & .icon {
+          @apply h-6 w-6 leading-6 text-brand-400;
+        }
+
+        & p {
+          @apply para-sm font-medium leading-6 text-vneutral-200;
+        }
+      }
+    }
+  }
+
+  .sub-card {
+    @apply box-border flex w-72 flex-col items-center gap-4 
+    rounded-2xl border border-vneutral-1300 bg-clip-padding p-6 
+    shadow-sm backdrop-blur-md backdrop-filter transition-colors;
+
+    &_light {
+      @apply border-brand-900 hover:border-brand-800;
+      &:hover {
+        background: radial-gradient(
+          circle closest-corner at var(--x, 100px) var(--y, 100px),
+          rgba(158, 236, 232, 0.294) 0%,
+          transparent 100%
+        );
+      }
+    }
+
+    &_green {
+      @apply border-emerald-200  hover:border-emerald-300;
+      &:hover {
+        background: radial-gradient(
+          circle closest-corner at var(--x, 100px) var(--y, 100px),
+          rgba(156, 232, 152, 0.294) 0%,
+          transparent 100%
+        );
+      }
+    }
+
+    &_gold {
+      @apply border-warning-700 hover:border-warning-600;
+      &:hover {
+        background: radial-gradient(
+          circle closest-corner at var(--x, 100px) var(--y, 100px),
+          rgba(224, 191, 108, 0.294) 0%,
+          transparent 100%
+        );
+      }
+    }
+
+    &__head {
+      @apply flex flex-col items-center gap-2 self-stretch;
+    }
+
+    &__title {
+      @apply h200 whitespace-nowrap text-center font-semibold leading-8 text-vneutral-50;
+    }
+
+    &__price {
+      @apply h300 whitespace-nowrap text-center font-semibold leading-8 text-vneutral-50;
+
+      &-period {
+        @apply para-md font-medium text-vneutral-200;
+      }
+    }
+
+    &__delimiter {
+      @apply h-[1px] w-full bg-vneutral-1300;
+
+      &_light {
+        @apply bg-brand-900;
+      }
+
+      &_green {
+        @apply bg-emerald-200;
+      }
+
+      &_gold {
+        @apply bg-warning-600;
+      }
+    }
+
+    & .bullet-points {
+      @apply flex flex-col items-start gap-4 self-stretch;
+
+      &__item {
+        @apply flex items-start gap-2;
+
+        &__text {
+          @apply para-xs font-medium leading-6 text-vneutral-200;
+        }
+
+        &__icon {
+          @apply para-md h-6 w-6 text-center font-medium leading-6 text-vneutral-600;
+
+          &_light {
+            @apply text-brand-400;
+          }
+
+          &_green {
+            @apply text-emerald-500;
+          }
+
+          &_gold {
+            @apply text-warning-500;
+          }
+        }
+      }
+    }
+  }
+
+  .badge {
+    @apply h05 font-medium !important;
+
+    &_light {
+      @apply border-brand-900 bg-brand-1100 hover:border-brand-1000 hover:bg-brand-1200 !important;
+    }
+
+    &_light {
+      @apply border-brand-900 hover:border-brand-1000;
+    }
+
+    &_green {
+      @apply border-emerald-300 bg-emerald-100 hover:border-emerald-200 hover:bg-emerald-50 !important;
+    }
+
+    &_gold {
+      @apply border-warning-500 bg-warning-700 hover:border-warning-600 hover:bg-warning-800 !important;
+    }
+  }
+
   .subtitle {
     &_ca {
       @apply flex max-w-3xl flex-col items-center justify-center gap-4;
@@ -303,6 +446,14 @@
 
       &__text {
         @apply para-sm md:para-md max-w-xl text-balance text-center font-normal text-vneutral-400;
+      }
+
+      &__action {
+        @apply flex items-center justify-center gap-2 decoration-brand-400;
+
+        & p {
+          @apply h50 text-center font-medium text-brand-400;
+        }
       }
     }
 
@@ -375,6 +526,18 @@
     @apply font-manrope;
     font-size: 1.25rem; /* 20px */
     line-height: 1.5rem; /* 24px */
+  }
+
+  .h50 {
+    @apply font-inter;
+    font-size: 1rem; /* 16px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .h05 {
+    @apply font-inter;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
   }
 
   .para {

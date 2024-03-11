@@ -4,7 +4,21 @@ const animate = require('tailwindcss-animate')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
-  safelist: ['dark'],
+  safelist: [
+    'dark',
+    {
+      pattern: /sub-card_[a-zA-Z]+$/ // sub-card_color
+    },
+    {
+      pattern: /badge_[a-zA-Z]+$/ // badge_color
+    },
+    {
+      pattern: /sub-card__delimiter_[a-zA-Z]+$/ // sub-card__delimiter_color
+    },
+    {
+      pattern: /bullet-points__item__icon_[a-zA-Z]+$/ // bullet-points__item__icon_color
+    }
+  ],
 
   content: ['./src/**/*.{js,jsx,vue}'],
 
