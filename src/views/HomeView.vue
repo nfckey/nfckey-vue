@@ -4,6 +4,12 @@ import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { AvatarList } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from '@/components/ui/accordion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
@@ -45,7 +51,7 @@ watch(subscriptions, () => {
       opacity: 0,
       y: -50,
       stagger: 0.5,
-      duration: 1
+      duration: 0.7
     })
   })
 })
@@ -208,7 +214,7 @@ const initializeAnimations = () => {
       start: 'top center',
       end: 'top center'
     },
-    duration: 3,
+    duration: 2,
     delay: 2,
     text: ''
   })
@@ -243,6 +249,28 @@ const initializeAnimations = () => {
     },
     opacity: 0,
     stagger: 0.2
+  })
+
+  gsap.from('#faq .subtitle_la', {
+    scrollTrigger: {
+      trigger: '#faq',
+      start: '-30% center',
+      end: '-30%   center'
+    },
+    opacity: 0,
+    x: -50,
+    duration: 1
+  })
+
+  gsap.from('#faq .faq-list div', {
+    scrollTrigger: {
+      trigger: '#faq',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    x: -50,
+    stagger: 0.1
   })
 }
 
@@ -294,6 +322,39 @@ const advantages = [
     description:
       'Избавьтесь от неудобств и рисков несанкционированного доступа при использовании физических ключей',
     icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>'
+  }
+]
+
+const faqItems = [
+  {
+    value: 'item-1',
+    title: 'Как работает система замков NFCKEY?',
+    content:
+      'В основе работы замка и мобильного приложения лежит технология NFC, которая обеспечивает безопасный обмен данными при приближении устройства. После проверки зашифрованного цифрового ключа и всех необходимых разрешений механизм замка открывает дверь.'
+  },
+  {
+    value: 'item-2',
+    title: 'Замок может помочь, если я сдаю в аренду свою квартиру?',
+    content:
+      'Да, конечно. Вы можете создавать и отправлять ключи вашим арендаторам в нашем приложении, а после их выселения ключ можно удалить.'
+  },
+  {
+    value: 'item-3',
+    title: 'Как NFCKEY обеспечивает безопасность моей квартиры?',
+    content:
+      '<p>Для обеспечения безопасности в системе NFCKEY используются современные и проверенные технологии шифрования данных. Доступ к двери могут получить только авторизованные пользователи, имеющие соответствующий цифровой ключ в приложении NFCKEY.</p><br><p>С точки зрения механической защиты, решение не уступает обычным дверным замкам и обеспечивают схожий уровень защиты.</p>'
+  },
+  {
+    value: 'item-4',
+    title: 'Как мне начать пользоваться системой NFCKEY?',
+    content:
+      '<p>Начало работы с NFCKEY очень простое и понятное. После монтажа замка и установки батареек выполните следующие действия:</p><ol><li>Загрузите приложение NFCKEY из магазина приложений вашего устройства.</li><li>Зарегистрируйте учетную запись в приложении, указав свои данные.</li><li>Добавьте свой замок NFCKEY в приложение, введя код из комплекта поставки замка.</li><li>Настройте права доступа для себя, членов семьи, друзей или всех, кому необходим доступ к вашему помещению.</li></ol><p>Теперь вы готовы к использованию системы NFCKEY. Для получения доступа просто поднесите смартфон к замку. Также рекомендуем ознакомиться с возможностями, предоставляемыми при оформлении премиум-подписки.</p>'
+  },
+  {
+    value: 'item-5',
+    title: 'Можно ли устанавливать замки NFCKEY в различные типы дверей?',
+    content:
+      '<p>Да, замки NFCKEY разработаны таким образом, чтобы быть универсальными и адаптироваться к различным типам дверей. Они также подходят как для жилых, так и для коммерческих помещений, что делает их универсальным выбором для обеспечения безопасности широкогоспектра помещений.</p><br><p>Если у вас есть конкретные вопросы или требования к установке, мы всегда готовы помочь вам в обеспечении беспроблемного процесса установки.</p>'
   }
 ]
 </script>
@@ -486,6 +547,33 @@ const advantages = [
         </router-link>
       </div>
       <SubscriptionCardList :items="subscriptions.data" />
+    </div>
+  </section>
+  <section id="faq" class="min-h-max">
+    <div class="flex flex-wrap items-start justify-start gap-16 md:flex-nowrap md:justify-center">
+      <div class="subtitle_la max-w-lg">
+        <h1 class="subtitle_la__title subtitle_la__title_gradient h300">
+          Получите ясность о решении NFCKEY в разделе FAQ
+        </h1>
+        <p class="subtitle_la__text">
+          Изучите раздел с часто задаваемыми вопросами, чтобы узнать, как NFCKEY может органично
+          вписаться в ваш образ жизни
+        </p>
+        <router-link to="/faq">
+          <Button class="gap-2 bg-brand-400 hover:bg-brand-300">
+            <p class="h50 font-medium">Перейти в раздел FAQ</p>
+            <ArrowRight class="h-5 w-5 text-white" />
+          </Button>
+        </router-link>
+      </div>
+      <Accordion type="multiple" class="faq-list faq-list_home" collapsible>
+        <AccordionItem v-for="item in faqItems" :key="item.value" :value="item.value">
+          <AccordionTrigger class="text-start">{{ item.title }}</AccordionTrigger>
+          <AccordionContent>
+            <div class="faq-list__content faq-list__content_home" v-html="item.content"></div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   </section>
   <section id="team">

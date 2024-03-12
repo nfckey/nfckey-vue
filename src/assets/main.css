@@ -260,8 +260,16 @@
   .faq-list {
     @apply w-full max-w-3xl font-inter;
 
+    &_home {
+      @apply max-w-full md:max-w-xl;
+    }
+
     &__content {
       @apply para-sm font-normal text-vneutral-400;
+
+      &_home {
+        @apply max-w-full md:max-w-xl;
+      }
 
       & > a {
         @apply cursor-pointer text-brand-400 hover:text-brand-300;
@@ -499,7 +507,7 @@
       }
 
       &__text {
-        @apply para-sm md:para-md max-w-2xl text-balance font-normal text-vneutral-400;
+        @apply para-sm md:para-md max-w-2xl text-pretty font-normal text-vneutral-400;
       }
     }
   }
