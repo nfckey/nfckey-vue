@@ -272,6 +272,27 @@ const initializeAnimations = () => {
     x: -50,
     stagger: 0.1
   })
+
+  gsap.from('#publishing .subtitle_ca', {
+    scrollTrigger: {
+      trigger: '#publishing',
+      start: '-30% center',
+      end: '-30% center'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1
+  })
+
+  gsap.from('#publishing .publishing-list__item', {
+    scrollTrigger: {
+      trigger: '#publishing',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    stagger: 0.3
+  })
 }
 
 const isHovered = ref(false)
@@ -587,6 +608,36 @@ const faqItems = [
         </h2>
       </div>
       <AvatarList />
+    </div>
+  </section>
+  <section id="publishing">
+    <div class="flex flex-col items-center gap-16">
+      <div class="subtitle_ca">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient bg-gradient-to-r">
+          Узнайте о нас больше
+        </h2>
+        <p class="subtitle_ca__text">
+          Приглашаем ознакомиться с нашими эксклюзивными публикациями на других ресурсах
+        </p>
+      </div>
+      <div class="publishing-list">
+        <div class="publishing-list__row">
+          <a href="https://habr.com/ru/companies/nfckey/articles/">
+            <div class="publishing-list__item publishing-list__item_habr"></div>
+          </a>
+          <a href="https://vc.ru/u/2499254-ivan-m">
+            <div class="publishing-list__item publishing-list__item_vc"></div>
+          </a>
+        </div>
+        <div class="publishing-list__row">
+          <a href="https://tenchat.ru/Ivan_NFCKEY">
+            <div class="publishing-list__item publishing-list__item_tc"></div>
+          </a>
+          <a href="https://t.me/nfckey">
+            <div class="publishing-list__item publishing-list__item_tg"></div>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </template>

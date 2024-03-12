@@ -446,6 +446,49 @@
     }
   }
 
+  .publishing {
+    &-list {
+      @apply flex flex-wrap items-center justify-center gap-4;
+
+      &__row {
+        @apply flex items-center justify-center gap-4;
+      }
+
+      &__item {
+        @apply h-32 w-44 rounded-2xl transition-transform hover:scale-105 sm:h-44 sm:w-64;
+
+        &_habr {
+          background:
+            url(./publishing_habr.webp) no-repeat center,
+            #629fbc;
+          background-size: contain;
+        }
+
+        &_vc {
+          background:
+            url(./publishing_vc.webp) no-repeat center,
+            #feebef;
+          background-size: contain;
+        }
+
+        &_tc {
+          @apply border-2 border-vneutral-1300;
+          background:
+            url(./publishing_tenchat.webp) no-repeat center,
+            #ffffff;
+          background-size: contain;
+        }
+
+        &_tg {
+          background:
+            url(./publishing_telegram.webp) no-repeat center,
+            #28a8ea;
+          background-size: contain;
+        }
+      }
+    }
+  }
+
   .badge {
     @apply h05 font-medium !important;
 

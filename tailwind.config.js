@@ -36,9 +36,9 @@ module.exports = {
         manrope: ['Manrope']
       },
       colors: {
-        'brand-100': '#4CB9C8',
+        'brand-100': '#31919E',
         'brand-200': '#39A9B8',
-        'brand-300': '#31919E',
+        'brand-300': '#4CB9C8',
         'brand-400': '#66C3D0',
         'brand-500': '#77CAD5',
         'brand-600': '#88D0DA',
