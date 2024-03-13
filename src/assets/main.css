@@ -129,7 +129,7 @@
       }
 
       &-subtitle {
-        @apply sm:para-md para-sm text-balance text-center font-normal text-vneutral-400 lg:text-left;
+        @apply sm:para-md para-sm max-w-lg text-pretty text-center font-normal text-vneutral-400 lg:text-left;
       }
 
       &-btn-group {
@@ -220,8 +220,6 @@
   }
 
   .how-it-works {
-    @apply flex items-center justify-center;
-
     &__content {
       @apply flex flex-col items-start gap-8 xl:flex-row xl:items-center xl:gap-4;
     }
@@ -489,6 +487,32 @@
     }
   }
 
+  .pre-order-form {
+    & label,
+    p {
+      @apply para-xs;
+    }
+
+    & input {
+      @apply font-inter focus-visible:ring-brand-400;
+    }
+
+    &__submit {
+      &-btn {
+        @apply w-full;
+        @apply bg-brand-400 hover:bg-brand-300 focus-visible:ring-brand-400  !important;
+      }
+
+      &-title {
+        @apply h300 text-center font-medium;
+      }
+
+      &-text {
+        @apply para-md text-center;
+      }
+    }
+  }
+
   .badge {
     @apply h05 font-medium !important;
 
@@ -527,6 +551,10 @@
 
       &__text {
         @apply para-sm md:para-md max-w-xl text-balance text-center font-normal text-vneutral-400;
+
+        &_pre-order {
+          @apply h200 font-medium text-vneutral-50;
+        }
       }
 
       &__action {

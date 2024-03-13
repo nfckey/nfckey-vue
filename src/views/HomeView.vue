@@ -1,7 +1,11 @@
 <script setup>
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { TextPlugin } from 'gsap/TextPlugin'
+import { ref, onMounted, watch, nextTick } from 'vue'
+import axios from 'axios'
+
 import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
-import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
-import { AvatarList } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import {
@@ -10,15 +14,13 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { TextPlugin } from 'gsap/TextPlugin'
-import { ref, onMounted, watch, nextTick } from 'vue'
-import axios from 'axios'
-import OpportunitiesCard from '../components/OpportunitiesCard.vue'
-import SubscriptionCardList from '../components/SubscriptionCardList.vue'
-import heroImg100 from '../assets/hero-o100.png'
-import heroImg50 from '../assets/hero-o50.png'
+import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
+import { AvatarList } from '@/components/ui/avatar'
+import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/cards'
+import { PreOrderForm } from '@/components/ui/form'
+
+import heroImg100 from '../assets/hero-o100.webp'
+import heroImg50 from '../assets/hero-o50.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
@@ -293,6 +295,38 @@ const initializeAnimations = () => {
     opacity: 0,
     stagger: 0.3
   })
+
+  gsap.from('#pre-order .subtitle_ca', {
+    scrollTrigger: {
+      trigger: '#pre-order',
+      start: '-30% center',
+      end: '-30% center'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1
+  })
+
+  gsap.from('#pre-order .pre-order-form div', {
+    scrollTrigger: {
+      trigger: '#pre-order',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    stagger: 0.3
+  })
+
+  gsap.from('#pre-order .pre-order-form button', {
+    scrollTrigger: {
+      trigger: '#pre-order',
+      start: 'top center',
+      end: 'top center'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1
+  })
 }
 
 const isHovered = ref(false)
@@ -506,16 +540,18 @@ const faqItems = [
       />
     </div>
   </section>
-  <section id="how-it-works" class="how-it-works">
-    <div class="how-it-works__content">
-      <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
-      <video
-        src="../assets/how-it-works.mp4"
-        class="how-it-works__video"
-        preload="metadata"
-        controls
-        playsinline
-      ></video>
+  <section id="how-it-works">
+    <div class="flex items-center justify-center">
+      <div class="how-it-works__content">
+        <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
+        <video
+          src="../assets/how-it-works.mp4"
+          class="how-it-works__video"
+          preload="metadata"
+          controls
+          playsinline
+        ></video>
+      </div>
     </div>
   </section>
   <section id="pricing">
@@ -597,6 +633,23 @@ const faqItems = [
       </Accordion>
     </div>
   </section>
+  <section id="pre-order" class="min-h-max">
+    <div class="flex flex-col items-center gap-16">
+      <div class="subtitle_ca">
+        <p class="subtitle_ca__subheading subtitle_ca__title_gradient bg-gradient-to-r">
+          Оставьте заявку
+        </p>
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient md:bg-gradient-to-r">
+          Готовы перейти на новый уровень?
+        </h2>
+        <p class="subtitle_ca__text subtitle_ca__text_pre-order">
+          Зарезервируйте свой NFC-замок прямо сейчас и получите
+          <span class="text-brand-400">скидку 5%</span> на будущий заказ
+        </p>
+      </div>
+      <PreOrderForm />
+    </div>
+  </section>
   <section id="team">
     <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
@@ -610,7 +663,7 @@ const faqItems = [
       <AvatarList />
     </div>
   </section>
-  <section id="publishing">
+  <section id="publishing" class="min-h-max">
     <div class="flex flex-col items-center gap-16">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient bg-gradient-to-r">
@@ -641,3 +694,4 @@ const faqItems = [
     </div>
   </section>
 </template>
+../components/ui/cards/OpportunitiesCard.vue../components/ui/cards/SubscriptionCardList.vue
