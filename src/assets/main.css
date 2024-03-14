@@ -112,12 +112,27 @@
 
   .hero {
     &-btn {
-      @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-gradient-to-br 
-      from-brand-400 via-[#94bce9] to-violet-300 bg-size-200 bg-pos-0 px-4 
-      py-6 text-white transition-all duration-500 hover:bg-pos-100;
+      @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md px-4 py-6 text-white;
+      @apply bg-gradient-to-br from-brand-400 via-[#94bce9] to-violet-300;
+      @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100;
+      @apply outline-none focus-visible:ring-2  focus-visible:ring-ring focus-visible:ring-offset-2;
+      @apply focus-visible:ring-brand-400 !important;
 
       &__text {
         @apply h100 font-semibold;
+      }
+
+      &_notifications {
+        @apply border-brand-400 py-6 duration-500 hover:bg-gradient-to-bl hover:from-brand-400 hover:to-[#94bce9] !important;
+        @apply focus-visible:ring-brand-400 !important;
+
+        &:hover svg {
+          @apply text-white;
+        }
+
+        &-icon {
+          @apply h-6 w-6 text-brand-400;
+        }
       }
     }
 

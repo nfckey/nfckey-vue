@@ -435,8 +435,8 @@ const faqItems = [
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger as-child>
-                <Button variant="outline" class="border-brand-400 py-6">
-                  <Bell class="h-6 w-6 text-brand-400" />
+                <Button variant="outline" class="hero-btn_notifications">
+                  <Bell class="hero-btn_notifications-icon" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
