@@ -15,6 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
+import LogoComponent from './ui/logo/LogoComponent.vue'
 
 const isOpen = ref(false)
 
@@ -88,9 +89,7 @@ const teamLinks = [
   <header class="container relative z-[5] mx-auto w-full py-5" :class="{ 'bg-white': isOpen }">
     <div class="max-w-screen-xl items-center justify-between lg:flex lg:px-8">
       <div class="flex items-center justify-between lg:block">
-        <router-link to="/">
-          <img class="logo" src="../assets/logo.svg" alt="Логотип NFCKEY" />
-        </router-link>
+        <LogoComponent />
         <div class="lg:hidden" id="menuBtn">
           <Button variant="outline" size="icon" @click="isOpen = !isOpen">
             <X class="h-4 w-4" v-if="isOpen" />

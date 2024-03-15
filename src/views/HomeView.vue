@@ -19,8 +19,8 @@ import { AvatarList } from '@/components/ui/avatar'
 import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/cards'
 import { PreOrderForm } from '@/components/ui/form'
 
-import heroImg100 from '../assets/hero-o100.webp'
-import heroImg50 from '../assets/hero-o50.webp'
+import heroImg100 from '../assets/images/hero-o100.webp'
+import heroImg50 from '../assets/images/hero-o50.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
@@ -307,7 +307,7 @@ const initializeAnimations = () => {
     duration: 1
   })
 
-  gsap.from('#pre-order .pre-order-form div', {
+  gsap.from('#pre-order .form_pre-order div', {
     scrollTrigger: {
       trigger: '#pre-order',
       start: 'top center',
@@ -317,7 +317,7 @@ const initializeAnimations = () => {
     stagger: 0.3
   })
 
-  gsap.from('#pre-order .pre-order-form button', {
+  gsap.from('#pre-order .form_pre-order button', {
     scrollTrigger: {
       trigger: '#pre-order',
       start: 'top center',
@@ -428,10 +428,12 @@ const faqItems = [
           новый уровень комфорта и безопасности вашего дома.
         </p>
         <div class="hero__content-btn-group">
-          <button class="hero-btn">
-            <p class="hero-btn__text">Будьте в числе первых</p>
-            <ChevronRight class="ml-2 h-6 w-6" />
-          </button>
+          <router-link to="/#pre-order">
+            <button class="hero-btn">
+              <p class="hero-btn__text">Будьте в числе первых</p>
+              <ChevronRight class="ml-2 h-6 w-6" />
+            </button>
+          </router-link>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger as-child>
@@ -534,13 +536,13 @@ const faqItems = [
         </div>
       </div>
       <img
-        src="../assets/waves-mockup.png"
+        src="../assets/images/waves-mockup.png"
         alt="Мобильный телефон с технологией NFC"
         class="features__image"
       />
     </div>
   </section>
-  <section id="how-it-works">
+  <section id="how-it-works" class="flex items-center">
     <div class="flex items-center justify-center">
       <div class="how-it-works__content">
         <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
@@ -567,7 +569,7 @@ const faqItems = [
       </div>
       <div class="flex flex-col items-center justify-around gap-8 xl:flex-row">
         <img
-          src="../assets/nfckey-doorlock-ltr.png"
+          src="../assets/images/nfckey-doorlock-ltr.png"
           alt="Умный замок NFCKEY"
           class="pricing__image"
         />
@@ -694,4 +696,3 @@ const faqItems = [
     </div>
   </section>
 </template>
-../components/ui/cards/OpportunitiesCard.vue../components/ui/cards/SubscriptionCardList.vue

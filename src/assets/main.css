@@ -115,7 +115,7 @@
       @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md px-4 py-6 text-white;
       @apply bg-gradient-to-br from-brand-400 via-[#94bce9] to-violet-300;
       @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100;
-      @apply outline-none focus-visible:ring-2  focus-visible:ring-ring focus-visible:ring-offset-2;
+      @apply outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
       @apply focus-visible:ring-brand-400 !important;
 
       &__text {
@@ -472,14 +472,14 @@
 
         &_habr {
           background:
-            url(./publishing_habr.webp) no-repeat center,
+            url(./publishing/publishing_habr.webp) no-repeat center,
             #629fbc;
           background-size: contain;
         }
 
         &_vc {
           background:
-            url(./publishing_vc.webp) no-repeat center,
+            url(./publishing/publishing_vc.webp) no-repeat center,
             #feebef;
           background-size: contain;
         }
@@ -487,14 +487,14 @@
         &_tc {
           @apply border-2 border-vneutral-1300;
           background:
-            url(./publishing_tenchat.webp) no-repeat center,
+            url(./publishing/publishing_tenchat.webp) no-repeat center,
             #ffffff;
           background-size: contain;
         }
 
         &_tg {
           background:
-            url(./publishing_telegram.webp) no-repeat center,
+            url(./publishing/publishing_telegram.webp) no-repeat center,
             #28a8ea;
           background-size: contain;
         }
@@ -502,28 +502,116 @@
     }
   }
 
-  .pre-order-form {
-    & label,
-    p {
-      @apply para-xs;
-    }
-
-    & input {
-      @apply font-inter focus-visible:ring-brand-400;
-    }
-
-    &__submit {
-      &-btn {
-        @apply w-full;
-        @apply bg-brand-400 hover:bg-brand-300 focus-visible:ring-brand-400  !important;
+  .form {
+    &_pre-order {
+      & label,
+      p {
+        @apply para-xs;
       }
 
-      &-title {
-        @apply h300 text-center font-medium;
+      & input {
+        @apply font-inter focus-visible:ring-brand-400;
       }
 
-      &-text {
-        @apply para-md text-center;
+      &__submit {
+        &-btn {
+          @apply h05 w-full;
+          @apply bg-gradient-to-b from-brand-400 via-[#94bce9] to-violet-300 !important;
+          @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100 !important;
+          @apply focus-visible:ring-brand-400 !important;
+        }
+
+        &-title {
+          @apply h300 text-center font-medium;
+        }
+
+        &-text {
+          @apply para-md text-center;
+        }
+      }
+    }
+
+    &_notifications {
+      @apply flex w-full max-w-sm flex-col flex-wrap items-start gap-2 sm:flex-row sm:flex-nowrap;
+
+      & p {
+        @apply para-xs;
+      }
+
+      & input {
+        @apply font-inter focus-visible:ring-brand-400;
+      }
+
+      &__title {
+        @apply h300 subtitle_ca__title_gradient bg-gradient-to-br text-center font-semibold xl:text-left;
+      }
+
+      &__text {
+        @apply para-sm max-w-sm text-pretty text-center xl:text-left;
+      }
+
+      &__submit {
+        &-btn {
+          @apply h05 w-full max-w-sm sm:w-min;
+          @apply bg-gradient-to-br from-brand-400 via-vneutral-200 to-brand-400 !important;
+          @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100 !important;
+          @apply focus-visible:ring-brand-400 !important;
+        }
+
+        &-title {
+          @apply h200 text-balance text-center font-medium;
+        }
+
+        &-text {
+          @apply para-xs text-center;
+
+          & a {
+            @apply text-brand-400 hover:underline hover:underline-offset-4;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    &__logo {
+      @apply flex flex-col items-center gap-2 self-stretch;
+    }
+
+    &-links {
+      @apply order-2 flex max-w-sm flex-wrap items-start justify-start gap-x-24 gap-y-16 md:max-w-none xl:order-1;
+
+      &__section {
+        @apply flex flex-col items-start justify-between gap-6;
+
+        &__title {
+          @apply h50 font-medium;
+        }
+      }
+    }
+
+    &-link {
+      @apply h50 font-medium text-vneutral-400 decoration-brand-400 transition-colors hover:text-brand-400 hover:underline hover:underline-offset-4;
+    }
+
+    &__copyright {
+      @apply h25 text-vneutral-400;
+    }
+
+    &__contacts {
+      @apply flex flex-col items-center gap-8 gap-y-4 sm:flex-row xl:items-start;
+
+      &-link {
+        @apply para-xs flex items-center justify-start gap-2 transition-all;
+        @apply text-vneutral-400 hover:text-brand-400 hover:underline hover:underline-offset-4;
+
+        &:hover &__icon {
+          @apply text-brand-400;
+        }
+
+        &__icon {
+          @apply size-4 text-vneutral-400;
+        }
       }
     }
   }
@@ -553,7 +641,7 @@
       @apply flex max-w-3xl flex-col items-center justify-center gap-4;
 
       &__subheading {
-        @apply self-stretch text-balance text-center font-semibold text-brand-400;
+        @apply h50 self-stretch text-balance text-center font-medium text-brand-400;
       }
 
       &__title {
@@ -656,6 +744,10 @@
     @apply font-inter;
     font-size: 1rem; /* 16px */
     line-height: 1.25rem; /* 20px */
+  }
+
+  .h25 {
+    @apply font-inter text-sm;
   }
 
   .h05 {

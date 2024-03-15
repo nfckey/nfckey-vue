@@ -73,7 +73,7 @@ const onSubmit = form.handleSubmit((values) => {
 
 <template>
   <div class="flex items-center justify-center" v-auto-animate>
-    <form v-if="!isFormSubmitted" class="pre-order-form w-96 space-y-6" @submit="onSubmit">
+    <form v-if="!isFormSubmitted" class="form_pre-order w-96 space-y-6" @submit="onSubmit">
       <FormField v-slot="{ componentField }" name="name">
         <FormItem v-auto-animate>
           <FormLabel>Имя</FormLabel>
@@ -101,11 +101,11 @@ const onSubmit = form.handleSubmit((values) => {
           <FormMessage />
         </FormItem>
       </FormField>
-      <Button type="submit" class="pre-order-form__submit-btn"> Отправить </Button>
+      <Button type="submit" class="form_pre-order__submit-btn"> Отправить </Button>
     </form>
     <div v-if="isFormSubmitted" class="flex flex-col gap-4">
-      <p class="pre-order-form__submit-title">Спасибо за проявленный интерес!</p>
-      <p class="pre-order-form__submit-text">
+      <p class="form_pre-order__submit-title">Спасибо за проявленный интерес!</p>
+      <p class="form_pre-order__submit-text">
         Мы сохранили Вашу заявку и уведомим Вас заранее при выходе замка NFCKEY на рынок
       </p>
     </div>

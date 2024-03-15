@@ -8,13 +8,13 @@ const getImageUrl = (name) => {
 }
 
 const getSocialIcon = (name) => {
-  return getImageUrl('icon-' + name.toLowerCase() + '.svg')
+  return getImageUrl('icons/icon-' + name.toLowerCase() + '.svg')
 }
 </script>
 
 <template>
   <div class="team__person">
-    <img class="team__person__avatar" :src="getImageUrl(person.imageUrl)" />
+    <img class="team__person__avatar" :src="getImageUrl('team/' + person.imageUrl)" />
     <div class="team__person__content">
       <p class="team__person__name">
         {{ person.name }}

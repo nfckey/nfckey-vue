@@ -2,18 +2,13 @@
 import Lenis from '@studio-freight/lenis'
 import { onMounted } from 'vue'
 import HeaderComponent from './components/HeaderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 
 onMounted(() => {
   const lenis = new Lenis({
     duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    mouseMultiplier: 1,
-    smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false
+    easing: (t) => 1 - Math.pow(1 - t, 3),
+    touchMultiplier: 2
   })
 
   function raf(time) {
@@ -33,7 +28,7 @@ onMounted(() => {
       <router-view></router-view>
     </main>
 
-    <!-- Footer -->
+    <FooterComponent />
   </div>
 </template>
 
