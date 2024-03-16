@@ -11,6 +11,13 @@ import { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/f
 import { Input } from '@/components/ui/input'
 import { Mail } from 'lucide-vue-next'
 
+defineProps({
+  inDialog: {
+    type: Boolean,
+    default: false
+  }
+})
+
 const isFormSubmitted = ref(false)
 
 const formSchema = toTypedSchema(
@@ -54,8 +61,10 @@ const onSubmit = form.handleSubmit((values) => {
 <template>
   <div id="notifications" class="order-1 flex flex-col items-center justify-start gap-6 xl:order-2">
     <div v-if="!isFormSubmitted" class="flex flex-col items-start justify-center gap-2">
-      <p class="form_notifications__title">Будьте в курсе событий</p>
-      <p class="form_notifications__text">
+      <p class="form_notifications__title" :class="{ '!text-left': inDialog }">
+        Будьте в курсе событий
+      </p>
+      <p class="form_notifications__text" :class="{ '!text-left': inDialog }">
         Получите уведомление при выходе умного замка NFCKEY на рынок
       </p>
     </div>

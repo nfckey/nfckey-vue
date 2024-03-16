@@ -56,19 +56,19 @@ const footerLinks = [
     links: [
       {
         name: 'Команда',
-        href: '/team'
+        href: '/about'
       },
       {
         name: 'Достижения',
-        href: '/team#achievements'
+        href: '/about#achievements'
       },
       {
         name: 'Медиа',
-        href: '/team#media'
+        href: '/about#media'
       },
       {
         name: 'Инфографика',
-        href: '/team#infographics'
+        href: '/about#infographics'
       }
     ]
   },

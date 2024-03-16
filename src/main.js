@@ -4,12 +4,22 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
-import HomeView from './views/HomeView.vue'
+import AboutView from './views/AboutView.vue'
 import FaqView from './views/FaqView.vue'
+import HomeView from './views/HomeView.vue'
+import LandlordsView from './views/LandlordsView.vue'
+import PersonalView from './views/PersonalView.vue'
+import PricingView from './views/PricingView.vue'
+import PrivacyView from './views/PrivacyView.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
-  { path: '/faq', name: 'faq', component: FaqView }
+  { path: '/about', name: 'about', component: AboutView },
+  { path: '/faq', name: 'faq', component: FaqView },
+  { path: '/landlords', name: 'landlords', component: LandlordsView },
+  { path: '/personal', name: 'personal', component: PersonalView },
+  { path: '/pricing', name: 'pricing', component: PricingView },
+  { path: '/privacy', name: 'privacy', component: PrivacyView }
 ]
 
 const router = createRouter({

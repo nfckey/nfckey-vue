@@ -1,4 +1,6 @@
 <script setup>
+import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
+import { gsap } from 'gsap'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 import { Button } from '@/components/ui/button'
@@ -12,8 +14,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
-import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
-import { gsap } from 'gsap'
 import { Home, Menu, X } from 'lucide-vue-next'
 import LogoComponent from './ui/logo/LogoComponent.vue'
 
@@ -61,24 +61,24 @@ const landlordsLinks = [
   }
 ]
 
-const teamLinks = [
+const aboutLinks = [
   {
-    href: '/team',
+    href: '/about',
     title: 'Команда',
     description: 'Талантливые люди, воплощающие инновации в жизнь.'
   },
   {
-    href: '/team#priorities',
+    href: '/about#priorities',
     title: 'Приоритеты',
     description: 'Ценности и приоритеты, которым привержена наша команда.'
   },
   {
-    href: '/team#achievements',
+    href: '/about#achievements',
     title: 'Достижения',
     description: 'Результаты участия проекта в конкурсах и других мероприятиях.'
   },
   {
-    href: '/team#media',
+    href: '/about#media',
     title: 'Медиа',
     description: 'Эксклюзивные материалы о проекте на сторонних веб-ресурсах.'
   }
@@ -143,7 +143,7 @@ const teamLinks = [
                 <NavigationMenuContent>
                   <ul class="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
                     <NavigationMenuListItem
-                      v-for="component in teamLinks"
+                      v-for="component in aboutLinks"
                       :key="component.title"
                       :title="component.title"
                       :description="component.description"

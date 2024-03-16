@@ -14,6 +14,8 @@ import {
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { AvatarList } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { NotificationsForm } from '@/components/ui/form'
 import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/cards'
 import { PreOrderForm } from '@/components/ui/form'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
@@ -217,9 +219,20 @@ const faqItems = [
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger as-child>
-                <Button variant="outline" class="hero-btn_notifications">
-                  <Bell class="hero-btn_notifications-icon" />
-                </Button>
+                <!-- DIALOG -->
+                <Dialog>
+                  <DialogTrigger as-child>
+                    <Button variant="outline" class="hero-btn_notifications">
+                      <Bell class="hero-btn_notifications-icon" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent class="sm:max-w-lg xl:max-w-lg">
+                    <div class="flex items-center justify-start space-x-2">
+                      <NotificationsForm inDialog />
+                    </div>
+                  </DialogContent>
+                </Dialog>
+                <!-- DIALOG END -->
               </TooltipTrigger>
               <TooltipContent>
                 <p class="font-inter">Получите уведомление перед началом продаж</p>
