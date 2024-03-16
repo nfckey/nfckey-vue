@@ -1,8 +1,9 @@
 <script setup>
 import Lenis from '@studio-freight/lenis'
 import { onMounted } from 'vue'
-import HeaderComponent from './components/HeaderComponent.vue'
+
 import FooterComponent from './components/FooterComponent.vue'
+import HeaderComponent from './components/HeaderComponent.vue'
 
 onMounted(() => {
   const lenis = new Lenis({

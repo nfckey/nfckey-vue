@@ -1,9 +1,6 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
-import { gsap } from 'gsap'
-import { Menu, X, Home } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
@@ -15,6 +12,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
+import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
+import { gsap } from 'gsap'
+import { Home, Menu, X } from 'lucide-vue-next'
 import LogoComponent from './ui/logo/LogoComponent.vue'
 
 const isOpen = ref(false)

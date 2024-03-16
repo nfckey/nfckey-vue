@@ -1,13 +1,10 @@
 <script setup>
+import axios from 'axios'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
-import { ref, onMounted, watch, nextTick } from 'vue'
-import axios from 'axios'
+import { nextTick, onMounted, ref, watch } from 'vue'
 
-import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
-import { Button } from '@/components/ui/button'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import {
   Accordion,
   AccordionContent,
@@ -16,8 +13,11 @@ import {
 } from '@/components/ui/accordion'
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { AvatarList } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/cards'
 import { PreOrderForm } from '@/components/ui/form'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
 
 import heroImg100 from '../assets/images/hero-o100.webp'
 import heroImg50 from '../assets/images/hero-o50.webp'
@@ -25,11 +25,67 @@ import heroImg50 from '../assets/images/hero-o50.webp'
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
 
-const subscriptions = ref([])
-
 onMounted(() => {
   initializeAnimations()
 })
+
+const animateOnScroll = (trigger, elements, options, triggerPos) => {
+  gsap.from(trigger + ' ' + elements, {
+    ...options,
+    scrollTrigger: {
+      trigger: trigger,
+      start: triggerPos ? `${triggerPos} center` : 'top center',
+      end: triggerPos ? `${triggerPos} center` : 'top center'
+    }
+  })
+}
+
+const initializeAnimations = () => {
+  const tl = gsap.timeline()
+  tl.from('.hero__content-title', { x: -50, opacity: 0, duration: 1.5 }, 0.5)
+    .fromTo(
+      '.hero__image',
+      {
+        x: 50,
+        opacity: 0
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+        onComplete: function () {
+          gsap.set(this.targets(), { clearProps: 'all' })
+        }
+      },
+      1
+    )
+    .from('.hero__content-subtitle', { y: 50, opacity: 0, duration: 1 }, 1.5)
+    .from('.hero__content-btn-group', { y: 50, opacity: 0, duration: 1 }, 1.7)
+
+  animateOnScroll('#advantages', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#advantages', '.advantages-item', { opacity: 0, stagger: 0.3, duration: 1 })
+  animateOnScroll('#features', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
+  animateOnScroll('#features', '.feature', { opacity: 0, x: -50, stagger: 0.4, duration: 1 })
+  animateOnScroll('#features', '.features__image', { opacity: 0, y: 100, duration: 1 })
+  animateOnScroll('#how-it-works', '.how-it-works__title', { duration: 2, text: '' }, '30%')
+  animateOnScroll('#how-it-works', '.how-it-works__video', { opacity: 0, x: 25, duration: 2 })
+  animateOnScroll('#pricing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#pricing', '.pricing__image, .pricing__content', { opacity: 0, duration: 1 })
+  animateOnScroll('#pricing', '.bullet-point', { opacity: 0, stagger: 0.3 })
+  animateOnScroll('#pricing', '.pricing__price-clarification', { duration: 2, delay: 2, text: '' })
+  animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#team', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#team', '.team__person', { opacity: 0, stagger: 0.2 })
+  animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
+  animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
+  animateOnScroll('#publishing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#publishing', '.publishing-list__item', { opacity: 0, stagger: 0.3 })
+  animateOnScroll('#pre-order', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#pre-order', '.form_pre-order div', { opacity: 0, stagger: 0.3 })
+  animateOnScroll('#pre-order', '.form_pre-order button', { opacity: 0, duration: 0.9 })
+}
+
+const subscriptions = ref([])
 
 onMounted(async () => {
   try {
@@ -44,12 +100,7 @@ onMounted(async () => {
 
 watch(subscriptions, () => {
   nextTick(() => {
-    gsap.from('#subscription .sub-card', {
-      scrollTrigger: {
-        trigger: '#subscription',
-        start: 'top center',
-        end: 'top center'
-      },
+    animateOnScroll('#subscription', '.sub-card', {
       opacity: 0,
       y: -50,
       stagger: 0.5,
@@ -57,277 +108,6 @@ watch(subscriptions, () => {
     })
   })
 })
-
-const initializeAnimations = () => {
-  const tl = gsap.timeline()
-  tl.fromTo(
-    '.hero__content-title',
-    { x: -50, opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.5 },
-    0.5
-  )
-    .fromTo(
-      '.hero__image',
-      { x: 50, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1.5,
-        onComplete: function () {
-          gsap.set(this.targets(), { clearProps: 'all' })
-        }
-      },
-      1
-    )
-    .fromTo(
-      '.hero__content-subtitle',
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      1.5
-    )
-    .fromTo(
-      '.hero__content-btn-group',
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 },
-      1.7
-    )
-
-  gsap.from('#advantages .subtitle_ca', {
-    scrollTrigger: {
-      trigger: '#advantages',
-      start: '-30% center',
-      end: '-30% center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-
-  gsap.from('.advantages-item', {
-    scrollTrigger: {
-      trigger: '#advantages',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    stagger: 0.3,
-    duration: 1
-  })
-
-  gsap.from('#features .subtitle_la', {
-    scrollTrigger: {
-      trigger: '#features',
-      start: '-30% center',
-      end: '-30%   center'
-    },
-    opacity: 0,
-    x: -50,
-    duration: 1
-  })
-
-  gsap.from('.feature', {
-    scrollTrigger: {
-      trigger: '#features',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    x: -50,
-    stagger: 0.5,
-    duration: 1
-  })
-
-  gsap.from('.features__image', {
-    scrollTrigger: {
-      trigger: '#features',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    y: 100,
-    duration: 1
-  })
-
-  gsap.from('.how-it-works__title', {
-    scrollTrigger: {
-      trigger: '#how-it-works',
-      start: '30% center',
-      end: '30% center'
-    },
-    duration: 2,
-    text: ''
-  })
-
-  gsap.from('.how-it-works__video', {
-    scrollTrigger: {
-      trigger: '#how-it-works',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    x: 25,
-    duration: 2
-  })
-
-  gsap.from('#pricing .subtitle_ca', {
-    scrollTrigger: {
-      trigger: '#pricing',
-      start: '-30% center',
-      end: '-30% center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-
-  gsap.from('.pricing__image', {
-    scrollTrigger: {
-      trigger: '#pricing',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    duration: 1
-  })
-
-  gsap.from('.pricing__content', {
-    scrollTrigger: {
-      trigger: '#pricing',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    duration: 1
-  })
-
-  gsap.from('#pricing .bullet-point', {
-    scrollTrigger: {
-      trigger: '#pricing',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    stagger: 0.3
-  })
-
-  gsap.from('.pricing__price-clarification', {
-    scrollTrigger: {
-      trigger: '#pricing',
-      start: 'top center',
-      end: 'top center'
-    },
-    duration: 2,
-    delay: 2,
-    text: ''
-  })
-
-  gsap.from('#subscription .subtitle_ca', {
-    scrollTrigger: {
-      trigger: '#subscription',
-      start: '-30% center',
-      end: '-30% center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-
-  gsap.from('#team .subtitle_ca', {
-    scrollTrigger: {
-      trigger: '#team',
-      start: '-30% center',
-      end: '-30% center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-
-  gsap.from('#team .team__person', {
-    scrollTrigger: {
-      trigger: '#team',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    stagger: 0.2
-  })
-
-  gsap.from('#faq .subtitle_la', {
-    scrollTrigger: {
-      trigger: '#faq',
-      start: '-30% center',
-      end: '-30%   center'
-    },
-    opacity: 0,
-    x: -50,
-    duration: 1
-  })
-
-  gsap.from('#faq .faq-list div', {
-    scrollTrigger: {
-      trigger: '#faq',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    x: -50,
-    stagger: 0.1
-  })
-
-  gsap.from('#publishing .subtitle_ca', {
-    scrollTrigger: {
-      trigger: '#publishing',
-      start: '-30% center',
-      end: '-30% center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-
-  gsap.from('#publishing .publishing-list__item', {
-    scrollTrigger: {
-      trigger: '#publishing',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    stagger: 0.3
-  })
-
-  gsap.from('#pre-order .subtitle_ca', {
-    scrollTrigger: {
-      trigger: '#pre-order',
-      start: '-30% center',
-      end: '-30% center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-
-  gsap.from('#pre-order .form_pre-order div', {
-    scrollTrigger: {
-      trigger: '#pre-order',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    stagger: 0.3
-  })
-
-  gsap.from('#pre-order .form_pre-order button', {
-    scrollTrigger: {
-      trigger: '#pre-order',
-      start: 'top center',
-      end: 'top center'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
-  })
-}
 
 const isHovered = ref(false)
 const heroImgHover = () => {
@@ -428,7 +208,7 @@ const faqItems = [
           новый уровень комфорта и безопасности вашего дома.
         </p>
         <div class="hero__content-btn-group">
-          <router-link to="/#pre-order">
+          <router-link to="#pre-order">
             <button class="hero-btn">
               <p class="hero-btn__text">Будьте в числе первых</p>
               <ChevronRight class="ml-2 h-6 w-6" />

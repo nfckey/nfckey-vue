@@ -3,10 +3,10 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { onMounted } from 'vue'
 
-import { Mail } from 'lucide-vue-next'
-import { TelegramPlane } from '@/components/ui/icons'
 import { NotificationsForm } from '@/components/ui/form'
-import LogoComponent from './ui/logo/LogoComponent.vue'
+import { TelegramPlane } from '@/components/ui/icons'
+import LogoComponent from '@/components/ui/logo/LogoComponent.vue'
+import { Mail } from 'lucide-vue-next'
 
 const year = new Date().getFullYear()
 
@@ -21,36 +21,12 @@ onMounted(() => {
     }
   })
 
-  tl.from('.footer__logo', {
-    y: -50,
-    opacity: 0,
-    duration: 1
-  })
-    .from('.footer-links', {
-      opacity: 0,
-      stagger: 0.3
-    })
-    .from('.footer-links .footer-link', {
-      opacity: 0,
-      stagger: 0.1
-    })
-    .from(
-      '#notifications',
-      {
-        x: 50,
-        opacity: 0,
-        duration: 1
-      },
-      1
-    )
-    .from('.footer__contacts li', {
-      opacity: 0,
-      stagger: 0.2
-    })
-    .from('.footer__copyright', {
-      opacity: 0,
-      duration: 1
-    })
+  tl.from('.footer__logo', { y: -50, opacity: 0, duration: 1 })
+    .from('.footer-links', { opacity: 0, stagger: 0.3 })
+    .from('.footer-links .footer-link', { opacity: 0, stagger: 0.1 })
+    .from('#notifications', { x: 50, opacity: 0, duration: 1 }, 1)
+    .from('.footer__contacts li', { opacity: 0, stagger: 0.2 })
+    .from('.footer__copyright', { opacity: 0, duration: 1 })
 })
 
 const footerLinks = [

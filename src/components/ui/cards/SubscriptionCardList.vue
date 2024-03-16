@@ -1,7 +1,8 @@
 <script setup>
-import SubscriptionCardLimit from './SubscriptionCardLimit.vue'
-import { Badge } from '@/components/ui/badge'
 import { ref } from 'vue'
+
+import { Badge } from '@/components/ui/badge'
+import SubscriptionCardLimit from './SubscriptionCardLimit.vue'
 
 defineProps({
   items: Array

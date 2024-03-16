@@ -1,15 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
 import { vAutoAnimate } from '@formkit/auto-animate/vue'
-import * as z from 'zod'
+import { toTypedSchema } from '@vee-validate/zod'
 import axios from 'axios'
+import { useForm } from 'vee-validate'
+import { ref } from 'vue'
+import * as z from 'zod'
 
-import { Mail } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Mail } from 'lucide-vue-next'
 
 const isFormSubmitted = ref(false)
 
