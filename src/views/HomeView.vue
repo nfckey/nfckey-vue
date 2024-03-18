@@ -339,13 +339,15 @@ const faqItems = [
     <div class="flex items-center justify-center">
       <div class="how-it-works__content">
         <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
-        <video
-          src="../assets/how-it-works.mp4"
-          class="how-it-works__video"
-          preload="metadata"
-          controls
-          playsinline
-        ></video>
+        <video class="how-it-works__video" preload="metadata" controls playsinline>
+          <source src="../assets/videos/how-it-works.mp4" type="video/mp4" />
+          <track
+            src="../assets/videos/how-it-works.vtt"
+            kind="subtitles"
+            srclang="ru"
+            label="Русские субтитры"
+          />
+        </video>
       </div>
     </div>
   </section>
