@@ -1,6 +1,8 @@
 <script setup>
 import { AvatarList } from '@/components/ui/avatar'
+import { PublishingList } from '@/components/ui/publishing'
 </script>
+
 <template>
   <section id="about-team">
     <div class="flex flex-col items-center gap-24">
@@ -18,6 +20,19 @@ import { AvatarList } from '@/components/ui/avatar'
         </p>
         <AvatarList is-contributors />
       </div>
+    </div>
+  </section>
+  <section id="publishing" class="min-h-max">
+    <div class="flex flex-col items-center gap-16">
+      <div class="subtitle_ca">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient bg-gradient-to-r">
+          Узнайте о нас больше
+        </h2>
+        <p class="subtitle_ca__text">
+          Приглашаем ознакомиться с нашими эксклюзивными публикациями на других ресурсах
+        </p>
+      </div>
+      <PublishingList />
     </div>
   </section>
 </template>
