@@ -1,9 +1,22 @@
+<script setup>
+import { AvatarList } from '@/components/ui/avatar'
+</script>
 <template>
-  <section>
+  <section id="about-team">
     <div class="flex flex-col items-center gap-24">
-      <div class="subtitle_ca">
-        <h1 class="subtitle_ca__title subtitle_ca__title_gradient">Раздел "О нас"</h1>
-        <p class="subtitle_ca__text">Рассказываем о проекте, участниках и т.д.</p>
+      <div class="flex max-w-4xl flex-col items-center gap-8">
+        <img src="../assets/logo-large.svg" alt="Логотип NFCKEY" />
+        <p class="about-team__title_main">
+          NFCKEY – команда энтузиастов, стремящаяся стать первым серьезным конкурентом среди
+          российских производителей умных замков
+        </p>
+      </div>
+      <AvatarList />
+      <div class="flex flex-col items-center gap-8">
+        <p class="about-team__title_contributors">
+          Выражаем отдельную благодарность за участие в развитии проекта
+        </p>
+        <AvatarList is-contributors />
       </div>
     </div>
   </section>

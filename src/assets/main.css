@@ -616,6 +616,18 @@
     }
   }
 
+  .about-team {
+    &__title {
+      &_main {
+        @apply h300 subtitle_ca__title_gradient text-balance text-center font-medium;
+      }
+
+      &_contributors {
+        @apply h200 max-w-xl text-balance text-center font-medium;
+      }
+    }
+  }
+
   .badge {
     @apply h05 font-medium !important;
 

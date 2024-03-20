@@ -1,6 +1,13 @@
 <script setup>
 import { AvatarListItem } from '@/components/ui/avatar'
 
+defineProps({
+  isContributors: {
+    type: Boolean,
+    default: false
+  }
+})
+
 const team = [
   {
     name: 'Иван \nМеняйлов',
@@ -115,10 +122,29 @@ const team = [
     ]
   }
 ]
+
+const contributors = [
+  {
+    name: 'Максим \nЧувилин',
+    role: 'Инженер, \nпрограммист',
+    imageUrl: 'team-masksim-chuvilin.png',
+    socials: []
+  },
+  {
+    name: 'Николай \nБелявский',
+    role: 'Инженер, \nSMM-менеджер',
+    imageUrl: 'team-nikolay-belyavskiy.png',
+    socials: []
+  }
+]
 </script>
 
 <template>
   <div class="flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-12">
-    <AvatarListItem v-for="(item, index) in team" :key="index" :person="item" />
+    <AvatarListItem
+      v-for="(item, index) in isContributors ? contributors : team"
+      :key="index"
+      :person="item"
+    />
   </div>
 </template>
