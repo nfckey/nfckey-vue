@@ -619,29 +619,33 @@
   .about-team {
     &__title {
       &_main {
-        @apply h300 subtitle_ca__title_gradient text-balance text-center font-medium;
+        @apply md:h300 h200 subtitle_ca__title_gradient text-balance text-center font-medium;
       }
 
       &_contributors {
-        @apply h200 max-w-xl text-balance text-center font-medium;
+        @apply md:h200 h100 max-w-xl text-balance text-center font-medium;
       }
     }
   }
 
   .story {
     &-left {
-      @apply flex h-dvh w-1/2 flex-col justify-start;
+      @apply hidden h-dvh w-1/2 flex-col justify-start md:flex;
     }
 
     &-right {
-      @apply w-1/2;
+      @apply h-auto w-full md:w-1/2;
     }
 
     &-content {
       @apply relative w-full;
 
       &__section {
-        @apply absolute flex min-h-dvh w-full flex-col justify-end gap-4 bg-white py-24;
+        @apply flex w-full flex-col justify-end gap-4 bg-white py-24 md:absolute md:min-h-dvh;
+
+        &_mobile {
+          @apply py-4 md:hidden;
+        }
       }
 
       &__date {
@@ -671,10 +675,10 @@
 
     &-images {
       &__group {
-        @apply flex min-h-dvh flex-col items-center justify-around gap-4 py-24;
+        @apply flex flex-col items-center justify-around gap-4 py-24 md:min-h-dvh;
 
         & img {
-          max-width: calc(100% - 32px);
+          @apply md:max-w-[calc(100%-32px)];
         }
       }
     }
