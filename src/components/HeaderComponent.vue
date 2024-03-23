@@ -73,13 +73,13 @@ const aboutLinks = [
     description: 'Ценности и приоритеты, которым привержена наша команда.'
   },
   {
-    href: '/about#achievements',
-    title: 'Достижения',
+    href: '/about#story',
+    title: 'Наша история',
     description: 'Результаты участия проекта в конкурсах и других мероприятиях.'
   },
   {
-    href: '/about#media',
-    title: 'Медиа',
+    href: '/about#publishing',
+    title: 'Публикации',
     description: 'Эксклюзивные материалы о проекте на сторонних веб-ресурсах.'
   }
 ]

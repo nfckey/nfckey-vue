@@ -59,16 +59,16 @@ const footerLinks = [
         href: '/about'
       },
       {
-        name: 'Достижения',
-        href: '/about#achievements'
+        name: 'Приоритеты',
+        href: '/about#priorities'
       },
       {
-        name: 'Медиа',
-        href: '/about#media'
+        name: 'Наша история',
+        href: '/about#story'
       },
       {
-        name: 'Инфографика',
-        href: '/about#infographics'
+        name: 'Публикации',
+        href: '/about#publishing'
       }
     ]
   },
