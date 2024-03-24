@@ -628,6 +628,24 @@
     }
   }
 
+  .priorities {
+    &-item {
+      @apply flex w-96 flex-col items-center gap-4;
+
+      &__icon {
+        @apply size-14 rounded-xl bg-brand-1200 p-4;
+      }
+
+      &__title {
+        @apply para-md font-medium text-vneutral-50;
+      }
+
+      &__text {
+        @apply para-sm text-balance text-center text-vneutral-400;
+      }
+    }
+  }
+
   .story {
     &-left {
       @apply hidden h-dvh w-1/2 flex-col justify-start md:flex;

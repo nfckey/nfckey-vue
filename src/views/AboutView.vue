@@ -5,6 +5,7 @@ import { onMounted } from 'vue'
 
 import { AvatarList } from '@/components/ui/avatar'
 import { PublishingList } from '@/components/ui/publishing'
+import { Unlock, Smartphone, Shield } from 'lucide-vue-next'
 
 const animateOnScroll = (trigger, elements, options, triggerPos) => {
   gsap.from(trigger + ' ' + elements, {
@@ -51,6 +52,9 @@ onMounted(() => {
     .from('.about-team__title_main', { y: 50, opacity: 0, duration: 1.5 }, 1)
     .from('.team__person', { opacity: 0, stagger: 0.2 }, 2)
 
+  animateOnScroll('#publishing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#publishing', '.publishing-list__item', { opacity: 0, stagger: 0.3 })
+
   initializeStoryline()
 
   animateOnScroll('.story-right', '.story-images:first-child img', {
@@ -58,8 +62,8 @@ onMounted(() => {
     duration: 1,
     stagger: 0.3
   })
-  animateOnScroll('#publishing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#publishing', '.publishing-list__item', { opacity: 0, stagger: 0.3 })
+  animateOnScroll('#priorities', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#priorities', '.priorities-item', { opacity: 0, stagger: 0.3 })
 })
 </script>
 
@@ -79,6 +83,52 @@ onMounted(() => {
           Выражаем отдельную благодарность за участие в развитии проекта
         </p>
         <AvatarList is-contributors />
+      </div>
+    </div>
+  </section>
+
+  <section id="priorities" class="min-h-max">
+    <div class="flex flex-col items-center gap-16">
+      <div class="subtitle_ca">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient bg-gradient-to-r">
+          Наши приоритеты
+        </h2>
+        <p class="subtitle_ca__text">
+          Каждый член команды вносит свой уникальный вклад в проект. Мы работаем коллективно,
+          гарантируя, что каждое решение продумано до мелочей и соответствует общему видению.
+        </p>
+      </div>
+      <div class="flex flex-col justify-center gap-x-4 gap-y-12 xl:flex-row">
+        <div class="priorities-item">
+          <div class="priorities-item__icon">
+            <Unlock class="size-6 text-vneutral-50" />
+          </div>
+          <p class="priorities-item__title">Доступность инноваций</p>
+          <p class="priorities-item__text">
+            Мы стремимся создать умный замок, который предлагает новый опыт использования за
+            доступную цену
+          </p>
+        </div>
+        <div class="priorities-item">
+          <div class="priorities-item__icon">
+            <Smartphone class="size-6 text-vneutral-50" />
+          </div>
+          <p class="priorities-item__title">Удобство использования</p>
+          <p class="priorities-item__text">
+            Мы уделяем особое внимание удобству использования, чтобы вы могли свободно управлять
+            множеством доступных функций
+          </p>
+        </div>
+        <div class="priorities-item">
+          <div class="priorities-item__icon">
+            <Shield class="size-6 text-vneutral-50" />
+          </div>
+          <p class="priorities-item__title">Быстрота и надежность</p>
+          <p class="priorities-item__text">
+            Мы стараемся максимально оптимизировать используемые алгоритмы и обеспечить надежную
+            работы системы
+          </p>
+        </div>
       </div>
     </div>
   </section>

@@ -45,7 +45,8 @@ const animateOnScroll = (trigger, elements, options, triggerPos) => {
 
 const initializeAnimations = () => {
   const tl = gsap.timeline()
-  tl.from('.hero__content-title', { x: -50, opacity: 0, duration: 1.5 }, 0.5)
+  tl.from('.hero__gradient', { opacity: 0, duration: 1.5 }, 0.5)
+    .from('.hero__content-title', { x: -50, opacity: 0, duration: 1.5 }, 0.5)
     .fromTo(
       '.hero__image',
       {
