@@ -100,7 +100,7 @@ onMounted(() => {
       </div>
       <div class="flex flex-col justify-center gap-x-4 gap-y-12 xl:flex-row">
         <div class="priorities-item">
-          <div class="priorities-item__icon">
+          <div class="icon_big">
             <Unlock class="size-6 text-vneutral-50" />
           </div>
           <p class="priorities-item__title">Доступность инноваций</p>
@@ -110,7 +110,7 @@ onMounted(() => {
           </p>
         </div>
         <div class="priorities-item">
-          <div class="priorities-item__icon">
+          <div class="icon_big">
             <Smartphone class="size-6 text-vneutral-50" />
           </div>
           <p class="priorities-item__title">Удобство использования</p>
@@ -120,13 +120,13 @@ onMounted(() => {
           </p>
         </div>
         <div class="priorities-item">
-          <div class="priorities-item__icon">
+          <div class="icon_big">
             <Shield class="size-6 text-vneutral-50" />
           </div>
           <p class="priorities-item__title">Быстрота и надежность</p>
           <p class="priorities-item__text">
-            Мы стараемся максимально оптимизировать используемые алгоритмы и обеспечить надежную
-            работы системы
+            Мы стараемся максимально оптимизировать наши алгоритмы и обеспечить надежную работы
+            системы
           </p>
         </div>
       </div>

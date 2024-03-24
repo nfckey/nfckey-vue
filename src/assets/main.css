@@ -774,7 +774,8 @@
 
   .icon {
     &_big {
-      @apply flex items-center justify-center gap-2 rounded-full bg-brand-1200 p-4;
+      @apply flex items-center justify-center rounded-xl p-4;
+      @apply bg-brand-1200 transition-colors hover:bg-brand-1100;
     }
   }
 
