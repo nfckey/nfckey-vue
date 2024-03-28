@@ -659,7 +659,7 @@
       @apply relative w-full;
 
       &__section {
-        @apply flex w-full flex-col justify-end gap-4 bg-white py-24 md:absolute md:min-h-dvh;
+        @apply flex w-full flex-col justify-center gap-4 bg-white py-24 md:absolute md:min-h-dvh;
 
         &_mobile {
           @apply py-4 md:hidden;
@@ -697,6 +697,10 @@
 
         & img {
           @apply md:max-w-[calc(100%-32px)];
+        }
+
+        & video {
+          @apply max-w-xs;
         }
       }
     }
