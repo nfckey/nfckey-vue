@@ -7,6 +7,8 @@ import { AvatarList } from '@/components/ui/avatar'
 import { PublishingList } from '@/components/ui/publishing'
 import { Unlock, Smartphone, Shield } from 'lucide-vue-next'
 
+gsap.registerPlugin(ScrollTrigger)
+
 const animateOnScroll = (trigger, elements, options, triggerPos) => {
   gsap.from(trigger + ' ' + elements, {
     ...options,

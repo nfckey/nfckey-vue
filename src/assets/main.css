@@ -111,6 +111,10 @@
   }
 
   .hero {
+    &_ll {
+      @apply bg_stars min-h-max !pb-[84px];
+    }
+
     &-btn {
       @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md px-4 py-6 text-white;
       @apply bg-gradient-to-br from-brand-400 via-[#94bce9] to-violet-300;
@@ -200,6 +204,43 @@
 
       &:nth-child(n + 4) {
         @apply hidden md:flex;
+      }
+    }
+
+    &_ll {
+      @apply flex items-center justify-center;
+
+      &:hover .advantages-card {
+        background: radial-gradient(1500px circle at var(--x) var(--y), #99d7e0, transparent 15%);
+      }
+    }
+
+    &-cards {
+      @apply grid w-full grid-cols-1 gap-8 p-2 lg:grid-cols-2;
+    }
+
+    &-card {
+      @apply flex max-w-[592px] flex-col items-start gap-2 p-[1px];
+      @apply rounded-2xl border-[1px] border-vneutral-1300 shadow-sm;
+
+      &__content {
+        @apply flex flex-col items-start gap-4 rounded-2xl bg-white px-12 py-9;
+      }
+
+      &__title {
+        @apply h200 font-semibold text-vneutral-50;
+      }
+
+      &__text {
+        @apply para-md text-pretty text-vneutral-400;
+      }
+
+      &:nth-child(odd) {
+        @apply justify-self-end;
+      }
+
+      &:nth-child(even) {
+        @apply justify-self-start;
       }
     }
   }
@@ -780,6 +821,12 @@
     &_big {
       @apply flex items-center justify-center rounded-xl p-4;
       @apply bg-brand-1200 transition-colors hover:bg-brand-1100;
+    }
+  }
+
+  .bg {
+    &_stars {
+      background: url('./bg-stars.png') no-repeat center / contain;
     }
   }
 
