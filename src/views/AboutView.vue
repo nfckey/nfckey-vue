@@ -329,7 +329,6 @@ onMounted(() => {
             alt="Команда NFCKEY на мероприятии четвертого сезона конкурса «Я в деле»"
           />
           <video
-            class="rounded-xl"
             src="../assets/videos/yvd-iv-4.mp4"
             preload="metadata"
             controls

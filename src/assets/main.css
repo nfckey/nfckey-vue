@@ -208,7 +208,7 @@
     }
 
     &_ll {
-      @apply flex items-center justify-center;
+      @apply flex min-h-max items-center justify-center;
 
       &:hover .advantages-card {
         background: radial-gradient(1500px circle at var(--x) var(--y), #99d7e0, transparent 15%);
@@ -232,7 +232,7 @@
       }
 
       &__text {
-        @apply para-md text-pretty text-vneutral-400;
+        @apply md:para-md para-sm text-pretty text-vneutral-400;
       }
 
       &:nth-child(odd) {
@@ -253,25 +253,63 @@
     &__list {
       @apply flex flex-col items-start gap-8;
 
+      &_mobile {
+        @apply lg:hidden;
+      }
+
       .feature {
         @apply flex items-start gap-4 self-stretch;
 
         &__content {
           @apply flex flex-col items-start justify-center gap-1;
+
+          &_mobile {
+            @apply items-center;
+          }
         }
 
         &__title {
           @apply para-md max-w-xl font-medium text-vneutral-50;
+
+          &_mobile {
+            @apply text-balance text-center;
+          }
         }
 
         &__text {
-          @apply para-sm max-w-xl font-normal text-vneutral-400;
+          @apply para-sm max-w-xl text-pretty font-normal text-vneutral-400;
+
+          &_mobile {
+            @apply text-balance text-center;
+          }
         }
       }
     }
 
     &__image {
       @apply h-[456px] object-cover object-center xl:h-full;
+    }
+
+    &-left {
+      @apply hidden h-dvh w-1/2 flex-col justify-start pt-12 lg:flex xl:pt-24;
+
+      &__content {
+        @apply relative flex w-full flex-col gap-8;
+      }
+    }
+
+    &-right {
+      @apply h-auto w-full lg:w-1/4;
+    }
+
+    &-images {
+      &__group {
+        @apply flex flex-col items-center justify-center gap-4 py-8 lg:min-h-dvh lg:py-24;
+
+        & img {
+          @apply max-h-[calc(100dvh-192px)];
+        }
+      }
     }
   }
 
@@ -741,7 +779,7 @@
         }
 
         & video {
-          @apply max-w-xs;
+          @apply max-w-xs rounded-2xl;
         }
       }
     }

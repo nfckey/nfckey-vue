@@ -1,9 +1,9 @@
 <script setup>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
-import { Users, Clock4, Shield, Heart } from 'lucide-vue-next'
+import { Clock4, Heart, Shield, Sparkles, Users } from 'lucide-vue-next'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -32,14 +32,35 @@ const handleCardsGlow = (e) => {
 onMounted(() => {
   const tl = gsap.timeline()
   tl.from('.hero_ll .subtitle_ca', { opacity: 0, duration: 1 }, 0.5).from(
-    '#advantages .advantages-card:nth-child(-n+2)',
+    '#advantages .advantages-card',
     { opacity: 0, stagger: 0.3 },
     1
   )
 
-  ScrollTrigger.batch('#advantages .advantages-card:nth-child(n+3)', {
-    delay: 1,
-    onEnter: (batch) => gsap.from(batch, { opacity: 0, stagger: 0.3, delay: 0.5 })
+  const content = gsap.utils.toArray('.feature:not(:first-child)')
+  const imageGroups = gsap.utils.toArray('.features-images__group:not(:first-child)')
+
+  gsap.set(content, { yPercent: 101, opacity: 0 })
+
+  let mm = gsap.matchMedia()
+
+  mm.add('(min-width: 767.98px)', () => {
+    ScrollTrigger.create({
+      trigger: '.features-right',
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: '.features-left'
+    })
+  })
+
+  imageGroups.forEach((group, index) => {
+    ScrollTrigger.create({
+      trigger: group,
+      start: 'top 80%',
+      end: 'top 10%',
+      animation: gsap.to(content[index], { yPercent: 0, opacity: 1 }),
+      scrub: true
+    })
   })
 })
 </script>
@@ -109,6 +130,141 @@ onMounted(() => {
               Удобный и быстрый процесс регистрации привлечет больше людей, гарантируя положительные
               отзывы и высокую вероятность повторного бронирования
             </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="features">
+    <div class="flex w-full flex-col items-center">
+      <div class="subtitle_ca">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
+          Выделяйтесь среди других арендодателей
+        </h2>
+        <p class="subtitle_ca__text">
+          NFCKEY предлагает ряд ключевых функций, призванных сделать вашу роль арендодателя более
+          эффективной и безопасной
+        </p>
+      </div>
+      <div class="flex w-full justify-evenly">
+        <div class="features-left">
+          <div class="features-left__content">
+            <div class="features__list">
+              <div class="feature">
+                <Sparkles class="shrink-0 text-brand-400" />
+                <div class="feature__content">
+                  <p class="feature__title">Удаленное управление доступом</p>
+                  <p class="feature__text">
+                    Вы можете управлять доступом из любой точки мира. Не нужно присутствовать лично
+                    – просто выдайте или отмените доступ несколькими нажатиями.
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <Sparkles class="shrink-0 text-brand-400" />
+                <div class="feature__content">
+                  <p class="feature__title">Журналы посещений</p>
+                  <p class="feature__text">
+                    NFCKEY предоставляет подробные журналы доступа, где в любое время можно увидеть
+                    посещения ваших гостей или персонала.
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <Sparkles class="shrink-0 text-brand-400" />
+                <div class="feature__content">
+                  <p class="feature__title">Настраиваемые ограничения</p>
+                  <p class="feature__text">
+                    Установите свои правила для каждого замка - настраивайте лимиты, которые не
+                    смогут превысить ваши арендаторы
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <Sparkles class="shrink-0 text-brand-400" />
+                <div class="feature__content">
+                  <p class="feature__title">Масштабируемость</p>
+                  <p class="feature__text">
+                    Добавляйте и удаляйте замки по мере необходимости, чтобы ваша система контроля
+                    доступа развивалась вместе с вашим портфелем недвижимости.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="features-right">
+          <div class="features-images">
+            <div class="features-images__group">
+              <div class="features__list features__list_mobile">
+                <div class="feature">
+                  <div class="feature__content feature__content_mobile">
+                    <div class="flex w-full justify-center gap-2">
+                      <Sparkles class="shrink-0 text-brand-400" />
+                      <p class="feature__title feature__title_mobile">
+                        Удаленное управление доступом
+                      </p>
+                    </div>
+                    <p class="feature__text feature__text_mobile">
+                      Вы можете управлять доступом из любой точки мира. Не нужно присутствовать
+                      лично – просто выдайте или отмените доступ несколькими нажатиями.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <img src="../assets/images/mockup-ll-add-user-role.webp" alt="" />
+            </div>
+            <div class="features-images__group">
+              <div class="features__list features__list_mobile">
+                <div class="feature">
+                  <div class="feature__content feature__content_mobile">
+                    <div class="flex w-full justify-center gap-2">
+                      <Sparkles class="shrink-0 text-brand-400" />
+                      <p class="feature__title feature__title_mobile">Журналы посещений</p>
+                    </div>
+                    <p class="feature__text feature__text_mobile">
+                      NFCKEY предоставляет подробные журналы доступа, где в любое время можно
+                      увидеть посещения ваших гостей или персонала.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <img src="../assets/images/mockup-ll-visits.webp" alt="" />
+            </div>
+            <div class="features-images__group">
+              <div class="features__list features__list_mobile">
+                <div class="feature">
+                  <div class="feature__content feature__content_mobile">
+                    <div class="flex w-full justify-center gap-2">
+                      <Sparkles class="shrink-0 text-brand-400" />
+                      <p class="feature__title feature__title_mobile">Настраиваемые ограничения</p>
+                    </div>
+                    <p class="feature__text feature__text_mobile">
+                      Установите свои правила для каждого замка - настраивайте лимиты, которые не
+                      смогут превысить ваши арендаторы
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <img src="../assets/images/mockup-ll-split-limits.webp" alt="" />
+            </div>
+            <div class="features-images__group">
+              <div class="features__list features__list_mobile">
+                <div class="feature">
+                  <div class="feature__content feature__content_mobile">
+                    <div class="flex w-full justify-center gap-2">
+                      <Sparkles class="shrink-0 text-brand-400" />
+                      <p class="feature__title feature__title_mobile">Масштабируемость</p>
+                    </div>
+                    <p class="feature__text feature__text_mobile">
+                      Добавляйте и удаляйте замки по мере необходимости, чтобы ваша система контроля
+                      доступа развивалась вместе с вашим портфелем недвижимости.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <img src="../assets/images/mockup-ll-home-locks.webp" alt="" />
+            </div>
           </div>
         </div>
       </div>
