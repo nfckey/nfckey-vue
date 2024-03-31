@@ -291,7 +291,7 @@
     }
 
     &-left {
-      @apply hidden h-dvh w-1/2 flex-col justify-start pt-12 lg:flex xl:pt-24;
+      @apply hidden h-dvh w-1/2 flex-col justify-center lg:flex;
 
       &__content {
         @apply relative flex w-full flex-col gap-8;
@@ -490,7 +490,7 @@
         }
 
         &__icon {
-          @apply para-md h-6 w-6 text-center font-medium leading-6 text-vneutral-600;
+          @apply para-md h-6 min-w-6 text-center font-medium leading-6 text-vneutral-600;
 
           &_light {
             @apply text-brand-400;
@@ -781,6 +781,24 @@
         & video {
           @apply max-w-xs rounded-2xl;
         }
+      }
+    }
+  }
+
+  .steps {
+    &-item {
+      @apply flex w-96 flex-col items-center gap-4;
+
+      &__step {
+        @apply h50 font-bold text-vneutral-400;
+      }
+
+      &__title {
+        @apply h200 font-semibold text-vneutral-50;
+      }
+
+      &__text {
+        @apply para-sm text-balance text-center text-vneutral-400;
       }
     }
   }

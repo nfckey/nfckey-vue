@@ -414,9 +414,9 @@ const faqItems = [
   <section id="faq" class="min-h-max">
     <div class="flex flex-wrap items-start justify-start gap-16 md:flex-nowrap md:justify-center">
       <div class="subtitle_la max-w-lg">
-        <h1 class="subtitle_la__title subtitle_la__title_gradient h300">
+        <h2 class="subtitle_la__title subtitle_la__title_gradient h300">
           Получите ясность о решении NFCKEY в разделе FAQ
-        </h1>
+        </h2>
         <p class="subtitle_la__text">
           Изучите раздел с часто задаваемыми вопросами, чтобы узнать, как NFCKEY может органично
           вписаться в ваш образ жизни
