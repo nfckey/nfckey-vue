@@ -77,7 +77,8 @@ onMounted(() => {
   initializeStoryline()
 
   animateOnScroll('#steps', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#steps', '.steps-item', { opacity: 0, x: -50, stagger: 0.7 })
+  animateOnScroll('#steps', '.steps-item', { opacity: 0, x: -50, stagger: 0.5 })
+  animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
   animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
 })
@@ -375,7 +376,7 @@ const faqItems = [
     </div>
   </section>
   <section id="subscription">
-    <div class="flex flex-col items-center gap-16">
+    <div class="flex flex-col items-center gap-8">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
           Разблокируйте дополнительные преимущества с подпиской

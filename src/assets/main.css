@@ -347,6 +347,14 @@
         @apply para-xs text-balance text-center font-normal text-vneutral-400;
       }
     }
+
+    &-switch {
+      @apply h-3 w-5 data-[state=checked]:bg-brand-400 !important;
+
+      & span {
+        @apply h-2 w-2 data-[state=checked]:translate-x-2 !important;
+      }
+    }
   }
 
   .faq-list {
@@ -410,7 +418,7 @@
   }
 
   .sub-card {
-    @apply box-border flex w-72 flex-col items-center gap-4 
+    @apply box-border flex w-[292px] flex-col items-center gap-4 
     rounded-2xl border border-vneutral-1300 bg-clip-padding p-6 
     shadow-sm backdrop-blur-md backdrop-filter transition-colors;
 
@@ -448,18 +456,22 @@
     }
 
     &__head {
-      @apply flex flex-col items-center gap-2 self-stretch;
+      @apply flex w-[244px] flex-col items-start gap-2 self-stretch;
     }
 
     &__title {
       @apply h200 whitespace-nowrap text-center font-semibold leading-8 text-vneutral-50;
     }
 
+    &__text {
+      @apply para-xs text-pretty text-vneutral-400;
+    }
+
     &__price {
-      @apply h300 whitespace-nowrap text-center font-semibold leading-8 text-vneutral-50;
+      @apply h300 font-semibold text-vneutral-50;
 
       &-period {
-        @apply para-md font-medium text-vneutral-200;
+        @apply font-inter text-xs text-vneutral-400;
       }
     }
 

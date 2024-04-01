@@ -392,7 +392,7 @@ const faqItems = [
     </div>
   </section>
   <section id="subscription">
-    <div class="flex flex-col items-center gap-16">
+    <div class="flex flex-col items-center gap-8">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
           Раскройте весь потенциал умного замка с помощью подписки
