@@ -11,7 +11,7 @@ import {
   AccordionTrigger
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
-import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/cards'
+import { SubscriptionCardList } from '@/components/ui/cards'
 import { ArrowRight, Clock4, Heart, Shield, Sparkles, Users } from 'lucide-vue-next'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -73,6 +73,7 @@ onMounted(() => {
     { opacity: 0, stagger: 0.3 },
     1
   )
+  animateOnScroll('#features', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 })
 
   initializeStoryline()
 
@@ -340,7 +341,7 @@ const faqItems = [
       </div>
     </div>
   </section>
-  <section id="steps" class="min-h-max">
+  <section id="steps" class="min-h-[calc(100dvh-200px)]">
     <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient">

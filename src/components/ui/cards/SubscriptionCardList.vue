@@ -11,7 +11,7 @@ defineProps({
 
 const isAnnual = ref(true)
 
-const handleChange = () => {
+const handleSwitch = () => {
   isAnnual.value = !isAnnual.value
 }
 
@@ -22,13 +22,47 @@ const formatPrice = (price) =>
 
 const itemRefs = ref([])
 
-const updateMousePosition = (event, index) => {
+const handleCardsGlow = (e) => {
   if (!itemRefs.value) return
 
-  const { layerX, layerY } = event
-  itemRefs.value[index].style.setProperty('--x', `${layerX}px`)
-  itemRefs.value[index].style.setProperty('--y', `${layerY}px`)
-  itemRefs.value[index].style.setProperty('--gradient-color', getColorClass(index))
+  itemRefs.value.forEach((card) => {
+    const rect = card.getBoundingClientRect()
+
+    card.style.setProperty('--x', `${e.clientX - rect.left}px`)
+    card.style.setProperty('--y', `${e.clientY - rect.top}px`)
+  })
+}
+
+const handleCardsFadeIn = () => {
+  if (!itemRefs.value) return
+
+  itemRefs.value.forEach((card) => {
+    let alpha = 0
+
+    const fadeInInterval = setInterval(() => {
+      alpha += 0.01
+      card.style.setProperty('--alpha', alpha)
+      if (alpha >= 0.294) {
+        clearInterval(fadeInInterval)
+      }
+    }, 10)
+  })
+}
+
+const handleCardsFadeOut = () => {
+  if (!itemRefs.value) return
+
+  itemRefs.value.forEach((card) => {
+    let alpha = 0.294
+
+    const fadeOutInterval = setInterval(() => {
+      alpha -= 0.01
+      card.style.setProperty('--alpha', alpha)
+      if (alpha <= 0) {
+        clearInterval(fadeOutInterval)
+      }
+    }, 10)
+  })
 }
 
 const getColorClass = (index) => {
@@ -38,21 +72,25 @@ const getColorClass = (index) => {
 </script>
 
 <template>
-  <div class="flex items-center gap-1" @click="handleChange">
+  <div class="flex items-center gap-1" @click="handleSwitch">
     <p class="cursor-pointer select-none text-xs text-vneutral-400">Годовая скидка</p>
     <Switch
       class="pricing-switch"
       :checked="isAnnual"
-      @update:checked="handleChange"
-      @click="handleChange"
+      @update:checked="handleSwitch"
+      @click="handleSwitch"
     />
   </div>
-  <div class="flex flex-wrap items-center justify-center gap-8">
+  <div
+    class="flex flex-wrap items-center justify-center gap-8"
+    @mousemove="handleCardsGlow"
+    @mouseenter="handleCardsFadeIn"
+    @mouseleave="handleCardsFadeOut"
+  >
     <div
       v-for="(item, index) in items"
       :key="index"
       ref="itemRefs"
-      @mousemove="updateMousePosition($event, index)"
       :class="`sub-card sub-card_${getColorClass(index)}`"
     >
       <div class="sub-card__head">

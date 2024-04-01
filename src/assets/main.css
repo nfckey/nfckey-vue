@@ -417,6 +417,32 @@
     }
   }
 
+  #subscription {
+    &:hover .sub-card_light {
+      background: radial-gradient(
+        200px circle at var(--x) var(--y),
+        rgba(158, 236, 232, var(--alpha)) 0%,
+        transparent 100%
+      );
+    }
+
+    &:hover .sub-card_green {
+      background: radial-gradient(
+        200px circle at var(--x) var(--y),
+        rgba(156, 232, 152, var(--alpha)) 0%,
+        transparent 100%
+      );
+    }
+
+    &:hover .sub-card_gold {
+      background: radial-gradient(
+        200px circle at var(--x) var(--y),
+        rgba(224, 191, 108, var(--alpha)) 0%,
+        transparent 100%
+      );
+    }
+  }
+
   .sub-card {
     @apply box-border flex w-[292px] flex-col items-center gap-4 
     rounded-2xl border border-vneutral-1300 bg-clip-padding p-6 
@@ -424,35 +450,14 @@
 
     &_light {
       @apply border-brand-900 hover:border-brand-800;
-      &:hover {
-        background: radial-gradient(
-          circle closest-corner at var(--x, 100px) var(--y, 100px),
-          rgba(158, 236, 232, 0.294) 0%,
-          transparent 100%
-        );
-      }
     }
 
     &_green {
       @apply border-emerald-200  hover:border-emerald-300;
-      &:hover {
-        background: radial-gradient(
-          circle closest-corner at var(--x, 100px) var(--y, 100px),
-          rgba(156, 232, 152, 0.294) 0%,
-          transparent 100%
-        );
-      }
     }
 
     &_gold {
       @apply border-warning-700 hover:border-warning-600;
-      &:hover {
-        background: radial-gradient(
-          circle closest-corner at var(--x, 100px) var(--y, 100px),
-          rgba(224, 191, 108, 0.294) 0%,
-          transparent 100%
-        );
-      }
     }
 
     &__head {
