@@ -5,8 +5,12 @@ import { Badge } from '@/components/ui/badge'
 import { Switch } from '@/components/ui/switch'
 import SubscriptionCardLimit from './SubscriptionCardLimit.vue'
 
-defineProps({
-  items: Array
+const props = defineProps({
+  items: Array,
+  includeFree: {
+    type: Boolean,
+    default: false
+  }
 })
 
 const isAnnual = ref(true)
@@ -18,7 +22,7 @@ const handleSwitch = () => {
 const formatPrice = (price) =>
   parseInt(price)
     .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
 
 const itemRefs = ref([])
 
@@ -66,8 +70,8 @@ const handleCardsFadeOut = () => {
 }
 
 const getColorClass = (index) => {
-  const colors = ['light', 'green', 'gold']
-  return colors[index] || 'light'
+  const colors = ['gray', 'light', 'green', 'gold']
+  return props.includeFree && index == 0 ? colors[index] : colors[index++]
 }
 </script>
 
@@ -82,7 +86,7 @@ const getColorClass = (index) => {
     />
   </div>
   <div
-    class="flex flex-wrap items-center justify-center gap-8"
+    class="flex flex-wrap items-start justify-center gap-8"
     @mousemove="handleCardsGlow"
     @mouseenter="handleCardsFadeIn"
     @mouseleave="handleCardsFadeOut"
@@ -106,9 +110,8 @@ const getColorClass = (index) => {
         <div class="flex items-center gap-2">
           <p class="sub-card__price">
             {{ formatPrice(isAnnual ? item.annual_price : item.price) }}
-            ₽
           </p>
-          <div class="flex flex-col">
+          <div v-if="item.type != 'Универсальная'" class="flex flex-col">
             <p class="sub-card__price-period">в месяц</p>
             <p class="sub-card__price-period">оплата {{ isAnnual ? 'ежегодно' : 'ежемесячно' }}</p>
           </div>

@@ -355,6 +355,36 @@
         @apply h-2 w-2 data-[state=checked]:translate-x-2 !important;
       }
     }
+
+    &-type-switch {
+      @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-full border-[1px] border-vneutral-1100 bg-white;
+
+      &::after {
+        @apply absolute left-[var(--bg-offset)] top-0 z-[1] h-full w-1/2 rounded-full transition-all;
+        content: '';
+        transition: left 0.3s;
+      }
+
+      &_family::after {
+        @apply border-[1px] border-brand-900 bg-brand-1100;
+      }
+
+      &_landlords::after {
+        @apply border-[1px] border-warning-700 bg-warning-800;
+      }
+
+      & button {
+        @apply flex w-[140px] items-center justify-center rounded-full bg-transparent px-3 py-2;
+
+        &:where(:focus, :focus-visible, :focus-within) {
+          @apply -outline-offset-4;
+        }
+
+        & span {
+          @apply h25 z-[10] select-none text-center font-medium text-vneutral-400 transition-colors hover:text-vneutral-50;
+        }
+      }
+    }
   }
 
   .faq-list {
@@ -418,6 +448,14 @@
   }
 
   #subscription {
+    &:hover .sub-card_gray {
+      background: radial-gradient(
+        200px circle at var(--x) var(--y),
+        rgba(168, 167, 167, var(--alpha)) 0%,
+        transparent 100%
+      );
+    }
+
     &:hover .sub-card_light {
       background: radial-gradient(
         200px circle at var(--x) var(--y),
@@ -447,6 +485,10 @@
     @apply box-border flex w-[292px] flex-col items-center gap-4 
     rounded-2xl border border-vneutral-1300 bg-clip-padding p-6 
     shadow-sm backdrop-blur-md backdrop-filter transition-colors;
+
+    &_gray {
+      @apply border-vneutral-900 hover:border-vneutral-800;
+    }
 
     &_light {
       @apply border-brand-900 hover:border-brand-800;
@@ -483,6 +525,10 @@
     &__delimiter {
       @apply h-[1px] w-full bg-vneutral-1300;
 
+      &_gray {
+        @apply bg-vneutral-800;
+      }
+
       &_light {
         @apply bg-brand-900;
       }
@@ -508,6 +554,10 @@
 
         &__icon {
           @apply para-md h-6 min-w-6 text-center font-medium leading-6 text-vneutral-600;
+
+          &_gray {
+            @apply text-vneutral-50;
+          }
 
           &_light {
             @apply text-brand-400;
@@ -823,12 +873,12 @@
   .badge {
     @apply h05 font-medium !important;
 
-    &_light {
-      @apply border-brand-900 bg-brand-1100 hover:border-brand-1000 hover:bg-brand-1200 !important;
+    &_gray {
+      @apply border-vneutral-700 bg-vneutral-1100 hover:border-vneutral-800 hover:bg-vneutral-1200 !important;
     }
 
     &_light {
-      @apply border-brand-900 hover:border-brand-1000;
+      @apply border-brand-900 bg-brand-1100 hover:border-brand-1000 hover:bg-brand-1200 !important;
     }
 
     &_green {
