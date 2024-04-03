@@ -4,7 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { nextTick, onMounted, ref, watch } from 'vue'
 
-import { SubscriptionCardList, SubscriptionTable } from '@/components/ui/cards'
+import { SubscriptionCardList, SubscriptionTable } from '@/components/ui/subscription'
 
 gsap.registerPlugin(ScrollTrigger)
 

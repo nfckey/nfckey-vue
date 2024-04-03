@@ -11,7 +11,7 @@ import {
   AccordionTrigger
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
-import { SubscriptionCardList } from '@/components/ui/cards'
+import { SubscriptionCardList } from '@/components/ui/subscription'
 import { ArrowRight, Clock4, Heart, Shield, Sparkles, Users } from 'lucide-vue-next'
 
 gsap.registerPlugin(ScrollTrigger)
