@@ -355,36 +355,6 @@
         @apply h-2 w-2 data-[state=checked]:translate-x-2 !important;
       }
     }
-
-    &-type-switch {
-      @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-full border-[1px] border-vneutral-1100 bg-white;
-
-      &::after {
-        @apply absolute left-[var(--bg-offset)] top-0 z-[1] h-full w-1/2 rounded-full transition-all;
-        content: '';
-        transition: left 0.3s;
-      }
-
-      &_family::after {
-        @apply border-[1px] border-brand-900 bg-brand-1100;
-      }
-
-      &_landlords::after {
-        @apply border-[1px] border-warning-700 bg-warning-800;
-      }
-
-      & button {
-        @apply flex w-[140px] items-center justify-center rounded-full bg-transparent px-3 py-2;
-
-        &:where(:focus, :focus-visible, :focus-within) {
-          @apply -outline-offset-4;
-        }
-
-        & span {
-          @apply h25 z-[10] select-none text-center font-medium text-vneutral-400 transition-colors hover:text-vneutral-50;
-        }
-      }
-    }
   }
 
   .faq-list {
@@ -481,6 +451,81 @@
     }
   }
 
+  .subscription {
+    &-type-switch {
+      @apply relative flex cursor-pointer items-center justify-center overflow-hidden rounded-full border-[1px] border-vneutral-1100 bg-white;
+
+      &::after {
+        @apply absolute left-[var(--bg-offset)] top-0 z-[1] h-full w-1/2 rounded-full transition-all;
+        content: '';
+        transition: left 0.3s;
+      }
+
+      &_family::after {
+        @apply border-[1px] border-brand-900 bg-brand-1100;
+      }
+
+      &_landlords::after {
+        @apply border-[1px] border-warning-700 bg-warning-800;
+      }
+
+      & button {
+        @apply flex w-[140px] items-center justify-center rounded-full bg-transparent px-3 py-2;
+
+        &:where(:focus, :focus-visible, :focus-within) {
+          @apply -outline-offset-4;
+        }
+
+        & span {
+          @apply h25 z-[10] select-none text-center font-medium text-vneutral-400 transition-colors hover:text-vneutral-50;
+        }
+      }
+    }
+  }
+
+  .comparison {
+    &-head {
+      @apply sticky flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] py-4 xl:flex-nowrap;
+
+      &-item {
+        @apply flex w-full flex-grow flex-col items-center gap-2 self-stretch sm:items-start;
+
+        & p {
+          @apply h100 hidden font-medium text-vneutral-50 md:inline;
+        }
+      }
+    }
+
+    &-row {
+      @apply flex w-full flex-wrap justify-start gap-x-3 gap-y-2 border-b-[1px] py-4 xl:flex-nowrap;
+
+      &:hover .comparison-row__head p,
+      &:hover .comparison-row__head svg {
+        @apply text-vneutral-50;
+      }
+
+      &__head {
+        @apply w-full justify-center xl:w-72;
+
+        & p {
+          @apply para-sm font-medium text-vneutral-400;
+        }
+      }
+
+      &__value {
+        @apply flex w-[1px] flex-grow flex-col items-center justify-start gap-x-2 sm:flex-row;
+
+        & p {
+          @apply para-sm select-none font-medium text-vneutral-400;
+        }
+
+        & svg {
+          @apply text-vneutral-400;
+        }
+      }
+    }
+  }
+
   .sub-card {
     @apply box-border flex w-[292px] flex-col items-center gap-4 
     rounded-2xl border border-vneutral-1300 bg-clip-padding p-6 
@@ -507,7 +552,7 @@
     }
 
     &__title {
-      @apply h200 whitespace-nowrap text-center font-semibold leading-8 text-vneutral-50;
+      @apply h200 whitespace-nowrap font-semibold leading-8 text-vneutral-50;
     }
 
     &__text {
@@ -553,7 +598,7 @@
         }
 
         &__icon {
-          @apply para-md h-6 min-w-6 text-center font-medium leading-6 text-vneutral-600;
+          @apply para-md h-6 min-w-6 select-none text-center font-medium leading-6 text-vneutral-600;
 
           &_gray {
             @apply text-vneutral-50;
@@ -871,7 +916,7 @@
   }
 
   .badge {
-    @apply h05 font-medium !important;
+    @apply h05 select-none text-center font-medium !important;
 
     &_gray {
       @apply border-vneutral-700 bg-vneutral-1100 hover:border-vneutral-800 hover:bg-vneutral-1200 !important;

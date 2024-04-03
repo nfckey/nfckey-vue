@@ -4,19 +4,29 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { nextTick, onMounted, ref, watch } from 'vue'
 
-import { SubscriptionCardList } from '@/components/ui/cards'
+import { SubscriptionCardList, SubscriptionTable } from '@/components/ui/cards'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const subscriptions = ref([])
-const loaded = ref(false)
+const limits = ref([])
+const subscriptionsLoaded = ref(false)
+const limitsLoaded = ref(false)
 const isFamily = ref(true)
 
 onMounted(async () => {
   try {
     const { data } = await axios.get('https://api.nfckey.tech/api/v1/subscriptions?limits=true')
     subscriptions.value = data
-    loaded.value = true
+    subscriptionsLoaded.value = true
+  } catch (error) {
+    console.log(error)
+  }
+
+  try {
+    const { data } = await axios.get('https://api.nfckey.tech/api/v1/limits')
+    limits.value = data
+    limitsLoaded.value = true
   } catch (error) {
     console.log(error)
   }
@@ -46,11 +56,11 @@ watch(subscriptions, () => {
 
 const slideBg = (index) => {
   if (isFamily.value != index) return
-  const typeSwitch = document.querySelector('.pricing-type-switch')
+  const typeSwitch = document.querySelector('.subscription-type-switch')
   typeSwitch.style.setProperty('--bg-offset', `${50 * index}%`)
 
-  typeSwitch.classList.toggle('pricing-type-switch_family')
-  typeSwitch.classList.toggle('pricing-type-switch_landlords')
+  typeSwitch.classList.toggle('subscription-type-switch_family')
+  typeSwitch.classList.toggle('subscription-type-switch_landlords')
   isFamily.value = !isFamily.value
 }
 </script>
@@ -68,7 +78,7 @@ const slideBg = (index) => {
         </p>
       </div>
 
-      <div class="pricing-type-switch pricing-type-switch_family" style="--bg-offset: 0%">
+      <div class="subscription-type-switch subscription-type-switch_family" style="--bg-offset: 0%">
         <button @click="slideBg(0)">
           <span :class="{ '!text-brand-400 hover:!text-brand-500': isFamily }"> Семьям </span>
         </button>
@@ -80,7 +90,7 @@ const slideBg = (index) => {
       </div>
 
       <SubscriptionCardList
-        v-if="loaded"
+        v-if="subscriptionsLoaded"
         :items="
           isFamily
             ? subscriptions.data.slice(0, 4)
@@ -89,5 +99,16 @@ const slideBg = (index) => {
         includeFree
       />
     </div>
+  </section>
+  <section id="comparison">
+    <SubscriptionTable
+      v-if="subscriptionsLoaded && limitsLoaded"
+      :items="
+        isFamily
+          ? subscriptions.data.slice(0, 4)
+          : subscriptions.data.slice(0, 1).concat(subscriptions.data.slice(4))
+      "
+      :limits="limits.data"
+    />
   </section>
 </template>
