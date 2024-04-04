@@ -144,7 +144,7 @@
       @apply z-[2] flex max-w-xl flex-col items-center justify-center gap-4 lg:items-start;
 
       &-title {
-        @apply h500 sm:h600 whitespace-nowrap text-balance text-center font-semibold text-vneutral-50 lg:text-left;
+        @apply h500 sm:h600 text-balance text-center font-semibold text-vneutral-50 lg:text-left;
       }
 
       &-subtitle {
@@ -224,7 +224,7 @@
       @apply rounded-2xl border-[1px] border-vneutral-1300 shadow-sm;
 
       &__content {
-        @apply flex flex-col items-start gap-4 rounded-2xl bg-white px-12 py-9;
+        @apply flex flex-col items-start gap-4 rounded-2xl bg-white p-6 sm:p-8;
       }
 
       &__title {
@@ -765,6 +765,13 @@
   }
 
   .footer {
+    &_items-auto {
+      @apply items-center xl:items-start;
+      @media (max-width: 465px) {
+        @apply items-start;
+      }
+    }
+
     &__logo {
       @apply flex flex-col items-center gap-2 self-stretch;
     }
@@ -791,6 +798,9 @@
 
     &__contacts {
       @apply flex flex-col items-center gap-8 gap-y-4 sm:flex-row xl:items-start;
+      @media (max-width: 465px) {
+        @apply items-start;
+      }
 
       &-link {
         @apply para-xs flex items-center justify-start gap-2 transition-all;
@@ -955,7 +965,7 @@
         @apply para-sm md:para-md max-w-xl text-balance text-center font-normal text-vneutral-400;
 
         &_pre-order {
-          @apply h200 font-medium text-vneutral-50;
+          @apply h200 sm:h200 text-xl font-medium text-vneutral-50;
         }
       }
 

@@ -193,7 +193,7 @@ const faqItems = [
     value: 'item-5',
     title: 'Можно ли устанавливать замки NFCKEY в различные типы дверей?',
     content:
-      '<p>Да, замки NFCKEY разработаны таким образом, чтобы быть универсальными и адаптироваться к различным типам дверей. Они также подходят как для жилых, так и для коммерческих помещений, что делает их универсальным выбором для обеспечения безопасности широкогоспектра помещений.</p><br><p>Если у вас есть конкретные вопросы или требования к установке, мы всегда готовы помочь вам в обеспечении беспроблемного процесса установки.</p>'
+      '<p>Да, замки NFCKEY разработаны таким образом, чтобы быть универсальными и адаптироваться к различным типам дверей. Они также подходят как для жилых, так и для коммерческих помещений, что делает их универсальным выбором для обеспечения безопасности широкого спектра помещений.</p><br><p>Если у вас есть конкретные вопросы или требования к установке, мы всегда готовы помочь вам в обеспечении беспроблемного процесса установки.</p>'
   }
 ]
 </script>
@@ -342,7 +342,7 @@ const faqItems = [
       <div class="how-it-works__content">
         <h2 class="how-it-works__title">Как <br />работает <br />наш замок?</h2>
         <video
-          class="how-it-works__video"
+          class="how-it-works__video bg-black"
           preload="metadata"
           controls
           playsinline
@@ -378,7 +378,7 @@ const faqItems = [
         />
         <div class="pricing__content">
           <div class="pricing__price">
-            <p class="h800">15 990 ₽</p>
+            <p class="md:h800 h600">15 990 ₽</p>
             <p class="h200">*</p>
           </div>
           <div class="flex flex-col items-center justify-center gap-4">
@@ -394,7 +394,7 @@ const faqItems = [
   <section id="subscription">
     <div class="flex flex-col items-center gap-8">
       <div class="subtitle_ca">
-        <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
+        <h2 class="subtitle_ca__title subtitle_ca__title_gradient sm:h400 text-4xl">
           Раскройте весь потенциал умного замка с помощью подписки
         </h2>
         <p class="subtitle_ca__text">
@@ -444,7 +444,9 @@ const faqItems = [
         <p class="subtitle_ca__subheading subtitle_ca__title_gradient bg-gradient-to-r">
           Оставьте заявку
         </p>
-        <h2 class="subtitle_ca__title subtitle_ca__title_gradient md:bg-gradient-to-r">
+        <h2
+          class="subtitle_ca__title subtitle_ca__title_gradient sm:h400 text-4xl md:bg-gradient-to-r"
+        >
           Готовы перейти на новый уровень?
         </h2>
         <p class="subtitle_ca__text subtitle_ca__text_pre-order">

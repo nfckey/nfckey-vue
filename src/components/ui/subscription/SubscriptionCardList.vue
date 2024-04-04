@@ -70,8 +70,10 @@ const handleCardsFadeOut = () => {
 }
 
 const getColorClass = (index) => {
-  const colors = ['gray', 'light', 'green', 'gold']
-  return props.includeFree && index == 0 ? colors[index] : colors[index++]
+  const colors = ['light', 'green', 'gold']
+  const includeFreeColors = ['gray', 'light', 'green', 'gold']
+
+  return props.includeFree ? includeFreeColors[index] : colors[index]
 }
 </script>
 

@@ -94,7 +94,7 @@ const footerLinks = [
 
 <template>
   <footer class="container mx-auto w-full p-10 pt-36">
-    <div class="flex flex-col items-center justify-center gap-16 xl:items-start">
+    <div class="footer_items-auto flex flex-col justify-center gap-16">
       <div class="footer__logo">
         <LogoComponent />
         <p class="para-xs">Умные замки с инновационным подходом</p>
@@ -118,7 +118,7 @@ const footerLinks = [
         </div>
         <NotificationsForm />
       </div>
-      <div class="flex flex-col items-center gap-6 xl:items-start">
+      <div class="footer_items-auto flex flex-col gap-6">
         <ul class="footer__contacts">
           <li>
             <a href="mailto:help@nfckey.tech" class="footer__contacts-link">
