@@ -484,8 +484,12 @@
   }
 
   .comparison {
-    &-head {
-      @apply sticky top-0 flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] bg-white py-4 xl:flex-nowrap;
+    &-header {
+      @apply flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] py-4 xl:flex-nowrap;
+
+      &_sticky {
+        @apply sticky top-0 bg-white;
+      }
 
       &-item {
         @apply flex w-full flex-grow flex-col items-center gap-2 self-stretch sm:items-start;
@@ -493,6 +497,14 @@
         & p {
           @apply h100 hidden font-medium text-vneutral-50 md:inline;
         }
+      }
+    }
+
+    &-footer {
+      @apply flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] py-4 xl:flex-nowrap;
+
+      &-item {
+        @apply flex w-full flex-grow flex-col items-center gap-2 self-stretch sm:items-start;
       }
     }
 
@@ -560,7 +572,7 @@
     }
 
     &__price {
-      @apply h300 font-semibold text-vneutral-50;
+      @apply h300 whitespace-nowrap font-semibold text-vneutral-50;
 
       &-period {
         @apply font-inter text-xs text-vneutral-400;

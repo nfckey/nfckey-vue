@@ -5,7 +5,8 @@ import { Check } from 'lucide-vue-next'
 
 defineProps({
   items: Array,
-  limits: Array
+  limits: Array,
+  isAnnual: Boolean
 })
 
 const getColorClass = (index) => {
@@ -20,18 +21,23 @@ const filterLimits = (limitsArr, itemsArr) => {
 
   return limitsArr.filter((limit) => limitsIds.has(limit.id))
 }
+
+const formatPrice = (price) =>
+  parseInt(price)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₽'
 </script>
 
 <template>
   <div class="flex flex-col items-center">
-    <div class="comparison-head">
+    <div class="comparison-header comparison-header_sticky">
       <div class="flex w-full items-center justify-start xl:w-72">
         <p class="h100 font-medium text-vneutral-50">Сравнение тарифов</p>
       </div>
       <div
         class="flex w-full flex-shrink flex-nowrap justify-start gap-x-3 gap-y-6 xl:w-[calc(100%-18rem)]"
       >
-        <div class="comparison-head-item" v-for="(item, index) in items" :key="index">
+        <div class="comparison-header-item" v-for="(item, index) in items" :key="index">
           <Badge variant="secondary" :class="`badge badge_${getColorClass(index)}`">
             {{ item.alt_name }}
           </Badge>
@@ -71,6 +77,28 @@ const filterLimits = (limitsArr, itemsArr) => {
       <div class="comparison-row__value" v-for="(item, idx) in items" :key="idx">
         <Check v-if="item.limits[limit.id - 1].is_available" />
         <p>{{ item.limits[limit.id - 1].value }}</p>
+      </div>
+    </div>
+    <div class="comparison-footer border-t-0">
+      <div class="flex w-full items-center justify-start xl:w-72">
+        <p class="h100 font-medium text-vneutral-50">Стоимость</p>
+      </div>
+      <div
+        class="flex w-full flex-shrink flex-nowrap justify-start gap-x-3 gap-y-6 xl:w-[calc(100%-18rem)]"
+      >
+        <div class="comparison-footer-item" v-for="(item, index) in items" :key="index">
+          <div class="flex flex-wrap items-center gap-2 lg:flex-nowrap">
+            <p class="sub-card__price h100 sm:h300">
+              {{ formatPrice(isAnnual ? item.annual_price : item.price) }}
+            </p>
+            <div v-if="item.type != 'Универсальная'" class="flex flex-col">
+              <p class="sub-card__price-period">в месяц</p>
+              <p class="sub-card__price-period">
+                оплата {{ isAnnual ? 'ежегодно' : 'ежемесячно' }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

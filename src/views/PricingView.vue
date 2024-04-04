@@ -13,6 +13,11 @@ const limits = ref([])
 const subscriptionsLoaded = ref(false)
 const limitsLoaded = ref(false)
 const isFamily = ref(true)
+const isAnnual = ref(true)
+
+const handleSwitch = (value) => {
+  isAnnual.value = value
+}
 
 onMounted(async () => {
   try {
@@ -97,6 +102,7 @@ const slideBg = (index) => {
             : subscriptions.data.slice(0, 1).concat(subscriptions.data.slice(4))
         "
         includeFree
+        @price-switched="handleSwitch"
       />
     </div>
   </section>
@@ -109,6 +115,7 @@ const slideBg = (index) => {
           : subscriptions.data.slice(0, 1).concat(subscriptions.data.slice(4))
       "
       :limits="limits.data"
+      :isAnnual="isAnnual"
     />
   </section>
 </template>

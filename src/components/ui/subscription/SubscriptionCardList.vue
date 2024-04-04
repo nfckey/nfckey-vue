@@ -13,10 +13,13 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['priceSwitched'])
+
 const isAnnual = ref(true)
 
 const handleSwitch = () => {
   isAnnual.value = !isAnnual.value
+  emit('priceSwitched', isAnnual.value)
 }
 
 const formatPrice = (price) =>
