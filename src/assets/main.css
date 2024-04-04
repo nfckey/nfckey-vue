@@ -485,7 +485,7 @@
 
   .comparison {
     &-head {
-      @apply sticky flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] py-4 xl:flex-nowrap;
+      @apply sticky top-0 flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] bg-white py-4 xl:flex-nowrap;
 
       &-item {
         @apply flex w-full flex-grow flex-col items-center gap-2 self-stretch sm:items-start;
