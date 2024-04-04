@@ -1,7 +1,8 @@
 <script setup>
 import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
 import { gsap } from 'gsap'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -17,7 +18,12 @@ import {
 import { Home, Menu, X } from 'lucide-vue-next'
 import LogoComponent from './ui/logo/LogoComponent.vue'
 
+const route = useRoute()
 const isOpen = ref(false)
+
+watch(route, () => {
+  isOpen.value = false
+})
 
 const isLargeScreen = ref(window.innerWidth >= 1024)
 

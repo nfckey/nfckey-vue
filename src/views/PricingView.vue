@@ -66,7 +66,7 @@ const slideBg = (index) => {
 </script>
 
 <template>
-  <section id="subscription">
+  <section id="subscription" class="min-h-max">
     <div class="flex flex-col items-center gap-8">
       <div class="subtitle_ca">
         <h1 class="subtitle_ca__title subtitle_ca__title_gradient">
@@ -100,7 +100,7 @@ const slideBg = (index) => {
       />
     </div>
   </section>
-  <section id="comparison">
+  <section id="comparison" class="min-h-max">
     <SubscriptionTable
       v-if="subscriptionsLoaded && limitsLoaded"
       :items="
