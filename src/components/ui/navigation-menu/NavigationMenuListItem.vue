@@ -1,4 +1,6 @@
 <script setup>
+import { NavigationMenuLink } from './'
+
 const props = defineProps({
   title: { type: String, required: false },
   description: { type: String, required: false },

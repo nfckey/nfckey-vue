@@ -30,7 +30,7 @@ const initializeStoryline = () => {
 
   mm.add('(min-width: 767.98px)', () => {
     ScrollTrigger.create({
-      trigger: '.story-right',
+      trigger: '#story',
       start: 'top top',
       end: 'bottom bottom',
       pin: '.story-left'
@@ -54,18 +54,15 @@ onMounted(() => {
     .from('.about-team__title_main', { y: 50, opacity: 0, duration: 1.5 }, 1)
     .from('.team__person', { opacity: 0, stagger: 0.2 }, 2)
 
-  animateOnScroll('#publishing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#publishing', '.publishing-list__item', { opacity: 0, stagger: 0.3 })
+  animateOnScroll('#priorities', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#priorities', '.priorities-item', { opacity: 0, stagger: 0.3 })
 
   initializeStoryline()
-
-  animateOnScroll('.story-right', '.story-images:first-child img', {
+  animateOnScroll('.story-right', '.story-images__group:first-child img', {
     opacity: 0,
     duration: 1,
     stagger: 0.3
   })
-  animateOnScroll('#priorities', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#priorities', '.priorities-item', { opacity: 0, stagger: 0.3 })
 })
 </script>
 
@@ -327,8 +324,10 @@ onMounted(() => {
           <img
             src="../assets/images/yvd-iv-3.png"
             alt="Команда NFCKEY на мероприятии четвертого сезона конкурса «Я в деле»"
+            @load="() => ScrollTrigger.refresh()"
           />
           <video
+            class="bg-vneutral-50"
             src="../assets/videos/yvd-iv-4.mp4"
             preload="metadata"
             controls

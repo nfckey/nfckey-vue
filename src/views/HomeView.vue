@@ -82,8 +82,6 @@ const initializeAnimations = () => {
   animateOnScroll('#team', '.team__person', { opacity: 0, stagger: 0.2 })
   animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
   animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
-  animateOnScroll('#publishing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#publishing', '.publishing-list__item', { opacity: 0, stagger: 0.3 })
   animateOnScroll('#pre-order', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#pre-order', '.form_pre-order div', { opacity: 0, stagger: 0.3 })
   animateOnScroll('#pre-order', '.form_pre-order button', { opacity: 0, duration: 0.9 })
