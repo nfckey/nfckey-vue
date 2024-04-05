@@ -449,6 +449,22 @@
         transparent 100%
       );
     }
+
+    &:hover .sub-card_purple {
+      background: radial-gradient(
+        200px circle at var(--x) var(--y),
+        rgba(129, 108, 224, var(--alpha)) 0%,
+        transparent 100%
+      );
+    }
+
+    &:hover .sub-card_red {
+      background: radial-gradient(
+        200px circle at var(--x) var(--y),
+        rgba(224, 108, 108, var(--alpha)) 0%,
+        transparent 100%
+      );
+    }
   }
 
   .subscription {
@@ -559,6 +575,14 @@
       @apply border-warning-700 hover:border-warning-600;
     }
 
+    &_purple {
+      @apply border-violet-300 hover:border-violet-400;
+    }
+
+    &_red {
+      @apply border-red-300 hover:border-red-400;
+    }
+
     &__head {
       @apply flex w-[244px] flex-col items-start gap-2 self-stretch;
     }
@@ -597,6 +621,14 @@
       &_gold {
         @apply bg-warning-600;
       }
+
+      &_purple {
+        @apply bg-violet-200;
+      }
+
+      &_red {
+        @apply bg-red-200;
+      }
     }
 
     & .bullet-points {
@@ -626,6 +658,14 @@
 
           &_gold {
             @apply text-warning-500;
+          }
+
+          &_purple {
+            @apply text-violet-500;
+          }
+
+          &_red {
+            @apply text-red-500;
           }
         }
       }
@@ -954,6 +994,14 @@
 
     &_gold {
       @apply border-warning-500 bg-warning-700 hover:border-warning-600 hover:bg-warning-800 !important;
+    }
+
+    &_purple {
+      @apply border-violet-400 bg-violet-200 hover:border-violet-300 hover:bg-violet-100 !important;
+    }
+
+    &_red {
+      @apply border-red-400 bg-red-200 hover:border-red-300 hover:bg-red-100 !important;
     }
   }
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 import { Badge } from '@/components/ui/badge'
 import { Switch } from '@/components/ui/switch'
@@ -8,6 +8,10 @@ import SubscriptionCardLimit from './SubscriptionCardLimit.vue'
 const props = defineProps({
   items: Array,
   includeFree: {
+    type: Boolean,
+    default: false
+  },
+  includeWarranty: {
     type: Boolean,
     default: false
   }
@@ -29,10 +33,18 @@ const formatPrice = (price) =>
 
 const itemRefs = ref([])
 
+watch(
+  () => props.items,
+  () => {
+    itemRefs.value = []
+  }
+)
+
 const handleCardsGlow = (e) => {
   if (!itemRefs.value) return
 
   itemRefs.value.forEach((card) => {
+    if (!card) return
     const rect = card.getBoundingClientRect()
 
     card.style.setProperty('--x', `${e.clientX - rect.left}px`)
@@ -44,6 +56,7 @@ const handleCardsFadeIn = () => {
   if (!itemRefs.value) return
 
   itemRefs.value.forEach((card) => {
+    if (!card) return
     let alpha = 0
 
     const fadeInInterval = setInterval(() => {
@@ -60,6 +73,7 @@ const handleCardsFadeOut = () => {
   if (!itemRefs.value) return
 
   itemRefs.value.forEach((card) => {
+    if (!card) return
     let alpha = 0.294
 
     const fadeOutInterval = setInterval(() => {
@@ -73,10 +87,49 @@ const handleCardsFadeOut = () => {
 }
 
 const getColorClass = (index) => {
-  const colors = ['light', 'green', 'gold']
-  const includeFreeColors = ['gray', 'light', 'green', 'gold']
+  const colors = ['light', 'green', 'gold', 'purple']
+  const includeFreeColors = ['gray', 'light', 'green', 'gold', 'purple']
 
   return props.includeFree ? includeFreeColors[index] : colors[index]
+}
+
+const warrantyCard = {
+  name: 'Расширенная гарантия',
+  altName: 'LockProtect+',
+  description: 'Исключительная забота о надежности ваших умных замков',
+  price: '349 ₽',
+  features: [
+    {
+      name: 'Бесплатный ремонт',
+      is_previewable: true,
+      is_available: true
+    },
+    {
+      name: 'Возможность замены замка',
+      is_previewable: true,
+      is_available: true
+    },
+    {
+      name: 'Сервисное обслуживание',
+      is_previewable: true,
+      is_available: true
+    },
+    {
+      name: 'Обновление прошивки',
+      is_previewable: true,
+      is_available: true
+    },
+    {
+      name: 'Аудиты безопасности',
+      is_previewable: true,
+      is_available: true
+    },
+    {
+      name: 'Приоритетная поддержка',
+      is_previewable: true,
+      is_available: true
+    }
+  ]
 }
 </script>
 
@@ -99,7 +152,7 @@ const getColorClass = (index) => {
     <div
       v-for="(item, index) in items"
       :key="index"
-      ref="itemRefs"
+      :ref="(el) => itemRefs.push(el)"
       :class="`sub-card sub-card_${getColorClass(index)}`"
     >
       <div class="sub-card__head">
@@ -116,19 +169,56 @@ const getColorClass = (index) => {
           <p class="sub-card__price">
             {{ formatPrice(isAnnual ? item.annual_price : item.price) }}
           </p>
-          <div v-if="item.type != 'Универсальная'" class="flex flex-col">
+          <div
+            v-if="item.type !== 'Универсальная' && item.alt_name !== 'Endless'"
+            class="flex flex-col"
+          >
             <p class="sub-card__price-period">в месяц</p>
             <p class="sub-card__price-period">оплата {{ isAnnual ? 'ежегодно' : 'ежемесячно' }}</p>
+          </div>
+          <div v-if="item.alt_name === 'Endless'" class="flex flex-col">
+            <p class="sub-card__price-period">единоразовый платеж</p>
           </div>
         </div>
       </div>
       <div :class="`sub-card__delimiter sub-card__delimiter_${getColorClass(index)}`"></div>
-      <div :class="`bullet-points`">
+      <div class="bullet-points">
         <SubscriptionCardLimit
           v-for="(limit, idx) in item.limits"
           :key="idx"
           :limit="limit"
           :color="getColorClass(index)"
+        />
+      </div>
+    </div>
+    <div v-if="includeWarranty" :ref="(el) => itemRefs.push(el)" class="sub-card sub-card_red">
+      <div class="sub-card__head">
+        <Badge variant="secondary" class="badge badge_red">
+          {{ warrantyCard.altName }}
+        </Badge>
+        <p class="sub-card__title" :class="{ 'h100 leading-8': warrantyCard.name.length > 16 }">
+          {{ warrantyCard.name }}
+        </p>
+        <p class="sub-card__text">
+          {{ warrantyCard.description }}
+        </p>
+        <div class="flex items-center gap-2">
+          <p class="sub-card__price">
+            {{ warrantyCard.price }}
+          </p>
+          <div class="flex flex-col">
+            <p class="sub-card__price-period">за замок в месяц</p>
+            <p class="sub-card__price-period">оплата ежемесячно</p>
+          </div>
+        </div>
+      </div>
+      <div class="sub-card__delimiter sub-card__delimiter_red"></div>
+      <div class="bullet-points">
+        <SubscriptionCardLimit
+          v-for="(feature, index) in warrantyCard.features"
+          :key="index"
+          :limit="feature"
+          :color="'red'"
         />
       </div>
     </div>

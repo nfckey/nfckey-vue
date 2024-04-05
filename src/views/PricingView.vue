@@ -61,12 +61,19 @@ watch(subscriptions, () => {
 
 const slideBg = (index) => {
   if (isFamily.value != index) return
+
   const typeSwitch = document.querySelector('.subscription-type-switch')
   typeSwitch.style.setProperty('--bg-offset', `${50 * index}%`)
-
   typeSwitch.classList.toggle('subscription-type-switch_family')
   typeSwitch.classList.toggle('subscription-type-switch_landlords')
+
   isFamily.value = !isFamily.value
+}
+
+const filterSubscriptions = (subscriptions, type1, type2) => {
+  return subscriptions.filter(
+    (subscription) => subscription.type === type1 || subscription.type === type2
+  )
 }
 </script>
 
@@ -98,10 +105,11 @@ const slideBg = (index) => {
         v-if="subscriptionsLoaded"
         :items="
           isFamily
-            ? subscriptions.data.slice(0, 4)
-            : subscriptions.data.slice(0, 1).concat(subscriptions.data.slice(4))
+            ? filterSubscriptions(subscriptions.data, 'Семьям', 'Универсальная')
+            : filterSubscriptions(subscriptions.data, 'Арендодателям', 'Универсальная')
         "
         includeFree
+        includeWarranty
         @price-switched="handleSwitch"
       />
     </div>
@@ -111,8 +119,8 @@ const slideBg = (index) => {
       v-if="subscriptionsLoaded && limitsLoaded"
       :items="
         isFamily
-          ? subscriptions.data.slice(0, 4)
-          : subscriptions.data.slice(0, 1).concat(subscriptions.data.slice(4))
+          ? filterSubscriptions(subscriptions.data, 'Семьям', 'Универсальная')
+          : filterSubscriptions(subscriptions.data, 'Арендодателям', 'Универсальная')
       "
       :limits="limits.data"
       :isAnnual="isAnnual"

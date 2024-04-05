@@ -10,7 +10,7 @@ defineProps({
 })
 
 const getColorClass = (index) => {
-  const colors = ['gray', 'light', 'green', 'gold']
+  const colors = ['gray', 'light', 'green', 'gold', 'purple']
   return colors[index]
 }
 
@@ -70,7 +70,7 @@ const formatPrice = (price) =>
             </div>
           </PopoverTrigger>
           <PopoverContent class="w-dvw sm:w-96">
-            <p>{{ limit.description }}</p>
+            <p class="para-xs font-medium">{{ limit.description }}</p>
           </PopoverContent>
         </Popover>
       </div>
@@ -88,14 +88,20 @@ const formatPrice = (price) =>
       >
         <div class="comparison-footer-item" v-for="(item, index) in items" :key="index">
           <div class="flex flex-wrap items-center gap-2 lg:flex-nowrap">
-            <p class="sub-card__price h100 sm:h300">
+            <p class="sub-card__price h100 sm:h200">
               {{ formatPrice(isAnnual ? item.annual_price : item.price) }}
             </p>
-            <div v-if="item.type != 'Универсальная'" class="flex flex-col">
+            <div
+              v-if="item.type !== 'Универсальная' && item.alt_name !== 'Endless'"
+              class="flex flex-col"
+            >
               <p class="sub-card__price-period">в месяц</p>
               <p class="sub-card__price-period">
                 оплата {{ isAnnual ? 'ежегодно' : 'ежемесячно' }}
               </p>
+            </div>
+            <div v-if="item.alt_name === 'Endless'" class="flex flex-col">
+              <p class="sub-card__price-period">единоразовый платеж</p>
             </div>
           </div>
         </div>
