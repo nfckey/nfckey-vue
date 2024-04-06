@@ -352,7 +352,7 @@
   }
 
   .faq-list {
-    @apply w-full max-w-3xl font-inter;
+    @apply w-full font-inter;
 
     &_home {
       @apply max-w-full md:max-w-xl;
@@ -365,15 +365,15 @@
         @apply max-w-full md:max-w-xl;
       }
 
-      & > a {
-        @apply cursor-pointer text-brand-400 hover:text-brand-300;
+      & a {
+        @apply cursor-pointer text-brand-400 hover:text-brand-300 hover:underline hover:underline-offset-2;
       }
 
       & > ol {
         @apply list-decimal pl-8;
 
         & > li {
-          @apply py-2;
+          @apply py-1;
         }
       }
 
@@ -381,7 +381,7 @@
         @apply list-disc pl-8;
 
         & > li {
-          @apply py-2;
+          @apply py-1;
         }
       }
     }
