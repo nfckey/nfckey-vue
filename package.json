@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
-    "@ivanv/vue-collapse-transition": "^1.0.2",
     "@studio-freight/lenis": "^1.0.37",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@vee-validate/zod": "^4.12.6",

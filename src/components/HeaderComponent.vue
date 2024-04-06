@@ -1,5 +1,4 @@
 <script setup>
-import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
 import { gsap } from 'gsap'
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -15,7 +14,15 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
-import { Home, Menu, X } from 'lucide-vue-next'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger
+} from '@/components/ui/sheet'
+import { Home, Menu } from 'lucide-vue-next'
 import LogoComponent from './ui/logo/LogoComponent.vue'
 
 const route = useRoute()
@@ -92,20 +99,101 @@ const aboutLinks = [
 </script>
 
 <template>
-  <header class="container relative z-[5] mx-auto w-full py-5" :class="{ 'bg-white': isOpen }">
-    <div class="max-w-screen-xl items-center justify-between lg:flex lg:px-8">
-      <div class="flex items-center justify-between lg:block">
-        <LogoComponent />
-        <div class="lg:hidden" id="menuBtn">
-          <Button variant="outline" size="icon" @click="isOpen = !isOpen">
-            <X class="h-4 w-4" v-if="isOpen" />
-            <Menu class="h-4 w-4" v-else />
-          </Button>
+  <Sheet v-model:open="isOpen">
+    <header class="container relative z-[5] py-5">
+      <div class="max-w-screen-xl items-center justify-between sm:px-8 lg:flex">
+        <div class="flex items-center justify-between">
+          <LogoComponent />
+          <div class="lg:hidden" id="menuBtn">
+            <SheetTrigger>
+              <Button variant="outline" size="icon">
+                <Menu class="size-4" />
+              </Button>
+            </SheetTrigger>
+          </div>
         </div>
-      </div>
 
-      <collapse-transition>
-        <div v-show="isOpen || isLargeScreen" class="menu lg:menu_desktop">
+        <SheetContent :side="'top'">
+          <SheetHeader>
+            <SheetTitle class="flex justify-center"><LogoComponent /></SheetTitle>
+            <SheetDescription> </SheetDescription>
+          </SheetHeader>
+          <div class="flex items-center justify-center pt-6">
+            <NavigationMenu>
+              <NavigationMenuList class="flex-1 flex-col sm:flex-row">
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>
+                    <p class="menu-link">Арендодателям</p>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul
+                      class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[minmax(0,.75fr)_minmax(0,1fr)]"
+                    >
+                      <li class="row-span-3">
+                        <NavigationMenuLink as-child>
+                          <router-link
+                            to="/landlords"
+                            class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-orange-100 p-6 no-underline outline-none focus:shadow-md"
+                          >
+                            <Home class="h-6 w-6" />
+                            <div class="mb-2 mt-4 text-lg font-medium">Арендодателям</div>
+                            <p class="text-sm leading-tight text-muted-foreground">
+                              Упростите процесс управления вашей недвижимостью.
+                            </p>
+                          </router-link>
+                        </NavigationMenuLink>
+                      </li>
+                      <NavigationMenuListItem
+                        v-for="component in landlordsLinks"
+                        :key="component.title"
+                        :title="component.title"
+                        :description="component.description"
+                        :href="component.href"
+                      >
+                      </NavigationMenuListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>
+                    <p class="menu-link">О проекте</p>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul class="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                      <NavigationMenuListItem
+                        v-for="component in aboutLinks"
+                        :key="component.title"
+                        :title="component.title"
+                        :description="component.description"
+                        :href="component.href"
+                      >
+                      </NavigationMenuListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                    <router-link to="/pricing">
+                      <p class="menu-link">Подписка</p>
+                    </router-link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                    <router-link to="/faq">
+                      <p class="menu-link">FAQ</p>
+                    </router-link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+        </SheetContent>
+
+        <div class="menu">
           <NavigationMenu>
             <NavigationMenuList class="flex-1 flex-col sm:flex-row">
               <NavigationMenuItem>
@@ -178,7 +266,7 @@ const aboutLinks = [
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-      </collapse-transition>
-    </div>
-  </header>
+      </div>
+    </header>
+  </Sheet>
 </template>

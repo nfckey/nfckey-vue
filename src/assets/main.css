@@ -97,13 +97,7 @@
   }
 
   .menu {
-    @apply absolute left-0 right-0 top-0 mt-[84px] flex items-center justify-center bg-white pb-4 lg:pb-0;
-
-    &_desktop {
-      margin-top: 0px;
-      position: initial;
-      display: initial;
-    }
+    @apply hidden items-center justify-center bg-white pb-4 lg:flex lg:pb-0;
 
     &-link {
       @apply text-center font-inter text-vneutral-200;
@@ -493,7 +487,7 @@
         }
 
         & span {
-          @apply h25 z-[10] select-none text-center font-medium text-vneutral-400 transition-colors hover:text-vneutral-50;
+          @apply h25 z-[2] select-none text-center font-medium text-vneutral-400 transition-colors hover:text-vneutral-50;
         }
       }
     }
