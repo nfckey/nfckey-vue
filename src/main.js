@@ -11,8 +11,10 @@ import LandlordsView from './views/LandlordsView.vue'
 import PersonalView from './views/PersonalView.vue'
 import PricingView from './views/PricingView.vue'
 import PrivacyView from './views/PrivacyView.vue'
+import NotFoundView from './views/NotFoundView.vue'
 
 const routes = [
+  { path: '/:pathMatch(.*)*', name: 'notFound', component: NotFoundView },
   { path: '/', name: 'home', component: HomeView },
   { path: '/about', name: 'about', component: AboutView },
   { path: '/faq', name: 'faq', component: FaqView },
