@@ -21,7 +21,7 @@ onMounted(() => {
     }
   })
 
-  tl.from('.footer__logo', { y: -50, opacity: 0, duration: 1 })
+  tl.from('.footer__logo', { opacity: 0, duration: 1 })
     .from('.footer-links', { opacity: 0, stagger: 0.3 })
     .from('.footer-links .footer-link', { opacity: 0, stagger: 0.1 })
     .from('#notifications', { x: 50, opacity: 0, duration: 1 }, 1)

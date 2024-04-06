@@ -42,7 +42,7 @@ onMounted(() => {
   window.addEventListener('resize', handleResize)
 
   const tl = gsap.timeline()
-  tl.fromTo('.logo', { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 1.7)
+  tl.fromTo('header .logo', { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 1.7)
     .fromTo('#menuBtn', { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 2.5)
     .fromTo(
       '.menu .group li',
