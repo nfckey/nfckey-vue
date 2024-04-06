@@ -80,7 +80,7 @@
 
 @layer components {
   section {
-    @apply min-h-dvh py-24;
+    @apply min-h-screen py-24;
 
     &#hero {
       @apply container flex items-center justify-center py-0;
@@ -161,10 +161,10 @@
     }
 
     &__gradient {
-      @apply relative left-0 top-[-32rem] z-[1] h-0 w-0 shrink-0 sm:top-[-40rem] lg:top-[-20rem];
+      @apply relative left-0 top-[-32rem] z-[1] h-0 w-0 shrink-0 will-change-transform sm:top-[-40rem] lg:top-[-20rem];
 
       &__ellipse {
-        @apply absolute h-52 w-52 shrink-0 rounded-full blur-[61px] sm:h-80 sm:w-80 sm:blur-[124px];
+        @apply absolute h-52 w-52 shrink-0 rounded-full blur-[61px] will-change-transform sm:h-80 sm:w-80 sm:blur-[124px];
 
         &_1 {
           z-index: 0;
@@ -313,7 +313,7 @@
     }
 
     &__title {
-      @apply h600 sm:h800 font-medium sm:w-[496px];
+      @apply h600 sm:h800 min-h-[204px] font-medium sm:min-h-[258px] sm:w-[496px];
     }
 
     &__video {
