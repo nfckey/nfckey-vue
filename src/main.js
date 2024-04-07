@@ -16,43 +16,43 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: import('@/views/AboutView.vue'),
+    component: () => import('@/views/AboutView.vue'),
     meta: { title: 'О проекте - NFCKEY' }
   },
   {
     path: '/faq',
     name: 'faq',
-    component: import('@/views/FaqView.vue'),
+    component: () => import('@/views/FaqView.vue'),
     meta: { title: 'Часто задаваемые вопросы - NFCKEY' }
   },
   {
     path: '/landlords',
     name: 'landlords',
-    component: import('@/views/LandlordsView.vue'),
+    component: () => import('@/views/LandlordsView.vue'),
     meta: { title: 'NFCKEY для арендодателей' }
   },
   {
     path: '/personal',
     name: 'personal',
-    component: import('@/views/PersonalView.vue'),
+    component: () => import('@/views/PersonalView.vue'),
     meta: { title: 'Персональные данные - NFCKEY' }
   },
   {
     path: '/pricing',
     name: 'pricing',
-    component: import('@/views/PricingView.vue'),
+    component: () => import('@/views/PricingView.vue'),
     meta: { title: 'Подписка - NFCKEY' }
   },
   {
     path: '/privacy',
     name: 'privacy',
-    component: import('@/views/PrivacyView.vue'),
+    component: () => import('@/views/PrivacyView.vue'),
     meta: { title: 'Политика конфиденциальности - NFCKEY' }
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'notFound',
-    component: import('@/views/NotFoundView.vue'),
+    component: () => import('@/views/NotFoundView.vue'),
     meta: { title: 'Страница не найдена - NFCKEY' }
   }
 ]
