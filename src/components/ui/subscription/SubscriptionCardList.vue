@@ -40,16 +40,60 @@ watch(
   }
 )
 
+let lastTap = { x: 0, y: 0 }
+let currentTap = { x: 0, y: 0 }
+let isTransitioning = false
+const transitionDuration = 250
+
+const smoothTransition = () => {
+  isTransitioning = true
+  let startTime = null
+
+  const animate = (timestamp) => {
+    if (!startTime) startTime = timestamp
+    const progress = timestamp - startTime
+    const durationFraction = Math.min(progress / transitionDuration, 1)
+
+    const intermediateX = lastTap.x + (currentTap.x - lastTap.x) * durationFraction
+    const intermediateY = lastTap.y + (currentTap.y - lastTap.y) * durationFraction
+
+    itemRefs.value.forEach((card) => {
+      if (!card) return
+      const rect = card.getBoundingClientRect()
+
+      card.style.setProperty('--x', `${intermediateX - rect.left}px`)
+      card.style.setProperty('--y', `${intermediateY - rect.top}px`)
+    })
+
+    if (durationFraction < 1) {
+      requestAnimationFrame(animate)
+    } else {
+      lastTap = currentTap
+      isTransitioning = false
+    }
+  }
+
+  requestAnimationFrame(animate)
+}
+
 const handleCardsGlow = (e) => {
   if (!itemRefs.value) return
 
-  itemRefs.value.forEach((card) => {
-    if (!card) return
-    const rect = card.getBoundingClientRect()
+  if (window.matchMedia('(any-pointer: coarse)').matches) {
+    currentTap = { x: e.clientX, y: e.clientY }
 
-    card.style.setProperty('--x', `${e.clientX - rect.left}px`)
-    card.style.setProperty('--y', `${e.clientY - rect.top}px`)
-  })
+    if (!isTransitioning) {
+      smoothTransition()
+    }
+  } else {
+    itemRefs.value.forEach((card) => {
+      if (!card) return
+      const rect = card.getBoundingClientRect()
+
+      card.style.setProperty('--x', `${e.clientX - rect.left}px`)
+      card.style.setProperty('--y', `${e.clientY - rect.top}px`)
+    })
+  }
 }
 
 const handleCardsFadeIn = () => {
