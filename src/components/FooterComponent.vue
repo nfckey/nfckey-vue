@@ -82,10 +82,6 @@ const footerLinks = [
       {
         name: 'Политика конфиденциальности',
         href: '/privacy'
-      },
-      {
-        name: 'Персональные данные',
-        href: '/personal'
       }
     ]
   }

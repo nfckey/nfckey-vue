@@ -32,12 +32,6 @@ const routes = [
     meta: { title: 'NFCKEY для арендодателей' }
   },
   {
-    path: '/personal',
-    name: 'personal',
-    component: () => import('@/views/PersonalView.vue'),
-    meta: { title: 'Персональные данные - NFCKEY' }
-  },
-  {
     path: '/pricing',
     name: 'pricing',
     component: () => import('@/views/PricingView.vue'),

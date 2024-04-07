@@ -971,6 +971,52 @@
     }
   }
 
+  .privacy {
+    & h1 {
+      @apply h200 md:h300 font-semibold;
+    }
+
+    & h2 {
+      @apply md:h200 h100 mb-4 mt-8 font-semibold;
+    }
+
+    & p {
+      @apply para-xs pb-4;
+    }
+
+    & ol {
+      @apply ml-8;
+
+      & li {
+        @apply py-2;
+      }
+    }
+
+    & ul {
+      @apply ml-6;
+
+      & li {
+        @apply py-2;
+
+        &::marker {
+          content: '— ';
+        }
+      }
+    }
+
+    & table {
+      @apply w-full;
+
+      & td {
+        @apply para-xs border-[1px] border-black p-2 align-top;
+
+        &:first-child {
+          @apply font-medium;
+        }
+      }
+    }
+  }
+
   .badge {
     @apply h05 select-none text-center font-medium !important;
 
