@@ -335,7 +335,7 @@
     }
 
     &__price {
-      @apply md:h500 h400 font-semibold;
+      @apply md:h400 h300 font-semibold;
 
       &-clarification {
         @apply para-xs self-center text-balance text-center font-normal text-vneutral-400 xl:self-start;

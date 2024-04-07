@@ -24,7 +24,6 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { NotificationsForm } from '@/components/ui/form'
 import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/subscription'
-import { PreOrderForm } from '@/components/ui/form'
 import { PublishingList } from '@/components/ui/publishing'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
@@ -90,8 +89,6 @@ const initializeAnimations = () => {
   animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
   animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
   animateOnScroll('#pre-order', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#pre-order', '.form_pre-order div', { opacity: 0, stagger: 0.3 })
-  animateOnScroll('#pre-order', '.form_pre-order button', { opacity: 0, duration: 0.9 })
 }
 
 const subscriptions = ref([])
@@ -466,25 +463,6 @@ const faqItems = [
       </Accordion>
     </div>
   </section>
-  <section id="pre-order" class="min-h-max">
-    <div class="flex flex-col items-center gap-16">
-      <div class="subtitle_ca">
-        <p class="subtitle_ca__subheading subtitle_ca__title_gradient bg-gradient-to-r">
-          Оставьте заявку
-        </p>
-        <h2
-          class="subtitle_ca__title subtitle_ca__title_gradient sm:h400 text-4xl md:bg-gradient-to-r"
-        >
-          Готовы перейти на новый уровень?
-        </h2>
-        <p class="subtitle_ca__text subtitle_ca__text_pre-order">
-          Зарезервируйте свой NFC-замок прямо сейчас и получите
-          <span class="text-brand-400">скидку 5%</span> на будущий заказ
-        </p>
-      </div>
-      <PreOrderForm />
-    </div>
-  </section>
   <section id="team" class="min-h-max">
     <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
@@ -509,6 +487,44 @@ const faqItems = [
         </p>
       </div>
       <PublishingList />
+    </div>
+  </section>
+  <section id="pre-order" class="min-h-max">
+    <div class="flex flex-col items-center gap-16">
+      <div class="subtitle_ca">
+        <p class="subtitle_ca__subheading subtitle_ca__title_gradient bg-gradient-to-r">
+          Будьте в числе первых
+        </p>
+        <h2
+          class="subtitle_ca__title subtitle_ca__title_gradient sm:h400 text-4xl md:bg-gradient-to-r"
+        >
+          Готовы перейти на новый уровень?
+        </h2>
+        <p class="subtitle_ca__text subtitle_ca__text_pre-order">
+          Узнайте о выходе NFCKEY на рынок первыми, подписавшись на наш
+          <a
+            class="text-brand-400 hover:underline hover:underline-offset-4"
+            href="https://t.me/nfckey"
+          >
+            Telegram-канал
+          </a>
+        </p>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-4">
+        <a
+          class="flex flex-col items-center justify-center hover:text-brand-400"
+          href="https://t.me/nfckey"
+        >
+          <img
+            src="../assets/qr-nfckey-telegram.svg"
+            alt="Телеграм-канал NFCKEY"
+            class="w-full max-w-80"
+          />
+          <p class="h50 max-w-96 text-balance text-center font-medium transition-colors">
+            NFCKEY в Telegram – последние события, эксклюзивные материалы и инсайды
+          </p>
+        </a>
+      </div>
     </div>
   </section>
 </template>
