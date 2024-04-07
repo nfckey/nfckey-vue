@@ -14,6 +14,13 @@ import {
 import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { AvatarList } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { NotificationsForm } from '@/components/ui/form'
 import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/subscription'
@@ -363,16 +370,44 @@ const faqItems = [
           неограниченный срок
         </p>
       </div>
-      <div class="flex flex-col items-center justify-around gap-8 xl:flex-row">
-        <img
-          src="../assets/images/nfckey-doorlock-ltr.png"
-          alt="Умный замок NFCKEY"
-          class="pricing__image"
-        />
+      <div class="flex w-full flex-col items-center justify-around gap-8 xl:flex-row">
+        <Carousel class="relative mx-14 w-full max-w-xs md:max-w-md">
+          <CarouselContent>
+            <CarouselItem>
+              <img
+                class="pricing__image"
+                src="../assets/images/product-1.png"
+                alt="Умный замок NFCKEY"
+              />
+            </CarouselItem>
+            <CarouselItem>
+              <img
+                class="pricing__image"
+                src="../assets/images/product-2.png"
+                alt="Умный замок NFCKEY"
+              />
+            </CarouselItem>
+            <CarouselItem>
+              <img
+                class="pricing__image"
+                src="../assets/images/product-3.png"
+                alt="Умный замок NFCKEY"
+              />
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
         <div class="pricing__content">
-          <div class="pricing__price">
-            <p class="md:h800 h600">15 990 ₽</p>
-            <p class="h200">*</p>
+          <div class="flex flex-col items-center justify-start gap-4 self-stretch xl:items-start">
+            <p class="pricing__title">Умный замок NFCKEY</p>
+            <div class="flex flex-col gap-2">
+              <p class="h50">Предварительная стоимость:</p>
+              <div class="flex justify-center gap-2 xl:justify-start">
+                <p class="pricing__price">15 990 ₽</p>
+                <p class="h100 font-semibold">*</p>
+              </div>
+            </div>
           </div>
           <div class="flex flex-col items-center justify-center gap-4">
             <OpportunitiesCard />

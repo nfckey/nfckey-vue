@@ -323,22 +323,22 @@
 
   .pricing {
     &__content {
-      @apply flex flex-col items-start justify-center gap-8 pt-6;
+      @apply flex h-full flex-col items-start justify-center gap-8;
     }
 
     &__image {
-      @apply h-auto max-w-[70%] xl:max-w-[40%];
+      @apply rounded-xl border-2;
+    }
+
+    &__title {
+      @apply md:h400 h300 text-center font-semibold;
     }
 
     &__price {
-      @apply flex items-start justify-center gap-2 self-stretch;
-
-      & p {
-        @apply text-center font-semibold text-vneutral-50;
-      }
+      @apply md:h500 h400 font-semibold;
 
       &-clarification {
-        @apply para-xs text-balance text-center font-normal text-vneutral-400;
+        @apply para-xs self-center text-balance text-center font-normal text-vneutral-400 xl:self-start;
       }
     }
 
