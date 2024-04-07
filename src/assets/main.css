@@ -549,9 +549,9 @@
   }
 
   .sub-card {
-    @apply box-border flex w-[292px] flex-col items-center gap-4 
-    rounded-2xl border border-vneutral-1300 bg-clip-padding p-6 
-    shadow-sm backdrop-blur-md backdrop-filter transition-colors;
+    @apply flex w-[292px] flex-col items-center gap-4 p-6;
+    @apply box-border rounded-2xl border border-vneutral-1300;
+    @apply bg-clip-padding shadow-sm backdrop-blur-md backdrop-filter transition-colors;
 
     &_gray {
       @apply border-vneutral-900 hover:border-vneutral-800;

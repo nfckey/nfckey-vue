@@ -106,11 +106,14 @@ onMounted(async () => {
 
 watch(subscriptions, () => {
   nextTick(() => {
-    animateOnScroll('#subscription', '.sub-card', {
-      opacity: 0,
-      y: -50,
-      stagger: 0.5,
-      duration: 0.7
+    ScrollTrigger.batch('#subscription .sub-card', {
+      onEnter: (elements) => {
+        gsap.from(elements, {
+          opacity: 0,
+          y: 50,
+          stagger: 0.3
+        })
+      }
     })
   })
 })
