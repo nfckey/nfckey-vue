@@ -864,6 +864,10 @@
   }
 
   .about-team {
+    &__logo {
+      @apply will-change-transform;
+    }
+
     &__title {
       &_main {
         @apply md:h300 h200 subtitle_ca__title_gradient text-balance text-center font-medium;

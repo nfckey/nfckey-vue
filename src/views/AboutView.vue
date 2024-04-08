@@ -1,21 +1,23 @@
 <script setup>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 import { AvatarList } from '@/components/ui/avatar'
 import { PublishingList } from '@/components/ui/publishing'
-import { Unlock, Smartphone, Shield } from 'lucide-vue-next'
+import { Shield, Smartphone, Unlock } from 'lucide-vue-next'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const animateOnScroll = (trigger, elements, options, triggerPos) => {
+const ctx = gsap.context(() => {})
+
+const animateOnScroll = (trigger, elements, options, triggerStart, triggerEnd) => {
   gsap.from(trigger + ' ' + elements, {
     ...options,
     scrollTrigger: {
       trigger: trigger,
-      start: triggerPos ? `${triggerPos} center` : 'top center',
-      end: triggerPos ? `${triggerPos} center` : 'top center'
+      start: triggerStart ? triggerStart : 'top center',
+      end: triggerEnd ? triggerEnd : 'top center'
     }
   })
 }
@@ -31,9 +33,10 @@ const initializeStoryline = () => {
   mm.add('(min-width: 767.98px)', () => {
     ScrollTrigger.create({
       trigger: '#story',
-      start: 'top top',
+      start: '96px top',
       end: 'bottom bottom',
-      pin: '.story-left'
+      pin: '.story-left',
+      markers: true
     })
   })
 
@@ -49,20 +52,46 @@ const initializeStoryline = () => {
 }
 
 onMounted(() => {
-  const tl = gsap.timeline()
-  tl.from('.about-team__logo', { opacity: 0, duration: 1 }, 0.5)
-    .from('.about-team__title_main', { y: 50, opacity: 0, duration: 1.5 }, 1)
-    .from('.team__person', { opacity: 0, stagger: 0.2 }, 2)
+  ctx.add(() => {
+    const tl = gsap.timeline()
+    tl.from('.about-team__logo', { opacity: 0, duration: 0.5 }, 0.5)
+      .from('.about-team__title_main', { y: 25, opacity: 0, duration: 1 }, 1)
+      .from('.about-team__team .team__person', { opacity: 0, stagger: 0.2 }, 2)
 
-  animateOnScroll('#priorities', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#priorities', '.priorities-item', { opacity: 0, stagger: 0.3 })
+    animateOnScroll(
+      '.about-team__contributors',
+      '.about-team__title_contributors',
+      { opacity: 0, y: 25, duration: 1 },
+      '30% bottom',
+      'bottom bottom'
+    )
+    animateOnScroll(
+      '.about-team__contributors',
+      '.team__person',
+      { opacity: 0, stagger: 0.2 },
+      '50% bottom',
+      'bottom bottom'
+    )
 
-  initializeStoryline()
-  animateOnScroll('.story-right', '.story-images__group:first-child img', {
-    opacity: 0,
-    duration: 1,
-    stagger: 0.3
+    animateOnScroll(
+      '#priorities',
+      '.subtitle_ca',
+      { opacity: 0, y: 50, duration: 1 },
+      '-30% center'
+    )
+    animateOnScroll('#priorities', '.priorities-item', { opacity: 0, stagger: 0.3 })
+
+    initializeStoryline()
+    animateOnScroll('.story-right', '.story-images__group:first-child img', {
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3
+    })
   })
+})
+
+onUnmounted(() => {
+  ctx.revert()
 })
 </script>
 
@@ -72,12 +101,14 @@ onMounted(() => {
       <div class="flex max-w-4xl flex-col items-center gap-8">
         <img class="about-team__logo" src="../assets/logo-large.svg" alt="Логотип NFCKEY" />
         <p class="about-team__title_main">
-          NFCKEY – команда энтузиастов, стремящаяся стать первым серьезным конкурентом среди
-          российских производителей умных замков
+          NFCKEY – команда энтузиастов, стремящаяся стать первым серьезным конкурентом на рынке
+          умных замков среди российских производителей
         </p>
       </div>
-      <AvatarList />
-      <div class="flex flex-col items-center gap-8">
+      <div class="about-team__team">
+        <AvatarList />
+      </div>
+      <div class="about-team__contributors flex flex-col items-center gap-8">
         <p class="about-team__title_contributors">
           Выражаем отдельную благодарность за участие в развитии проекта
         </p>
