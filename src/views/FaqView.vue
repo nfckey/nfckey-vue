@@ -1,10 +1,36 @@
 <script setup>
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { onMounted, onUnmounted } from 'vue'
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const ctx = gsap.context(() => {})
+
+onMounted(() => {
+  ctx.add(() => {
+    ScrollTrigger.batch('.faq-list__item', {
+      onEnter: (elements) => {
+        gsap.from(elements, {
+          opacity: 0,
+          x: -20,
+          stagger: 0.15
+        })
+      }
+    })
+  })
+})
+
+onUnmounted(() => {
+  ctx.revert()
+})
 
 const faqSections = [
   {
@@ -186,12 +212,13 @@ const faqSections = [
         :key="index"
         class="flex w-full flex-col items-start gap-4 md:w-2/3 xl:w-1/2"
       >
-        <h2 class="h100 font-semibold text-brand-400">{{ section.title }}</h2>
+        <h2 class="h100 faq-list__item font-semibold text-brand-400">{{ section.title }}</h2>
         <Accordion type="multiple" class="faq-list" collapsible>
           <AccordionItem
             v-for="(question, idx) in section.questions"
             :key="idx"
             :value="`item-${idx}`"
+            class="faq-list__item"
           >
             <AccordionTrigger class="text-start">{{ question.title }}</AccordionTrigger>
             <AccordionContent>
