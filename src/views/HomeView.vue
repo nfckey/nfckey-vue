@@ -84,10 +84,9 @@ const initializeAnimations = () => {
   animateOnScroll('#how-it-works', '.how-it-works__title', { duration: 2, text: '' }, '30%')
   animateOnScroll('#how-it-works', '.how-it-works__video', { opacity: 0, x: 25, duration: 2 })
   animateOnScroll('#pricing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#pricing', '.pricing__image, .pricing__content', { opacity: 0, duration: 1 })
   animateOnScroll('#pricing', '.bullet-point', { opacity: 0, stagger: 0.3 })
   animateOnScroll('#pricing', '.pricing__price-clarification', { duration: 2, delay: 2, text: '' })
-  animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+  animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 25, duration: 1 }, '-30%')
   animateOnScroll('#team', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#team', '.team__person', { opacity: 0, stagger: 0.2 })
   animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
@@ -136,7 +135,7 @@ const heroImgHover = () => {
   setTimeout(() => {
     heroImg.src = isHovered.value ? heroImg100 : heroImg50
     heroImg.classList.remove('hero__image_transitioning')
-  }, 295)
+  }, 150)
 }
 
 const advantages = [
@@ -255,6 +254,7 @@ const faqItems = [
       <img
         alt="Умный замок NFCKEY"
         class="hero__image"
+        style="opacity: 0"
         :src="heroImg50"
         @mouseover="heroImgHover"
         @mouseleave="heroImgHover"

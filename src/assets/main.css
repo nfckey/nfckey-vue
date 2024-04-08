@@ -155,7 +155,7 @@
       transition: opacity 0.3s;
 
       &_transitioning {
-        opacity: 0;
+        opacity: 0.3;
         transition: opacity 0.4s ease-out;
       }
     }
@@ -281,7 +281,7 @@
     }
 
     &__image {
-      @apply h-[456px] object-cover object-center xl:h-full;
+      @apply h-[456px] object-cover object-center will-change-transform xl:h-full;
     }
 
     &-left {
