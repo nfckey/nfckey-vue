@@ -100,6 +100,6 @@ onMounted(() => {
     <p class="para-xs text-center text-vneutral-400">
       Запрашиваемая страница не существует либо была перемещена
     </p>
-    <pre></pre>
+    <pre class="whitespace-pre-wrap text-center"></pre>
   </div>
 </template>

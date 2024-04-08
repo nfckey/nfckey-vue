@@ -1000,13 +1000,10 @@
 
     & ul {
       @apply ml-6;
+      list-style-type: '— ';
 
       & li {
         @apply py-2;
-
-        &::marker {
-          content: '— ';
-        }
       }
     }
 
