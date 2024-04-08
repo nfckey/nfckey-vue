@@ -3,7 +3,7 @@ import axios from 'axios'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import {
   Accordion,
@@ -23,8 +23,8 @@ import {
 } from '@/components/ui/carousel'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { NotificationsForm } from '@/components/ui/form'
-import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/subscription'
 import { PublishingList } from '@/components/ui/publishing'
+import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/subscription'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
 
@@ -34,8 +34,12 @@ import heroImg50 from '../assets/images/hero-o50.webp'
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
 
+const ctx = gsap.context(() => {})
+
 onMounted(() => {
-  initializeAnimations()
+  ctx.add(() => {
+    initializeAnimations()
+  })
 })
 
 const animateOnScroll = (trigger, elements, options, triggerPos) => {
@@ -106,16 +110,21 @@ onMounted(async () => {
 
 watch(subscriptions, () => {
   nextTick(() => {
-    ScrollTrigger.batch('#subscription .sub-card', {
-      onEnter: (elements) => {
-        gsap.from(elements, {
-          opacity: 0,
-          y: 50,
-          stagger: 0.3
-        })
-      }
+    ctx.add(() => {
+      ScrollTrigger.batch('#subscription .sub-card', {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            opacity: 1,
+            stagger: 0.3
+          })
+        }
+      })
     })
   })
+})
+
+onUnmounted(() => {
+  ctx.revert()
 })
 
 const isHovered = ref(false)

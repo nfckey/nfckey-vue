@@ -2,22 +2,19 @@
 import axios from 'axios'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import { SubscriptionCardList, SubscriptionTable } from '@/components/ui/subscription'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const ctx = gsap.context(() => {})
 const subscriptions = ref([])
 const limits = ref([])
 const subscriptionsLoaded = ref(false)
 const limitsLoaded = ref(false)
 const isFamily = ref(true)
 const isAnnual = ref(true)
-
-const handleSwitch = (value) => {
-  isAnnual.value = value
-}
 
 onMounted(async () => {
   try {
@@ -39,19 +36,44 @@ onMounted(async () => {
 
 watch(subscriptions, () => {
   nextTick(() => {
-    ScrollTrigger.batch('#subscription .sub-card', {
-      onEnter: (elements) => {
-        gsap.from(elements, {
-          opacity: 0,
-          y: 50,
-          stagger: 0.3
-        })
-      }
+    ctx.add(() => {
+      ScrollTrigger.batch('#subscription .sub-card', {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            opacity: 1,
+            stagger: 0.3
+          })
+        }
+      })
     })
   })
 })
 
-const slideBg = (index) => {
+watch(isFamily, () => {
+  ctx.revert()
+  nextTick(() => {
+    ctx.add(() => {
+      ScrollTrigger.batch('#subscription .sub-card', {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            opacity: 1,
+            stagger: 0.3
+          })
+        }
+      })
+    })
+  })
+})
+
+onUnmounted(() => {
+  ctx.revert()
+})
+
+const switchSubPrice = (value) => {
+  isAnnual.value = value
+}
+
+const switchSubType = (index) => {
   if (isFamily.value != index) return
 
   const typeSwitch = document.querySelector('.subscription-type-switch')
@@ -83,10 +105,10 @@ const filterSubscriptions = (subscriptions, type1, type2) => {
       </div>
 
       <div class="subscription-type-switch subscription-type-switch_family" style="--bg-offset: 0%">
-        <button @click="slideBg(0)">
+        <button @click="switchSubType(0)">
           <span :class="{ '!text-brand-400 hover:!text-brand-500': isFamily }"> Семьям </span>
         </button>
-        <button @click="slideBg(1)">
+        <button @click="switchSubType(1)">
           <span :class="{ '!text-warning-400 hover:!text-warning-500': !isFamily }">
             Арендодателям
           </span>
@@ -102,7 +124,7 @@ const filterSubscriptions = (subscriptions, type1, type2) => {
         "
         includeFree
         includeWarranty
-        @price-switched="handleSwitch"
+        @price-switched="switchSubPrice"
       />
     </div>
   </section>

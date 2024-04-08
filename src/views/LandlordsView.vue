@@ -2,7 +2,7 @@
 import axios from 'axios'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import {
   Accordion,
@@ -16,7 +16,35 @@ import { ArrowRight, Clock4, Heart, Shield, Sparkles, Users } from 'lucide-vue-n
 
 gsap.registerPlugin(ScrollTrigger)
 
+const ctx = gsap.context(() => {})
 const cardsRef = ref([])
+const subscriptions = ref([])
+
+onMounted(async () => {
+  try {
+    const { data } = await axios.get(
+      'https://api.nfckey.tech/api/v1/subscriptions?type=Арендодателям&limits=true'
+    )
+    subscriptions.value = data
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+watch(subscriptions, () => {
+  nextTick(() => {
+    ctx.add(() => {
+      ScrollTrigger.batch('#subscription .sub-card', {
+        onEnter: (elements) => {
+          gsap.to(elements, {
+            opacity: 1,
+            stagger: 0.3
+          })
+        }
+      })
+    })
+  })
+})
 
 const handleCardsGlow = (e) => {
   cardsRef.value.forEach((card) => {
@@ -67,48 +95,27 @@ const initializeStoryline = () => {
 }
 
 onMounted(() => {
-  const tl = gsap.timeline()
-  tl.from('.hero_ll .subtitle_ca', { opacity: 0, duration: 1 }, 0.5).from(
-    '#advantages .advantages-card',
-    { opacity: 0, stagger: 0.3 },
-    1
-  )
-  animateOnScroll('#features', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 })
-
-  initializeStoryline()
-
-  animateOnScroll('#steps', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#steps', '.steps-item', { opacity: 0, x: -50, stagger: 0.5 })
-  animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
-  animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
-})
-
-const subscriptions = ref([])
-
-onMounted(async () => {
-  try {
-    const { data } = await axios.get(
-      'https://api.nfckey.tech/api/v1/subscriptions?type=Арендодателям&limits=true'
+  ctx.add(() => {
+    const tl = gsap.timeline()
+    tl.from('.hero_ll .subtitle_ca', { opacity: 0, duration: 1 }, 0.5).from(
+      '#advantages .advantages-card',
+      { opacity: 0, stagger: 0.3 },
+      1
     )
-    subscriptions.value = data
-  } catch (error) {
-    console.log(error)
-  }
+    animateOnScroll('#features', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 })
+
+    initializeStoryline()
+
+    animateOnScroll('#steps', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+    animateOnScroll('#steps', '.steps-item', { opacity: 0, x: -50, stagger: 0.5 })
+    animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
+    animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
+    animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
+  })
 })
 
-watch(subscriptions, () => {
-  nextTick(() => {
-    ScrollTrigger.batch('#subscription .sub-card', {
-      onEnter: (elements) => {
-        gsap.from(elements, {
-          opacity: 0,
-          y: 50,
-          stagger: 0.3
-        })
-      }
-    })
-  })
+onUnmounted(() => {
+  ctx.revert()
 })
 
 const faqItems = [

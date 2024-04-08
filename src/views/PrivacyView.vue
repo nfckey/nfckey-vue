@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="flex flex-col items-center gap-24">
-      <div class="privacy flex w-full max-w-4xl flex-col">
+      <div class="privacy">
         <h1>Политика в отношении обработки персональных данных</h1>
 
         <h2>1. Общие положения</h2>

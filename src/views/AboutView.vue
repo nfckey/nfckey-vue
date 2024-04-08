@@ -35,8 +35,7 @@ const initializeStoryline = () => {
       trigger: '#story',
       start: '96px top',
       end: 'bottom bottom',
-      pin: '.story-left',
-      markers: true
+      pin: '.story-left'
     })
   })
 

@@ -976,6 +976,8 @@
   }
 
   .privacy {
+    @apply flex w-full max-w-4xl flex-col;
+
     & h1 {
       @apply h200 md:h300 font-semibold;
     }

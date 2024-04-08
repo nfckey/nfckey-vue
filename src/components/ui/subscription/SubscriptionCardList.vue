@@ -198,6 +198,7 @@ const warrantyCard = {
       :key="index"
       :ref="(el) => itemRefs.push(el)"
       :class="`sub-card sub-card_${getColorClass(index)}`"
+      style="opacity: 0"
     >
       <div class="sub-card__head">
         <Badge variant="secondary" :class="`badge badge_${getColorClass(index)}`">
@@ -235,7 +236,12 @@ const warrantyCard = {
         />
       </div>
     </div>
-    <div v-if="includeWarranty" :ref="(el) => itemRefs.push(el)" class="sub-card sub-card_red">
+    <div
+      v-if="includeWarranty"
+      :ref="(el) => itemRefs.push(el)"
+      class="sub-card sub-card_red"
+      style="opacity: 0"
+    >
       <div class="sub-card__head">
         <Badge variant="secondary" class="badge badge_red">
           {{ warrantyCard.altName }}
