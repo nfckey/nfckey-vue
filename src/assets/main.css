@@ -79,6 +79,27 @@
 }
 
 @layer components {
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
   section {
     @apply min-h-screen py-24;
 
@@ -150,14 +171,20 @@
       }
     }
 
-    &__image {
-      @apply max-w-full ease-in sm:max-w-xl lg:max-w-full;
-      transition: opacity 0.3s;
+    &__image-container {
+      @apply relative z-[1];
 
-      &_transitioning {
-        opacity: 0.3;
-        transition: opacity 0.4s ease-out;
+      &::before {
+        @apply absolute left-0 top-0 h-full w-full;
+        @apply opacity-0 transition-opacity duration-300 ease-linear hover:opacity-100;
+        content: '';
+        background: url(./images/hero-o100.webp) no-repeat center;
+        background-size: contain;
       }
+    }
+
+    &__image {
+      @apply max-w-full sm:max-w-xl lg:max-w-full;
     }
 
     &__gradient {
@@ -241,7 +268,7 @@
 
   .features {
     &__content {
-      @apply flex flex-col items-center gap-8 xl:items-start;
+      @apply flex w-full flex-col items-center gap-8 xl:w-1/2 xl:items-start;
     }
 
     &__list {
@@ -251,7 +278,7 @@
         @apply lg:hidden;
       }
 
-      .feature {
+      & .feature {
         @apply flex items-start gap-4 self-stretch;
 
         &__content {
@@ -281,7 +308,7 @@
     }
 
     &__image {
-      @apply h-[456px] object-cover object-center will-change-transform xl:h-full;
+      @apply object-cover object-center will-change-transform xl:h-full;
     }
 
     &-left {
@@ -836,6 +863,13 @@
 
     &-link {
       @apply h50 font-medium text-vneutral-400 decoration-brand-400 transition-colors hover:text-brand-400 hover:underline hover:underline-offset-4;
+
+      &:hover {
+        -webkit-text-decoration-line: underline;
+        -webkit-text-decoration-color: rgb(102 195 208 / var(--tw-text-opacity));
+        -webkit-text-decoration-style: solid;
+        -webkit-text-decoration-offset: 4px;
+      }
     }
 
     &__copyright {

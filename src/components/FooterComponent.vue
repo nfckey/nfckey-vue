@@ -89,7 +89,7 @@ const footerLinks = [
 </script>
 
 <template>
-  <footer class="container mx-auto w-full p-10 pt-36">
+  <footer class="container mx-auto w-full min-w-0 overflow-x-hidden pb-10 pt-36">
     <div class="footer_items-auto flex flex-col justify-center gap-16">
       <div class="footer__logo">
         <LogoComponent />

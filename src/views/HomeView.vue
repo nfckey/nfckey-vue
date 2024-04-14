@@ -28,9 +28,6 @@ import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/subscri
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
 
-import heroImg100 from '../assets/images/hero-o100.webp'
-import heroImg50 from '../assets/images/hero-o50.webp'
-
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
 
@@ -126,16 +123,8 @@ onUnmounted(() => {
   ctx.revert()
 })
 
-const isHovered = ref(false)
-const heroImgHover = () => {
-  const heroImg = document.querySelector('.hero__image')
-  heroImg.classList.add('hero__image_transitioning')
-  isHovered.value = !isHovered.value
-
-  setTimeout(() => {
-    heroImg.src = isHovered.value ? heroImg100 : heroImg50
-    heroImg.classList.remove('hero__image_transitioning')
-  }, 150)
+const scrollToCTA = () => {
+  document.querySelector('#pre-order').scrollIntoView({ behavior: 'smooth' })
 }
 
 const advantages = [
@@ -220,16 +209,15 @@ const faqItems = [
           новый уровень комфорта и безопасности вашего дома.
         </p>
         <div class="hero__content-btn-group">
-          <router-link to="#pre-order">
-            <button class="hero-btn">
-              <p class="hero-btn__text">Будьте в числе первых</p>
-              <ChevronRight class="ml-2 h-6 w-6" />
-            </button>
-          </router-link>
+          <button class="hero-btn" @click="scrollToCTA">
+            <p class="hero-btn__text">Будьте в числе первых</p>
+            <ChevronRight class="ml-2 h-6 w-6" />
+          </button>
+
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger as-child>
-                <!-- DIALOG -->
+                <!-- Dialog -->
                 <Dialog>
                   <DialogTrigger as-child>
                     <Button variant="outline" class="hero-btn_notifications">
@@ -242,7 +230,7 @@ const faqItems = [
                     </div>
                   </DialogContent>
                 </Dialog>
-                <!-- DIALOG END -->
+                <!-- Dialog end -->
               </TooltipTrigger>
               <TooltipContent>
                 <p class="font-inter">Получите уведомление перед началом продаж</p>
@@ -251,14 +239,14 @@ const faqItems = [
           </TooltipProvider>
         </div>
       </div>
-      <img
-        alt="Умный замок NFCKEY"
-        class="hero__image"
-        style="opacity: 0"
-        :src="heroImg50"
-        @mouseover="heroImgHover"
-        @mouseleave="heroImgHover"
-      />
+      <div class="hero__image-container">
+        <img
+          alt="Умный замок NFCKEY"
+          class="hero__image"
+          style="opacity: 0"
+          src="../assets/images/hero-o50.webp"
+        />
+      </div>
     </div>
   </section>
   <section id="advantages">
@@ -285,7 +273,7 @@ const faqItems = [
     </div>
   </section>
   <section id="features">
-    <div class="grid justify-items-center gap-8 xl:grid-cols-2">
+    <div class="flex flex-col items-center justify-center gap-8 xl:flex-row">
       <div class="features__content">
         <div class="subtitle_la text-center xl:text-left">
           <h2 class="subtitle_la__title subtitle_la__title_gradient">
@@ -339,11 +327,13 @@ const faqItems = [
           </div>
         </div>
       </div>
-      <img
-        src="../assets/images/waves-mockup.png"
-        alt="Мобильный телефон с технологией NFC"
-        class="features__image"
-      />
+      <div class="flex max-w-2xl xl:w-1/2 xl:max-w-full xl:self-stretch">
+        <img
+          src="../assets/images/waves-mockup.png"
+          alt="Мобильный телефон с технологией NFC"
+          class="features__image"
+        />
+      </div>
     </div>
   </section>
   <section id="how-it-works" class="flex items-center">
