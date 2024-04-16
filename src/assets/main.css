@@ -132,7 +132,7 @@
 
     &-btn {
       @apply inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md px-4 py-6 text-white;
-      @apply bg-gradient-to-br from-brand-400 via-[#94bce9] to-violet-300;
+      @apply bg-gradient-to-br from-brand-400 via-[#94bce9] to-blue-300;
       @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100;
       @apply outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
       @apply focus-visible:ring-brand-400 !important;
@@ -807,7 +807,7 @@
       }
 
       &__title {
-        @apply h300 subtitle_ca__title_gradient bg-gradient-to-br text-center font-semibold xl:text-left;
+        @apply h300 bg-gradient-to-br from-blue-300 to-brand-300 bg-clip-text text-center font-semibold text-transparent xl:text-left;
       }
 
       &__text {
@@ -817,7 +817,7 @@
       &__submit {
         &-btn {
           @apply h05 w-full max-w-sm sm:w-min;
-          @apply bg-gradient-to-br from-brand-400 via-vneutral-200 to-brand-400 !important;
+          @apply bg-gradient-to-br from-brand-400 via-blue-300 to-brand-300 !important;
           @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100 !important;
           @apply focus-visible:ring-brand-400 !important;
         }
@@ -862,13 +862,17 @@
     }
 
     &-link {
-      @apply h50 font-medium text-vneutral-400 decoration-brand-400 transition-colors hover:text-brand-400 hover:underline hover:underline-offset-4;
+      @apply h50 font-medium text-vneutral-400 transition-colors hover:text-brand-400;
 
       &:hover {
+        text-decoration-line: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: rgb(102 195 208 / var(--tw-text-opacity));
+        text-decoration-style: solid;
         -webkit-text-decoration-line: underline;
+        -webkit-text-decoration-offset: 4px;
         -webkit-text-decoration-color: rgb(102 195 208 / var(--tw-text-opacity));
         -webkit-text-decoration-style: solid;
-        -webkit-text-decoration-offset: 4px;
       }
     }
 
