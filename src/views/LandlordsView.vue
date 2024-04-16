@@ -289,7 +289,11 @@ const faqItems = [
                   </div>
                 </div>
               </div>
-              <img src="@/assets/images/mockup-ll-add-user-role.webp" alt="" />
+              <img
+                src="@/assets/images/mockup-ll-add-user-role.webp"
+                alt="Добавление пользователя"
+                loading="lazy"
+              />
             </div>
             <div class="features-images__group">
               <div class="features__list features__list_mobile">
@@ -306,7 +310,11 @@ const faqItems = [
                   </div>
                 </div>
               </div>
-              <img src="@/assets/images/mockup-ll-visits.webp" alt="" />
+              <img
+                src="@/assets/images/mockup-ll-visits.webp"
+                alt="Журнал посещений"
+                loading="lazy"
+              />
             </div>
             <div class="features-images__group">
               <div class="features__list features__list_mobile">
@@ -323,7 +331,11 @@ const faqItems = [
                   </div>
                 </div>
               </div>
-              <img src="@/assets/images/mockup-ll-split-limits.webp" alt="" />
+              <img
+                src="@/assets/images/mockup-ll-split-limits.webp"
+                alt="Разделение лимитов"
+                loading="lazy"
+              />
             </div>
             <div class="features-images__group">
               <div class="features__list features__list_mobile">
@@ -340,7 +352,11 @@ const faqItems = [
                   </div>
                 </div>
               </div>
-              <img src="@/assets/images/mockup-ll-home-locks.webp" alt="" />
+              <img
+                src="@/assets/images/mockup-ll-home-locks.webp"
+                alt="Список замков"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

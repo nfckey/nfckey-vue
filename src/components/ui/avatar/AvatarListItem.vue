@@ -30,7 +30,7 @@ const getSocialIcon = (name) => {
         :href="social.href"
         class="team__person__socials__social"
       >
-        <img :src="getSocialIcon(social.name)" :alt="social.name" />
+        <img :src="getSocialIcon(social.name)" :alt="social.name" loading="lazy" />
       </a>
     </div>
   </div>

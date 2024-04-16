@@ -333,6 +333,7 @@ const faqItems = [
           src="@/assets/images/waves-mockup.webp"
           alt="Мобильный телефон с технологией NFC"
           class="features__image"
+          loading="lazy"
         />
       </div>
     </div>
@@ -378,6 +379,7 @@ const faqItems = [
                 class="pricing__image"
                 src="@/assets/images/product-1.webp"
                 alt="Умный замок NFCKEY"
+                loading="lazy"
               />
             </CarouselItem>
             <CarouselItem>
@@ -385,6 +387,7 @@ const faqItems = [
                 class="pricing__image"
                 src="@/assets/images/product-2.webp"
                 alt="Умный замок NFCKEY"
+                loading="lazy"
               />
             </CarouselItem>
             <CarouselItem>
@@ -392,6 +395,7 @@ const faqItems = [
                 class="pricing__image"
                 src="@/assets/images/product-3.webp"
                 alt="Умный замок NFCKEY"
+                loading="lazy"
               />
             </CarouselItem>
           </CarouselContent>

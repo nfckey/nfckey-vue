@@ -25,7 +25,7 @@ onMounted(() => {
   <div class="min-h-screen bg-white">
     <HeaderComponent />
 
-    <main class="container">
+    <main class="container min-h-screen">
       <router-view></router-view>
     </main>
 

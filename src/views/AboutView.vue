@@ -51,6 +51,10 @@ const initializeStoryline = () => {
 }
 
 onMounted(() => {
+  document
+    .querySelectorAll('.story-images img')
+    .forEach((el) => el.addEventListener('load', () => ScrollTrigger.refresh()))
+
   ctx.add(() => {
     const tl = gsap.timeline()
     tl.from('.about-team__logo', { opacity: 0, duration: 0.5 }, 0.5)
@@ -250,14 +254,17 @@ onUnmounted(() => {
           <img
             src="@/assets/images/ya-v-dele-team-1.png"
             alt="Команда NFCKEY на конкурсе «Я в деле»"
+            loading="lazy"
           />
           <img
             src="@/assets/images/ya-v-dele-team-2.png"
             alt="Команда NFCKEY на конкурсе «Я в деле»"
+            loading="lazy"
           />
           <img
             src="@/assets/images/ya-v-dele-certificate 1.png"
             alt="Письмо поддержки проекту NFCKEY от конкурса «Я в деле»"
+            loading="lazy"
           />
         </div>
         <div class="story-images__group">
@@ -275,14 +282,17 @@ onUnmounted(() => {
           <img
             src="@/assets/images/technolider-1.png"
             alt="Команда NFCKEY на фоне выставочного стенда для конкурса «Технолидеры Москвы»"
+            loading="lazy"
           />
           <img
             src="@/assets/images/technolider-2.png"
             alt="Команда NFCKEY на фоне выставочного пространства конкурса «Технолидеры Москвы»"
+            loading="lazy"
           />
           <img
             src="@/assets/images/technolider-3.png"
             alt="Команда NFCKEY на фоне баннера конкурса «Технолидеры Москвы»"
+            loading="lazy"
           />
         </div>
         <div class="story-images__group">
@@ -298,17 +308,23 @@ onUnmounted(() => {
               ожидается оглашение результатов.
             </p>
           </div>
-          <img src="@/assets/images/ds-logo.svg" alt="Логотип акселератора «Долина стартапов»" />
+          <img
+            src="@/assets/images/ds-logo.svg"
+            alt="Логотип акселератора «Долина стартапов»"
+            loading="lazy"
+          />
           <div class="flex w-full justify-around py-8 md:px-4 md:py-0">
             <img
               class="w-[40%]"
               src="@/assets/images/ds-mgu.png"
               alt="Логотип ИНТЦ МГУ «Воробьевы горы»"
+              loading="lazy"
             />
             <img
               class="w-[40%]"
               src="@/assets/images/ds-accel.png"
               alt="Логотип «Акселератор возможностей»"
+              loading="lazy"
             />
           </div>
         </div>
@@ -327,7 +343,11 @@ onUnmounted(() => {
               большого числа желающих принять участие.
             </p>
           </div>
-          <img src="@/assets/images/rsv-logo.webp" alt="Логотип «Россия – страна возможностей»" />
+          <img
+            src="@/assets/images/rsv-logo.webp"
+            alt="Логотип «Россия – страна возможностей»"
+            loading="lazy"
+          />
         </div>
         <div class="story-images__group">
           <div class="story-content__section story-content__section_mobile">
@@ -349,12 +369,13 @@ onUnmounted(() => {
           <img
             src="@/assets/images/yvd-iv-1.png"
             alt="Полина Сычева, графический дизайнер NFCKEY"
+            loading="lazy"
           />
-          <img src="@/assets/images/yvd-iv-2.png" alt="Команда NFCKEY" />
+          <img src="@/assets/images/yvd-iv-2.png" alt="Команда NFCKEY" loading="lazy" />
           <img
             src="@/assets/images/yvd-iv-3.png"
             alt="Команда NFCKEY на мероприятии четвертого сезона конкурса «Я в деле»"
-            @load="() => ScrollTrigger.refresh()"
+            loading="lazy"
           />
           <video
             class="bg-vneutral-50"
