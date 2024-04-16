@@ -176,7 +176,7 @@
 
       &::before {
         @apply absolute left-0 top-0 h-full w-full;
-        @apply opacity-0 transition-opacity duration-300 ease-linear hover:opacity-100;
+        @apply opacity-0 transition-opacity duration-300 ease-linear hover:opacity-[var(--opt)];
         content: '';
         background: url(./images/hero-o100.webp) no-repeat center;
         background-size: contain;

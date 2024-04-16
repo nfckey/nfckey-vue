@@ -66,6 +66,7 @@ const initializeAnimations = () => {
         duration: 1.5,
         onComplete: function () {
           gsap.set(this.targets(), { clearProps: 'all' })
+          document.querySelector('.hero__image-container').style.setProperty('--opt', '100')
         }
       },
       1
@@ -239,7 +240,7 @@ const faqItems = [
           </TooltipProvider>
         </div>
       </div>
-      <div class="hero__image-container">
+      <div class="hero__image-container" style="--opt: 0">
         <img
           alt="Умный замок NFCKEY"
           class="hero__image"
