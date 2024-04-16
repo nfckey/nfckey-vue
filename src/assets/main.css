@@ -862,18 +862,7 @@
     }
 
     &-link {
-      @apply h50 font-medium text-vneutral-400 transition-colors hover:text-brand-400;
-
-      &:hover {
-        text-decoration-line: underline;
-        text-underline-offset: 4px;
-        text-decoration-color: rgb(102 195 208 / var(--tw-text-opacity));
-        text-decoration-style: solid;
-        -webkit-text-decoration-line: underline;
-        -webkit-text-decoration-offset: 4px;
-        -webkit-text-decoration-color: rgb(102 195 208 / var(--tw-text-opacity));
-        -webkit-text-decoration-style: solid;
-      }
+      @apply h50 font-medium text-vneutral-400 underline-offset-4 transition-colors hover:text-brand-400 hover:underline;
     }
 
     &__copyright {
@@ -888,7 +877,7 @@
 
       &-link {
         @apply para-xs flex items-center justify-start gap-2 transition-all;
-        @apply text-vneutral-400 hover:text-brand-400 hover:underline hover:underline-offset-4;
+        @apply text-vneutral-400 underline-offset-4 hover:text-brand-400 hover:underline;
 
         &:hover &__icon {
           @apply text-brand-400;
