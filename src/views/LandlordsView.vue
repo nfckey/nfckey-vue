@@ -347,7 +347,7 @@ const faqItems = [
       </div>
     </div>
   </section>
-  <section id="steps" class="min-h-[calc(50dvh+200px)]">
+  <section id="steps" class="min-h-[calc(50vh+200px)]">
     <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient">

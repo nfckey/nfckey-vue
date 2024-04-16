@@ -201,7 +201,7 @@ onUnmounted(() => {
           </p>
         </div>
         <div class="story-content__section">
-          <p class="story-content__date">Январь 2024 – н. в.</p>
+          <p class="story-content__date">Январь – Апрель 2024</p>
           <p class="story-content__title story-content__title_large">
             «Россия – страна возможностей»
           </p>
@@ -314,7 +314,7 @@ onUnmounted(() => {
         </div>
         <div class="story-images__group">
           <div class="story-content__section story-content__section_mobile">
-            <p class="story-content__date">Январь 2024 – н. в.</p>
+            <p class="story-content__date">Январь – Апрель 2024</p>
             <p class="story-content__title story-content__title_large">
               «Россия – страна возможностей»
             </p>

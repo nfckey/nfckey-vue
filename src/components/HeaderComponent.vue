@@ -60,17 +60,17 @@ const landlordsLinks = [
   {
     href: '/landlords#advantages',
     title: 'Преимущества',
-    description: 'Перейдите на новый уровень удобства и контроля.'
+    description: 'Перейдите на новый уровень удобства и контроля'
   },
   {
     href: '/landlords#features',
     title: 'Особенности',
-    description: 'Сделайте вашу роль арендодателя более эффективной и безопасной.'
+    description: 'Сделайте вашу роль арендодателя более эффективной и безопасной'
   },
   {
     href: '/landlords#subscription',
     title: 'Подписка',
-    description: 'Расширьте свои возможности с премиальными функциями.'
+    description: 'Расширьте свои возможности с премиальными функциями'
   }
 ]
 
@@ -78,22 +78,22 @@ const aboutLinks = [
   {
     href: '/about',
     title: 'Команда',
-    description: 'Талантливые люди, воплощающие инновации в жизнь.'
+    description: 'Талантливые люди, воплощающие инновации в жизнь'
   },
   {
     href: '/about#priorities',
     title: 'Приоритеты',
-    description: 'Ценности и приоритеты, которым привержена наша команда.'
+    description: 'Ценности и приоритеты, которым привержена наша команда'
   },
   {
     href: '/about#story',
     title: 'Наша история',
-    description: 'Результаты участия проекта в конкурсах и других мероприятиях.'
+    description: 'Результаты участия проекта в конкурсах и других мероприятиях'
   },
   {
     href: '/about#publishing',
     title: 'Публикации',
-    description: 'Эксклюзивные материалы о проекте на сторонних веб-ресурсах.'
+    description: 'Эксклюзивные материалы о проекте на сторонних веб-ресурсах'
   }
 ]
 </script>
@@ -133,12 +133,14 @@ const aboutLinks = [
                         <NavigationMenuLink as-child>
                           <router-link
                             to="/landlords"
-                            class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-orange-100 p-6 no-underline outline-none focus:shadow-md"
+                            class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-brand-1100 p-6 no-underline outline-none focus:shadow-md"
                           >
                             <Home class="h-6 w-6" />
-                            <div class="mb-2 mt-4 text-lg font-medium">Арендодателям</div>
-                            <p class="text-sm leading-tight text-muted-foreground">
-                              Упростите процесс управления вашей недвижимостью.
+                            <div class="mb-2 mt-4 font-manrope text-lg font-medium">
+                              Арендодателям
+                            </div>
+                            <p class="font-inter text-sm leading-tight text-muted-foreground">
+                              Упростите процесс управления вашей недвижимостью
                             </p>
                           </router-link>
                         </NavigationMenuLink>
@@ -208,12 +210,14 @@ const aboutLinks = [
                       <NavigationMenuLink as-child>
                         <router-link
                           to="/landlords"
-                          class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-orange-100 p-6 no-underline outline-none focus:shadow-md"
+                          class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-brand-1100 p-6 no-underline outline-none focus:shadow-md"
                         >
                           <Home class="h-6 w-6" />
-                          <div class="mb-2 mt-4 text-lg font-medium">Арендодателям</div>
-                          <p class="text-sm leading-tight text-muted-foreground">
-                            Упростите процесс управления вашей недвижимостью.
+                          <div class="mb-2 mt-4 font-manrope text-lg font-medium">
+                            Арендодателям
+                          </div>
+                          <p class="para-xs leading-tight text-muted-foreground">
+                            Упростите процесс управления вашей недвижимостью
                           </p>
                         </router-link>
                       </NavigationMenuLink>
