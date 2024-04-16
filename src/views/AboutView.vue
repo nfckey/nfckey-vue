@@ -98,7 +98,7 @@ onUnmounted(() => {
   <section id="about-team">
     <div class="flex flex-col items-center gap-24">
       <div class="flex max-w-4xl flex-col items-center gap-8">
-        <img class="about-team__logo" src="../assets/logo-large.svg" alt="Логотип NFCKEY" />
+        <img class="about-team__logo" src="@/assets/logo-large.svg" alt="Логотип NFCKEY" />
         <p class="about-team__title_main">
           NFCKEY – команда энтузиастов, стремящаяся стать первым серьезным конкурентом на рынке
           умных замков среди российских производителей
@@ -248,15 +248,15 @@ onUnmounted(() => {
             </p>
           </div>
           <img
-            src="../assets/images/ya-v-dele-team-1.png"
+            src="@/assets/images/ya-v-dele-team-1.png"
             alt="Команда NFCKEY на конкурсе «Я в деле»"
           />
           <img
-            src="../assets/images/ya-v-dele-team-2.png"
+            src="@/assets/images/ya-v-dele-team-2.png"
             alt="Команда NFCKEY на конкурсе «Я в деле»"
           />
           <img
-            src="../assets/images/ya-v-dele-certificate 1.png"
+            src="@/assets/images/ya-v-dele-certificate 1.png"
             alt="Письмо поддержки проекту NFCKEY от конкурса «Я в деле»"
           />
         </div>
@@ -273,15 +273,15 @@ onUnmounted(() => {
             </p>
           </div>
           <img
-            src="../assets/images/technolider-1.png"
+            src="@/assets/images/technolider-1.png"
             alt="Команда NFCKEY на фоне выставочного стенда для конкурса «Технолидеры Москвы»"
           />
           <img
-            src="../assets/images/technolider-2.png"
+            src="@/assets/images/technolider-2.png"
             alt="Команда NFCKEY на фоне выставочного пространства конкурса «Технолидеры Москвы»"
           />
           <img
-            src="../assets/images/technolider-3.png"
+            src="@/assets/images/technolider-3.png"
             alt="Команда NFCKEY на фоне баннера конкурса «Технолидеры Москвы»"
           />
         </div>
@@ -298,16 +298,16 @@ onUnmounted(() => {
               ожидается оглашение результатов.
             </p>
           </div>
-          <img src="../assets/images/ds-logo.svg" alt="Логотип акселератора «Долина стартапов»" />
+          <img src="@/assets/images/ds-logo.svg" alt="Логотип акселератора «Долина стартапов»" />
           <div class="flex w-full justify-around py-8 md:px-4 md:py-0">
             <img
               class="w-[40%]"
-              src="../assets/images/ds-mgu.png"
+              src="@/assets/images/ds-mgu.png"
               alt="Логотип ИНТЦ МГУ «Воробьевы горы»"
             />
             <img
               class="w-[40%]"
-              src="../assets/images/ds-accel.png"
+              src="@/assets/images/ds-accel.png"
               alt="Логотип «Акселератор возможностей»"
             />
           </div>
@@ -327,7 +327,7 @@ onUnmounted(() => {
               большого числа желающих принять участие.
             </p>
           </div>
-          <img src="../assets/images/rsv-logo.webp" alt="Логотип «Россия – страна возможностей»" />
+          <img src="@/assets/images/rsv-logo.webp" alt="Логотип «Россия – страна возможностей»" />
         </div>
         <div class="story-images__group">
           <div class="story-content__section story-content__section_mobile">
@@ -347,18 +347,18 @@ onUnmounted(() => {
             </p>
           </div>
           <img
-            src="../assets/images/yvd-iv-1.png"
+            src="@/assets/images/yvd-iv-1.png"
             alt="Полина Сычева, графический дизайнер NFCKEY"
           />
-          <img src="../assets/images/yvd-iv-2.png" alt="Команда NFCKEY" />
+          <img src="@/assets/images/yvd-iv-2.png" alt="Команда NFCKEY" />
           <img
-            src="../assets/images/yvd-iv-3.png"
+            src="@/assets/images/yvd-iv-3.png"
             alt="Команда NFCKEY на мероприятии четвертого сезона конкурса «Я в деле»"
             @load="() => ScrollTrigger.refresh()"
           />
           <video
             class="bg-vneutral-50"
-            src="../assets/videos/yvd-iv-4.mp4"
+            src="@/assets/videos/yvd-iv-4.mp4"
             preload="metadata"
             controls
             playsinline

@@ -244,7 +244,7 @@ const faqItems = [
           alt="Умный замок NFCKEY"
           class="hero__image"
           style="opacity: 0"
-          src="../assets/images/hero-o50.webp"
+          src="@/assets/images/hero-o50.webp"
         />
       </div>
     </div>
@@ -329,7 +329,7 @@ const faqItems = [
       </div>
       <div class="flex max-w-2xl xl:w-1/2 xl:max-w-full xl:self-stretch">
         <img
-          src="../assets/images/waves-mockup.png"
+          src="@/assets/images/waves-mockup.webp"
           alt="Мобильный телефон с технологией NFC"
           class="features__image"
         />
@@ -347,9 +347,9 @@ const faqItems = [
           playsinline
           controlsList="nodownload noremoteplayback noplaybackrate"
         >
-          <source src="../assets/videos/how-it-works.mp4" type="video/mp4" />
+          <source src="@/assets/videos/how-it-works.mp4" type="video/mp4" />
           <track
-            src="../assets/videos/how-it-works.vtt"
+            src="@/assets/videos/how-it-works.vtt"
             kind="subtitles"
             srclang="ru"
             label="Русские субтитры"
@@ -375,21 +375,21 @@ const faqItems = [
             <CarouselItem>
               <img
                 class="pricing__image"
-                src="../assets/images/product-1.png"
+                src="@/assets/images/product-1.webp"
                 alt="Умный замок NFCKEY"
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 class="pricing__image"
-                src="../assets/images/product-2.png"
+                src="@/assets/images/product-2.webp"
                 alt="Умный замок NFCKEY"
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 class="pricing__image"
-                src="../assets/images/product-3.png"
+                src="@/assets/images/product-3.webp"
                 alt="Умный замок NFCKEY"
               />
             </CarouselItem>
@@ -518,7 +518,7 @@ const faqItems = [
           href="https://t.me/nfckey"
         >
           <img
-            src="../assets/qr-nfckey-telegram.svg"
+            src="@/assets/qr-nfckey-telegram.svg"
             alt="Телеграм-канал NFCKEY"
             class="w-full max-w-80"
           />
