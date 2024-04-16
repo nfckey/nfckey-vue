@@ -26,38 +26,12 @@ const team = [
   },
   {
     name: 'Анастасия \nСеливерстова',
-    role: 'Наставничество, \nреклама',
+    role: 'Наставник, \n специалист по рекламе',
     imageUrl: 'team-anastasiya-seliverstova.png',
     socials: [
       {
         name: 'VK',
-        href: 'https://vk.com/aismirnova'
-      }
-    ]
-  },
-  {
-    name: 'Никита \nПодколзин',
-    role: 'Android-\nразработчик',
-    imageUrl: 'team-nikita-podkolzin.png',
-    socials: [
-      {
-        name: 'Telegram',
-        href: 'https://t.me/nfckey'
-      }
-    ]
-  },
-  {
-    name: 'Сергей \nГребенкин',
-    role: 'iOS-\nразработчик',
-    imageUrl: 'team-sergey-grebenkin.png',
-    socials: [
-      {
-        name: 'Telegram',
-        href: 'https://t.me/R1zonS'
-      },
-      {
-        name: 'Github',
-        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+        href: 'https://vk.com/selive.strategy'
       }
     ]
   },
@@ -81,13 +55,92 @@ const team = [
     ]
   },
   {
-    name: 'Михаил \nХворостянов',
-    role: 'Инженер-\nконструктор',
-    imageUrl: 'team-mihail-hvorostyanov.png',
+    name: 'Евгения \nВишневская',
+    role: 'SMM-\nменеджер',
+    imageUrl: 'team-evgeniya-vishnevskaya.png',
+    socials: [
+      {
+        name: 'VK',
+        href: 'https://vk.com/cherry1324'
+      },
+      {
+        name: 'Telegram',
+        href: 'https://t.me/odaliacherry'
+      }
+    ]
+  },
+  {
+    name: 'Савелий \nКарпухин',
+    role: 'Ведущий\nинженер',
+    imageUrl: 'team-saveliy-karpukhin.png',
+    socials: [
+      {
+        name: 'Telegram',
+        href: 'https://t.me/msc_15'
+      },
+      {
+        name: 'Github',
+        href: 'https://github.com/savukhin'
+      }
+    ]
+  },
+  {
+    name: 'Александр \nКовшик',
+    role: 'Веб-\nразработчик',
+    imageUrl: 'team-aleksandr-kovshik.png',
+    socials: [
+      {
+        name: 'Telegram',
+        href: 'https://t.me/mercuuury'
+      },
+      {
+        name: 'Github',
+        href: 'https://github.com/Mercuuury/'
+      }
+    ]
+  },
+  {
+    name: 'Никита \nПодколзин',
+    role: 'Android-\nразработчик',
+    imageUrl: 'team-nikita-podkolzin.png',
     socials: [
       {
         name: 'Telegram',
         href: 'https://t.me/nfckey'
+      },
+      {
+        name: 'Github',
+        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      }
+    ]
+  },
+  {
+    name: 'Сергей \nГребенкин',
+    role: 'Старший iOS-\nразработчик',
+    imageUrl: 'team-sergey-grebenkin.png',
+    socials: [
+      {
+        name: 'Telegram',
+        href: 'https://t.me/R1zonS'
+      },
+      {
+        name: 'Github',
+        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      }
+    ]
+  },
+  {
+    name: 'Андрей \nКаретников',
+    role: 'Младший iOS-\nразработчик',
+    imageUrl: 'team-andrey-karetnikov.png',
+    socials: [
+      {
+        name: 'Telegram',
+        href: 'https://t.me/iconyami'
+      },
+      {
+        name: 'Github',
+        href: 'https://github.com/noychus'
       }
     ]
   },
@@ -103,21 +156,6 @@ const team = [
       {
         name: 'Github',
         href: 'https://github.com/NLP-github'
-      }
-    ]
-  },
-  {
-    name: 'Евгения \nВишневская',
-    role: 'SMM-\nменеджер',
-    imageUrl: 'team-evgeniya-vishnevskaya.png',
-    socials: [
-      {
-        name: 'VK',
-        href: 'https://vk.com/cherry1324'
-      },
-      {
-        name: 'Telegram',
-        href: 'https://t.me/odaliacherry'
       }
     ]
   }
@@ -140,7 +178,7 @@ const contributors = [
 </script>
 
 <template>
-  <div class="flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-12">
+  <div class="flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-12">
     <AvatarListItem
       v-for="(item, index) in isContributors ? contributors : team"
       :key="index"
