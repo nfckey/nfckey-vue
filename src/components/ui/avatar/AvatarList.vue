@@ -12,7 +12,7 @@ const team = [
   {
     name: 'Иван \nМеняйлов',
     role: 'Руководитель \nпроекта',
-    imageUrl: 'team-ivan-menyailov.png',
+    imageUrl: 'team-ivan-menyailov.webp',
     socials: [
       {
         name: 'VK',
@@ -27,7 +27,7 @@ const team = [
   {
     name: 'Анастасия \nСеливерстова',
     role: 'Наставник, \n специалист по рекламе',
-    imageUrl: 'team-anastasiya-seliverstova.png',
+    imageUrl: 'team-anastasiya-seliverstova.webp',
     socials: [
       {
         name: 'VK',
@@ -38,7 +38,7 @@ const team = [
   {
     name: 'Полина \nСычева',
     role: 'Графический \nдизайнер',
-    imageUrl: 'team-polina-sycheva.png',
+    imageUrl: 'team-polina-sycheva.webp',
     socials: [
       {
         name: 'VK',
@@ -57,7 +57,7 @@ const team = [
   {
     name: 'Евгения \nВишневская',
     role: 'SMM-\nменеджер',
-    imageUrl: 'team-evgeniya-vishnevskaya.png',
+    imageUrl: 'team-evgeniya-vishnevskaya.webp',
     socials: [
       {
         name: 'VK',
@@ -72,7 +72,7 @@ const team = [
   {
     name: 'Савелий \nКарпухин',
     role: 'Ведущий\nинженер',
-    imageUrl: 'team-saveliy-karpukhin.png',
+    imageUrl: 'team-saveliy-karpukhin.webp',
     socials: [
       {
         name: 'Telegram',
@@ -87,7 +87,7 @@ const team = [
   {
     name: 'Александр \nКовшик',
     role: 'Веб-\nразработчик',
-    imageUrl: 'team-aleksandr-kovshik.png',
+    imageUrl: 'team-aleksandr-kovshik.webp',
     socials: [
       {
         name: 'Telegram',
@@ -102,7 +102,7 @@ const team = [
   {
     name: 'Никита \nПодколзин',
     role: 'Android-\nразработчик',
-    imageUrl: 'team-nikita-podkolzin.png',
+    imageUrl: 'team-nikita-podkolzin.webp',
     socials: [
       {
         name: 'Telegram',
@@ -117,7 +117,7 @@ const team = [
   {
     name: 'Сергей \nГребенкин',
     role: 'Старший iOS-\nразработчик',
-    imageUrl: 'team-sergey-grebenkin.png',
+    imageUrl: 'team-sergey-grebenkin.webp',
     socials: [
       {
         name: 'Telegram',
@@ -132,7 +132,7 @@ const team = [
   {
     name: 'Андрей \nКаретников',
     role: 'Младший iOS-\nразработчик',
-    imageUrl: 'team-andrey-karetnikov.png',
+    imageUrl: 'team-andrey-karetnikov.webp',
     socials: [
       {
         name: 'Telegram',
@@ -147,7 +147,7 @@ const team = [
   {
     name: 'Наум-Леонид \nПопов',
     role: 'Специалист по \nIT-безопасности',
-    imageUrl: 'team-naum-leonid-popov.png',
+    imageUrl: 'team-naum-leonid-popov.webp',
     socials: [
       {
         name: 'Telegram',
@@ -165,13 +165,13 @@ const contributors = [
   {
     name: 'Максим \nЧувилин',
     role: 'Инженер, \nпрограммист',
-    imageUrl: 'team-masksim-chuvilin.png',
+    imageUrl: 'team-masksim-chuvilin.webp',
     socials: []
   },
   {
     name: 'Николай \nБелявский',
     role: 'Инженер, \nSMM-менеджер',
-    imageUrl: 'team-nikolay-belyavskiy.png',
+    imageUrl: 'team-nikolay-belyavskiy.webp',
     socials: []
   }
 ]
