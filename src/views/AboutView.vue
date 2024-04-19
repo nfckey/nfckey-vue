@@ -102,7 +102,7 @@ onUnmounted(() => {
   <section id="about-team">
     <div class="flex flex-col items-center gap-24">
       <div class="flex max-w-4xl flex-col items-center gap-8">
-        <img class="about-team__logo" src="@/assets/logo-large.svg" alt="Логотип NFCKEY" />
+        <img class="about-team__logo" src="@/assets/logo-large.svg" alt="О проекте" />
         <p class="about-team__title_main">
           NFCKEY – команда энтузиастов, стремящаяся стать первым серьезным конкурентом на рынке
           умных замков среди российских производителей
