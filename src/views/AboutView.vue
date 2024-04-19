@@ -1,9 +1,17 @@
 <script setup>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import mediumZoom from 'medium-zoom'
 import { onMounted, onUnmounted } from 'vue'
 
 import { AvatarList } from '@/components/ui/avatar'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel'
 import { PublishingList } from '@/components/ui/publishing'
 import { Shield, Smartphone, Unlock } from 'lucide-vue-next'
 
@@ -51,6 +59,8 @@ const initializeStoryline = () => {
 }
 
 onMounted(() => {
+  mediumZoom('[data-zoomable]')
+
   document
     .querySelectorAll('.story-images img')
     .forEach((el) => el.addEventListener('load', () => ScrollTrigger.refresh()))
@@ -387,6 +397,62 @@ onUnmounted(() => {
           ></video>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="photos" class="min-h-max">
+    <div class="flex items-center justify-center gap-24">
+      <Carousel class="w-full">
+        <CarouselContent class="pb-4">
+          <CarouselItem>
+            <img
+              class="h-auto w-full cursor-pointer rounded-xl"
+              src="@/assets/team/team-1.webp"
+              alt="Команда NFCKEY"
+              loading="lazy"
+              data-zoomable
+            />
+          </CarouselItem>
+          <CarouselItem>
+            <img
+              class="h-auto w-full cursor-pointer rounded-xl"
+              src="@/assets/team/team-2.webp"
+              alt="Команда NFCKEY"
+              loading="lazy"
+              data-zoomable
+            />
+          </CarouselItem>
+          <CarouselItem>
+            <img
+              class="h-auto w-full cursor-pointer rounded-xl"
+              src="@/assets/team/team-3.webp"
+              alt="Команда NFCKEY"
+              loading="lazy"
+              data-zoomable
+            />
+          </CarouselItem>
+          <CarouselItem>
+            <img
+              class="h-auto w-full cursor-pointer rounded-xl"
+              src="@/assets/team/team-4.webp"
+              alt="Команда NFCKEY"
+              loading="lazy"
+              data-zoomable
+            />
+          </CarouselItem>
+          <CarouselItem>
+            <img
+              class="h-auto w-full cursor-pointer rounded-xl"
+              src="@/assets/team/team-5.webp"
+              alt="Команда NFCKEY"
+              loading="lazy"
+              data-zoomable
+            />
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   </section>
 

@@ -372,8 +372,8 @@ const faqItems = [
         </p>
       </div>
       <div class="flex w-full flex-col items-center justify-around gap-8 xl:flex-row">
-        <Carousel class="relative mx-14 w-full max-w-xs md:max-w-md">
-          <CarouselContent>
+        <Carousel class="mb-6 w-full max-w-xs md:max-w-md">
+          <CarouselContent class="pb-4">
             <CarouselItem>
               <img
                 class="pricing__image"
