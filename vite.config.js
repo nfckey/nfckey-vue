@@ -1,11 +1,11 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
-import tailwindNesting from 'tailwindcss/nesting'
-import tailwind from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import tailwind from 'tailwindcss'
+import tailwindNesting from 'tailwindcss/nesting'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,7 +14,7 @@ export default defineConfig({
       plugins: [tailwindNesting(), tailwind(), autoprefixer()]
     }
   },
-  plugins: [vue()],
+  plugins: [vue(), splitVendorChunkPlugin()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
