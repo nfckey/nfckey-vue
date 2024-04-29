@@ -143,21 +143,6 @@ const team = [
         href: 'https://github.com/noychus'
       }
     ]
-  },
-  {
-    name: 'Наум-Леонид \nПопов',
-    role: 'Специалист по \nIT-безопасности',
-    imageUrl: 'team-naum-leonid-popov.webp',
-    socials: [
-      {
-        name: 'Telegram',
-        href: 'https://t.me/N_LP0'
-      },
-      {
-        name: 'Github',
-        href: 'https://github.com/NLP-github'
-      }
-    ]
   }
 ]
 
@@ -172,6 +157,12 @@ const contributors = [
     name: 'Николай \nБелявский',
     role: 'Инженер, \nSMM-менеджер',
     imageUrl: 'team-nikolay-belyavskiy.webp',
+    socials: []
+  },
+  {
+    name: 'Наум-Леонид \nПопов',
+    role: 'Специалист по \nIT-безопасности',
+    imageUrl: 'team-naum-leonid-popov.webp',
     socials: []
   }
 ]
