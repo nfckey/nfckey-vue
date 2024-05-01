@@ -354,7 +354,7 @@
     }
 
     &__image {
-      @apply cursor-pointer rounded-xl border-2;
+      @apply cursor-pointer rounded-xl;
     }
 
     &__title {

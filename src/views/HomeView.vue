@@ -1,6 +1,7 @@
 <script setup>
 import axios from 'axios'
 import { gsap } from 'gsap'
+import mediumZoom from 'medium-zoom'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
@@ -34,6 +35,8 @@ gsap.registerPlugin(TextPlugin)
 const ctx = gsap.context(() => {})
 
 onMounted(() => {
+  mediumZoom('[data-zoomable]')
+
   ctx.add(() => {
     initializeAnimations()
   })
@@ -126,6 +129,10 @@ onUnmounted(() => {
 
 const scrollToCTA = () => {
   document.querySelector('#pre-order').scrollIntoView({ behavior: 'smooth' })
+}
+
+function getImageUrl(name) {
+  return new URL(`/src/assets/images/${name}`, import.meta.url).href
 }
 
 const advantages = [
@@ -378,24 +385,30 @@ const faqItems = [
               <img
                 class="pricing__image"
                 src="@/assets/images/product-1.webp"
+                :data-zoom-src="getImageUrl('product-1-detailed.webp')"
                 alt="Умный замок NFCKEY"
                 loading="lazy"
+                data-zoomable
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 class="pricing__image"
                 src="@/assets/images/product-2.webp"
+                :data-zoom-src="getImageUrl('product-2-detailed.webp')"
                 alt="Умный замок NFCKEY"
                 loading="lazy"
+                data-zoomable
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 class="pricing__image"
                 src="@/assets/images/product-3.webp"
+                :data-zoom-src="getImageUrl('product-3-detailed.webp')"
                 alt="Умный замок NFCKEY"
                 loading="lazy"
+                data-zoomable
               />
             </CarouselItem>
           </CarouselContent>
