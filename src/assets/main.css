@@ -593,7 +593,7 @@
     }
 
     &_gold {
-      @apply border-warning-700 hover:border-warning-600;
+      @apply border-warning-600 hover:border-warning-500;
     }
 
     &_purple {
@@ -1051,27 +1051,27 @@
     @apply h05 select-none text-center font-medium !important;
 
     &_gray {
-      @apply border-vneutral-700 bg-vneutral-1100 hover:border-vneutral-800 hover:bg-vneutral-1200 !important;
+      @apply border-vneutral-700 bg-vneutral-1100 !important;
     }
 
     &_light {
-      @apply border-brand-900 bg-brand-1100 hover:border-brand-1000 hover:bg-brand-1200 !important;
+      @apply border-brand-900 bg-brand-1100 !important;
     }
 
     &_green {
-      @apply border-emerald-300 bg-emerald-100 hover:border-emerald-200 hover:bg-emerald-50 !important;
+      @apply border-emerald-300 bg-emerald-100 !important;
     }
 
     &_gold {
-      @apply border-warning-500 bg-warning-700 hover:border-warning-600 hover:bg-warning-800 !important;
+      @apply border-warning-600 bg-warning-700 !important;
     }
 
     &_purple {
-      @apply border-violet-400 bg-violet-200 hover:border-violet-300 hover:bg-violet-100 !important;
+      @apply border-violet-400 bg-violet-200 !important;
     }
 
     &_red {
-      @apply border-red-400 bg-red-200 hover:border-red-300 hover:bg-red-100 !important;
+      @apply border-red-400 bg-red-200 !important;
     }
   }
 

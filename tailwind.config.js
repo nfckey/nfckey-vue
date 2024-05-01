@@ -55,7 +55,7 @@ module.exports = {
         'warning-400': '#DC9829',
         'warning-500': '#E3AD54',
         'warning-600': '#EAC17F',
-        'warning-700': '#F1D6A9',
+        'warning-700': '#FFEED9',
         'warning-800': '#F8EAD4',
         'vneutral-50': '#121417',
         'vneutral-100': '#24282F',
