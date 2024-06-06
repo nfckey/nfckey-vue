@@ -1,6 +1,7 @@
 {
-    "name": "NFCKEY",
+    "name": "NFCKEY - Умные дверные замки с технологией NFC",
     "short_name": "NFCKEY",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

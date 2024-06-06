@@ -63,8 +63,24 @@ const router = createRouter({
   }
 })
 
-router.beforeEach((to, from) => {
+router.beforeEach((to, from, next) => {
   document.title = to.meta?.title ?? 'NFCKEY'
+
+  const baseUrl = 'https://nfckey.tech'
+  const canonicalUrl = `${baseUrl}${to.path}`
+
+  let link = document.querySelector("link[rel='canonical']")
+
+  if (link) {
+    link.setAttribute('href', canonicalUrl)
+  } else {
+    link = document.createElement('link')
+    link.setAttribute('rel', 'canonical')
+    link.setAttribute('href', canonicalUrl)
+    document.head.appendChild(link)
+  }
+
+  next()
 })
 
 const app = createApp(App)
