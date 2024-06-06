@@ -46,7 +46,7 @@ const team = [
       },
       {
         name: 'Telegram',
-        href: 'https://t.me/chipsulkin'
+        href: 'https://t.me/sycheva_polinaa'
       },
       {
         name: 'Behance',
@@ -70,17 +70,13 @@ const team = [
     ]
   },
   {
-    name: 'Савелий \nКарпухин',
+    name: 'Юрий \nМорозов',
     role: 'Ведущий\nинженер',
-    imageUrl: 'team-saveliy-karpukhin.webp',
+    imageUrl: 'team-yuri-morozov.webp',
     socials: [
       {
         name: 'Telegram',
-        href: 'https://t.me/msc_15'
-      },
-      {
-        name: 'Github',
-        href: 'https://github.com/savukhin'
+        href: 'https://t.me/nfckey'
       }
     ]
   },
@@ -163,6 +159,12 @@ const contributors = [
     name: 'Наум-Леонид \nПопов',
     role: 'Специалист по \nIT-безопасности',
     imageUrl: 'team-naum-leonid-popov.webp',
+    socials: []
+  },
+  {
+    name: 'Савелий \nКарпухин',
+    role: 'Разработчик \nалгоритмов',
+    imageUrl: 'team-saveliy-karpukhin.webp',
     socials: []
   }
 ]

@@ -737,29 +737,28 @@
         &_habr {
           background:
             url(./publishing/publishing_habr.webp) no-repeat center,
-            #629fbc;
+            #fff;
           background-size: contain;
         }
 
         &_vc {
           background:
             url(./publishing/publishing_vc.webp) no-repeat center,
-            #feebef;
+            #fff;
           background-size: contain;
         }
 
         &_tc {
-          @apply border-2 border-vneutral-1300;
           background:
             url(./publishing/publishing_tenchat.webp) no-repeat center,
-            #ffffff;
+            #fff;
           background-size: contain;
         }
 
         &_tg {
           background:
             url(./publishing/publishing_telegram.webp) no-repeat center,
-            #28a8ea;
+            #fff;
           background-size: contain;
         }
       }
