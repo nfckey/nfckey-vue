@@ -86,7 +86,6 @@ const initializeAnimations = () => {
   animateOnScroll('#how-it-works', '.how-it-works__video', { opacity: 0, x: 25, duration: 2 })
   animateOnScroll('#pricing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#pricing', '.bullet-point', { opacity: 0, stagger: 0.3 })
-  animateOnScroll('#pricing', '.pricing__price-clarification', { duration: 2, delay: 2, text: '' })
   animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 25, duration: 1 }, '-30%')
   animateOnScroll('#team', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#team', '.team__person', { opacity: 0, stagger: 0.2 })
@@ -193,7 +192,7 @@ const faqItems = [
   {
     title: 'Можно ли устанавливать замки NFCKEY в различные типы дверей?',
     content:
-      '<p>Да, замки NFCKEY разрабатываются таким образом, чтобы быть универсальными для установки в различные типы дверей. Мы сможем предоставить Более подробные сведения ближе к моменту выхода замков NFCKEY на рынок.</p><br><p>Если у вас есть конкретные вопросы или требования к установке, мы всегда готовы помочь вам в обеспечении беспроблемного процесса установки.</p>'
+      '<p>Да, замки NFCKEY разрабатываются таким образом, чтобы быть универсальными для установки в различные типы дверей. Мы сможем предоставить более подробные сведения ближе к моменту выхода замков NFCKEY на рынок.</p><br><p>Если у вас есть конкретные вопросы или требования к установке, мы всегда готовы помочь вам в обеспечении беспроблемного процесса установки.</p>'
   },
   {
     title: 'Обязательно ли приобретать подписку для работы системы NFCKEY?',
@@ -232,8 +231,8 @@ const faqItems = [
                       <Bell class="hero-btn_notifications-icon" />
                     </Button>
                   </DialogTrigger>
-                  <DialogContent class="sm:max-w-lg xl:max-w-lg">
-                    <div class="flex items-center justify-start space-x-2">
+                  <DialogContent class="max-w-md">
+                    <div class="flex items-center justify-center space-x-2">
                       <NotificationsForm inDialog />
                     </div>
                   </DialogContent>
@@ -417,7 +416,7 @@ const faqItems = [
         </Carousel>
         <div class="pricing__content">
           <div class="flex flex-col items-center justify-start gap-4 self-stretch xl:items-start">
-            <p class="pricing__title">Умный замок NFCKEY</p>
+            <p class="pricing__title">Умный замок ShareLock</p>
             <div class="flex flex-col gap-2">
               <p class="h50">Предварительная стоимость:</p>
               <div class="flex justify-center gap-2 xl:justify-start">

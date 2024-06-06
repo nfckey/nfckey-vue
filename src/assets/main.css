@@ -110,9 +110,9 @@
   }
 
   .logo {
-    @apply hover:logo_filter h-11 transition duration-300;
+    @apply h-11 transition duration-300;
 
-    &_filter {
+    &:hover {
       filter: invert(72%) sepia(30%) saturate(593%) hue-rotate(139deg) brightness(95%) contrast(82%);
     }
   }
@@ -795,7 +795,7 @@
     }
 
     &_notifications {
-      @apply flex w-full max-w-sm flex-col flex-wrap items-start gap-2 sm:flex-row sm:flex-nowrap;
+      @apply flex w-full max-w-sm flex-col flex-wrap items-start gap-2;
 
       & p {
         @apply para-xs;
@@ -815,7 +815,7 @@
 
       &__submit {
         &-btn {
-          @apply h05 w-full max-w-sm sm:w-min;
+          @apply h05 w-full max-w-sm;
           @apply bg-gradient-to-br from-brand-400 via-blue-300 to-brand-300 !important;
           @apply bg-size-200 bg-pos-0 transition-all duration-500 hover:bg-pos-100 !important;
           @apply focus-visible:ring-brand-400 !important;
