@@ -23,7 +23,7 @@ const getSocialIcon = (name) => {
         {{ person.role }}
       </p>
     </div>
-    <div class="team__person__socials">
+    <div class="team__person__socials" v-if="person.socials.length">
       <a
         v-for="(social, index) in person.socials"
         :key="index"

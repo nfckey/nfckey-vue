@@ -82,7 +82,7 @@ const team = [
   },
   {
     name: 'Александр \nКовшик',
-    role: 'Веб-\nразработчик',
+    role: 'Fullstack-\nразработчик',
     imageUrl: 'team-aleksandr-kovshik.webp',
     socials: [
       {
@@ -97,7 +97,7 @@ const team = [
   },
   {
     name: 'Никита \nПодколзин',
-    role: 'Android-\nразработчик',
+    role: 'Backend-\nразработчик',
     imageUrl: 'team-nikita-podkolzin.webp',
     socials: [
       {
@@ -111,32 +111,17 @@ const team = [
     ]
   },
   {
-    name: 'Сергей \nГребенкин',
-    role: 'Старший iOS-\nразработчик',
-    imageUrl: 'team-sergey-grebenkin.webp',
+    name: 'Кирилл \nАльхимёнок',
+    role: 'Frontend-\nразработчик',
+    imageUrl: 'team-kirill-alkhimenok.webp',
     socials: [
       {
         name: 'Telegram',
-        href: 'https://t.me/R1zonS'
+        href: 'https://t.me/nfckey'
       },
       {
         name: 'Github',
-        href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-      }
-    ]
-  },
-  {
-    name: 'Андрей \nКаретников',
-    role: 'Младший iOS-\nразработчик',
-    imageUrl: 'team-andrey-karetnikov.webp',
-    socials: [
-      {
-        name: 'Telegram',
-        href: 'https://t.me/iconyami'
-      },
-      {
-        name: 'Github',
-        href: 'https://github.com/noychus'
+        href: 'https://github.com/alkhimenok'
       }
     ]
   }
@@ -166,12 +151,24 @@ const contributors = [
     role: 'Разработчик \nалгоритмов',
     imageUrl: 'team-saveliy-karpukhin.webp',
     socials: []
+  },
+  {
+    name: 'Сергей \nГребенкин',
+    role: 'Старший iOS-\nразработчик',
+    imageUrl: 'team-sergey-grebenkin.webp',
+    socials: []
+  },
+  {
+    name: 'Андрей \nКаретников',
+    role: 'Младший iOS-\nразработчик',
+    imageUrl: 'team-andrey-karetnikov.webp',
+    socials: []
   }
 ]
 </script>
 
 <template>
-  <div class="flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-12">
+  <div class="flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-12">
     <AvatarListItem
       v-for="(item, index) in isContributors ? contributors : team"
       :key="index"
