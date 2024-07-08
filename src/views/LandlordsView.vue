@@ -23,7 +23,7 @@ const subscriptions = ref([])
 onMounted(async () => {
   try {
     const { data } = await axios.get(
-      'https://api.nfckey.tech/api/v1/subscriptions?type=Арендодателям&limits=true'
+      'https://api.nfckey.tech/api/v1/subscriptions?type=Арендодателям&limits=1'
     )
     subscriptions.value = data
   } catch (error) {

@@ -18,7 +18,7 @@ const isAnnual = ref(true)
 
 onMounted(async () => {
   try {
-    const { data } = await axios.get('https://api.nfckey.tech/api/v1/subscriptions?limits=true')
+    const { data } = await axios.get('https://api.nfckey.tech/api/v1/subscriptions?limits=1')
     subscriptions.value = data
     subscriptionsLoaded.value = true
   } catch (error) {
