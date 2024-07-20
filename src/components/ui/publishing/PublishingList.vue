@@ -9,11 +9,11 @@
       </a>
     </div>
     <div class="publishing-list__row">
-      <a href="https://tenchat.ru/Ivan_NFCKEY">
-        <div class="publishing-list__item publishing-list__item_tc"></div>
-      </a>
       <a href="https://t.me/nfckey">
         <div class="publishing-list__item publishing-list__item_tg"></div>
+      </a>
+      <a href="https://tenchat.ru/Ivan_NFCKEY">
+        <div class="publishing-list__item publishing-list__item_tc"></div>
       </a>
     </div>
   </div>

@@ -181,7 +181,7 @@ onUnmounted(() => {
       <div class="story-content">
         <div class="story-content__section">
           <p class="story-content__date">Апрель – Май 2023</p>
-          <p class="story-content__title">«Я в деле»</p>
+          <p class="story-content__title">Я в деле</p>
           <p class="story-content__text">
             Отправной точкой проекта можно считать участие в конкурсе
             <a href="https://xn--b1aeda3a0j.xn--p1ai/">«Я в деле»</a> — масштабной программе по
@@ -193,7 +193,7 @@ onUnmounted(() => {
         </div>
         <div class="story-content__section">
           <p class="story-content__date">Ноябрь – Декабрь 2023</p>
-          <p class="story-content__title">«Технолидеры Москвы»</p>
+          <p class="story-content__title">Технолидеры Москвы</p>
           <p class="story-content__text">
             В рамках молодежного технологического акселератора
             <a href="https://rcmos.moscow/technoentr">«Технолидеры Москвы»</a> нас ожидал
@@ -203,28 +203,16 @@ onUnmounted(() => {
           </p>
         </div>
         <div class="story-content__section">
-          <p class="story-content__date">Декабрь 2023 – н. в.</p>
-          <p class="story-content__title">«Долина стартапов»</p>
-          <p class="story-content__text">
-            В декабре мы прошли отбор на технологический акселератор
-            <a href="https://xn--80aaaigyurggkkloc.xn--p1ai/">«Долина стартапов»</a>, созданный при
-            сотрудничестве с двумя лидерами в сфере инноваций: «Акселератором Возможностей» и
-            научно-технологической долиной МГУ «Воробьевы горы». <br /><br />
-            Сейчас происходит определение партнеров на конкурсной основе, а в апреле 2024 года
-            ожидается оглашение результатов.
-          </p>
-        </div>
-        <div class="story-content__section">
           <p class="story-content__date">Январь – Апрель 2024</p>
           <p class="story-content__title story-content__title_large">
-            «Россия – страна возможностей»
+            Россия – страна возможностей
           </p>
           <p class="story-content__text">
             В январе мы приняли участие в национальной премии
             <a href="https://premia.rsv.ru/">«Россия – страна возможностей»</a>. Организатор
             мероприятия предоставляет открытую площадку для обмена опытом между талантливыми и
             неравнодушными людьми всех возрастов. <br /><br />
-            Недавно мы прошли первый отборочный этап и получили сертификат, чему крайне рады ввиду
+            Мы прошли первый отборочный этап и получили сертификат участника, чему крайне рады ввиду
             большого числа желающих принять участие.
           </p>
         </div>
@@ -244,6 +232,18 @@ onUnmounted(() => {
             федерального предпринимательского конкурса «Я в деле».
           </p>
         </div>
+        <div class="story-content__section">
+          <p class="story-content__date">Май – Июнь 2024</p>
+          <p class="story-content__title">Новатор Москвы</p>
+          <p class="story-content__text">
+            <a href="https://i.moscow/novator">Летом мы приняли участие в «Новатор Москвы»</a> —
+            пятом юбилейном конкурсе Мэра Москвы среди инновационных проектов для лучших
+            предпринимателей, ученых и изобретателей. <br /><br />
+            Проект NFCKEY стал призером конкурса в номинации «Меняющие реальность» по направлению
+            «Благоустройство и строительство». Для финалистов доступна образовательная программа
+            акселерации от <a href="https://i.moscow/academy">«Академии инноваторов»</a>.
+          </p>
+        </div>
       </div>
     </div>
     <div class="story-right">
@@ -251,7 +251,7 @@ onUnmounted(() => {
         <div class="story-images__group">
           <div class="story-content__section story-content__section_mobile">
             <p class="story-content__date">Апрель – Май 2023</p>
-            <p class="story-content__title">«Я в деле»</p>
+            <p class="story-content__title">Я в деле</p>
             <p class="story-content__text">
               Отправной точкой проекта можно считать участие в конкурсе
               <a href="https://xn--b1aeda3a0j.xn--p1ai/">«Я в деле»</a> — масштабной программе по
@@ -280,7 +280,7 @@ onUnmounted(() => {
         <div class="story-images__group">
           <div class="story-content__section story-content__section_mobile">
             <p class="story-content__date">Ноябрь – Декабрь 2023</p>
-            <p class="story-content__title">«Технолидеры Москвы»</p>
+            <p class="story-content__title">Технолидеры Москвы</p>
             <p class="story-content__text">
               В рамках молодежного технологического акселератора
               <a href="https://rcmos.moscow/technoentr">«Технолидеры Москвы»</a> нас ожидал
@@ -307,55 +307,28 @@ onUnmounted(() => {
         </div>
         <div class="story-images__group">
           <div class="story-content__section story-content__section_mobile">
-            <p class="story-content__date">Декабрь 2023 – н. в.</p>
-            <p class="story-content__title">«Долина стартапов»</p>
-            <p class="story-content__text">
-              В декабре мы прошли отбор на технологический акселератор
-              <a href="https://xn--80aaaigyurggkkloc.xn--p1ai/">«Долина стартапов»</a>, созданный
-              при сотрудничестве с двумя лидерами в сфере инноваций: «Акселератором Возможностей» и
-              научно-технологической долиной МГУ «Воробьевы горы». <br /><br />
-              Сейчас происходит определение партнеров на конкурсной основе, а в апреле 2024 года
-              ожидается оглашение результатов.
-            </p>
-          </div>
-          <img
-            src="@/assets/images/ds-logo.svg"
-            alt="Логотип акселератора «Долина стартапов»"
-            loading="lazy"
-          />
-          <div class="flex w-full justify-around py-8 md:px-4 md:py-0">
-            <img
-              class="w-[40%]"
-              src="@/assets/images/ds-mgu.png"
-              alt="Логотип ИНТЦ МГУ «Воробьевы горы»"
-              loading="lazy"
-            />
-            <img
-              class="w-[40%]"
-              src="@/assets/images/ds-accel.png"
-              alt="Логотип «Акселератор возможностей»"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <div class="story-images__group">
-          <div class="story-content__section story-content__section_mobile">
             <p class="story-content__date">Январь – Апрель 2024</p>
             <p class="story-content__title story-content__title_large">
-              «Россия – страна возможностей»
+              Россия – страна возможностей
             </p>
             <p class="story-content__text">
               В январе мы приняли участие в национальной премии
               <a href="https://premia.rsv.ru/">«Россия – страна возможностей»</a>. Организатор
               мероприятия предоставляет открытую площадку для обмена опытом между талантливыми и
               неравнодушными людьми всех возрастов. <br /><br />
-              Недавно мы прошли первый отборочный этап и получили сертификат, чему крайне рады ввиду
-              большого числа желающих принять участие.
+              Мы прошли первый отборочный этап и получили сертификат участника, чему крайне рады
+              ввиду большого числа желающих принять участие.
             </p>
           </div>
           <img
             src="@/assets/images/rsv-logo.webp"
+            style="max-width: 70%"
             alt="Логотип «Россия – страна возможностей»"
+            loading="lazy"
+          />
+          <img
+            src="@/assets/images/rsv-certificate.webp"
+            alt="Сертификат участника премии «Россия – страна возможностей»"
             loading="lazy"
           />
         </div>
@@ -395,6 +368,30 @@ onUnmounted(() => {
             playsinline
             controlsList="nodownload noremoteplayback noplaybackrate"
           ></video>
+        </div>
+        <div class="story-images__group">
+          <div class="story-content__section story-content__section_mobile">
+            <p class="story-content__date">Май – Июнь 2024</p>
+            <p class="story-content__title">Новатор Москвы</p>
+            <p class="story-content__text">
+              Летом мы приняли участие в <a href="https://i.moscow/novator">«Новатор Москвы»</a> —
+              пятом юбилейном конкурсе Мэра Москвы среди инновационных проектов для лучших
+              предпринимателей, ученых и изобретателей. <br /><br />
+              Проект NFCKEY стал призером конкурса в номинации «Меняющие реальность» по направлению
+              «Благоустройство и строительство». Для финалистов доступна образовательная программа
+              акселерации от <a href="https://i.moscow/academy">«Академии инноваторов»</a>.
+            </p>
+          </div>
+          <img
+            src="@/assets/images/moscow-inn-1.webp"
+            alt="Награждение финалистов конкурса «Новатор Москвы»"
+            loading="lazy"
+          />
+          <img
+            src="@/assets/images/moscow-inn-2.webp"
+            alt="Объявление финалистов в номинации «Меняющие реальность»"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
