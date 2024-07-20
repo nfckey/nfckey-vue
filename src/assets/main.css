@@ -129,8 +129,39 @@
   .menu {
     @apply hidden items-center justify-center md:flex;
 
+    &__mobile {
+      @apply absolute left-1/2 top-0 mt-1 w-[90vw] -translate-x-1/2 rounded-xl py-4 backdrop-blur-sm;
+      @apply flex items-center justify-stretch md:hidden;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 1px 1.5px rgba(0, 0, 0, 0.02),
+        0 1px 4px rgba(0, 0, 0, 0.02),
+        0 4px 10px rgba(0, 0, 0, 0.04),
+        0 12px 33px rgba(0, 0, 0, 0.2);
+    }
+
     &-link {
-      @apply text-center font-inter text-vneutral-200;
+      @apply text-center font-inter text-vneutral-50;
+
+      &__mobile {
+        @apply font-manrope text-lg font-semibold;
+      }
+    }
+  }
+
+  .nav-list {
+    @apply flex-col items-start;
+
+    & li {
+      @apply w-full;
+    }
+  }
+
+  .nav-trigger {
+    @apply !w-full !justify-between !bg-transparent !px-8;
+
+    & svg {
+      @apply h-4 w-4;
     }
   }
 
