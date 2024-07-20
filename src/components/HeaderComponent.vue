@@ -1,6 +1,5 @@
 <script setup>
-import { gsap } from 'gsap'
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { Button } from '@/components/ui/button'
@@ -30,30 +29,6 @@ const isOpen = ref(false)
 
 watch(route, () => {
   isOpen.value = false
-})
-
-const isLargeScreen = ref(window.innerWidth >= 1024)
-
-const handleResize = () => {
-  isLargeScreen.value = window.innerWidth >= 1024
-}
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize)
-
-  const tl = gsap.timeline()
-  tl.fromTo('header .logo', { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 1.7)
-    .fromTo('#menuBtn', { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 2.5)
-    .fromTo(
-      '.menu .group li',
-      { y: -50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.15 },
-      2.5
-    )
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
 })
 
 const landlordsLinks = [
@@ -100,11 +75,11 @@ const aboutLinks = [
 
 <template>
   <Sheet v-model:open="isOpen">
-    <header class="container relative z-[5] py-5">
-      <div class="max-w-screen-xl items-center justify-between sm:px-8 lg:flex">
-        <div class="flex items-center justify-between">
+    <div class="fixed z-[5] flex w-[100vw] justify-center bg-transparent">
+      <header class="header">
+        <div class="flex w-[80vw] items-center justify-between md:w-max">
           <LogoComponent />
-          <div class="lg:hidden" id="menuBtn">
+          <div class="md:hidden" id="menuBtn">
             <SheetTrigger>
               <Button variant="outline" size="icon">
                 <Menu class="size-4" />
@@ -199,7 +174,7 @@ const aboutLinks = [
           <NavigationMenu>
             <NavigationMenuList class="flex-1 flex-col sm:flex-row">
               <NavigationMenuItem>
-                <NavigationMenuTrigger>
+                <NavigationMenuTrigger class="!bg-transparent">
                   <p class="menu-link">Арендодателям</p>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -235,7 +210,7 @@ const aboutLinks = [
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>
+                <NavigationMenuTrigger class="!bg-transparent">
                   <p class="menu-link">О проекте</p>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -253,7 +228,7 @@ const aboutLinks = [
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                <NavigationMenuLink :class="navigationMenuTriggerStyle()" class="!bg-transparent">
                   <router-link to="/pricing">
                     <p class="menu-link">Подписка</p>
                   </router-link>
@@ -261,7 +236,7 @@ const aboutLinks = [
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                <NavigationMenuLink :class="navigationMenuTriggerStyle()" class="!bg-transparent">
                   <router-link to="/faq">
                     <p class="menu-link">FAQ</p>
                   </router-link>
@@ -270,7 +245,7 @@ const aboutLinks = [
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   </Sheet>
 </template>

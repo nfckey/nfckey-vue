@@ -103,14 +103,23 @@
   section {
     @apply min-h-screen py-24;
 
+    &:first-child {
+      @apply pt-32;
+    }
+
     &#hero {
-      @apply container flex items-center justify-center py-0;
-      min-height: calc(100dvh - 84px);
+      @apply container flex items-center justify-center;
     }
   }
 
+  .header {
+    @apply relative flex items-center justify-between gap-8;
+    @apply mt-4 rounded-xl px-6 py-2 shadow-sm backdrop-blur-sm;
+    background-color: rgba(255, 255, 255, 0.85);
+  }
+
   .logo {
-    @apply h-11 transition duration-300;
+    @apply h-9 transition duration-300;
 
     &:hover {
       filter: invert(72%) sepia(30%) saturate(593%) hue-rotate(139deg) brightness(95%) contrast(82%);
@@ -118,7 +127,7 @@
   }
 
   .menu {
-    @apply hidden items-center justify-center bg-white pb-4 lg:flex lg:pb-0;
+    @apply hidden items-center justify-center md:flex;
 
     &-link {
       @apply text-center font-inter text-vneutral-200;
@@ -525,7 +534,7 @@
       @apply flex w-full flex-wrap justify-start gap-x-3 gap-y-6 border-y-[1px] py-4 xl:flex-nowrap;
 
       &_sticky {
-        @apply sticky top-0 bg-white;
+        @apply sticky top-0 z-[6] bg-white;
       }
 
       &-item {
