@@ -23,6 +23,10 @@ watch(route, () => {
   isOpen.value = false
 })
 
+const closeMenu = () => {
+  isOpen.value = false
+}
+
 const landlordsLinks = [
   {
     href: '/landlords#advantages',
@@ -67,7 +71,7 @@ const aboutLinks = [
 
 <template>
   <div class="fixed z-[5] flex w-[100vw] justify-center bg-transparent">
-    <header class="header w-[90vw] max-w-2xl">
+    <header class="header z-[5] w-[90vw] max-w-2xl" :class="{ header__active: isOpen }">
       <div class="flex w-full items-center justify-between md:w-max">
         <LogoComponent />
         <div class="md:hidden">
@@ -152,80 +156,123 @@ const aboutLinks = [
         </NavigationMenu>
       </div>
     </header>
-    <div class="absolute left-0 right-0 top-full hidden w-full" :class="{ '!block': isOpen }">
-      <div class="menu__mobile">
-        <NavigationMenu class="block">
-          <NavigationMenuList class="nav-list">
-            <NavigationMenuItem>
-              <NavigationMenuTrigger class="nav-trigger">
-                <p class="menu-link menu-link__mobile">Арендодателям</p>
-              </NavigationMenuTrigger>
-              <NavigationMenuContent class="backdrop-blur-sm">
-                <ul
-                  class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[minmax(0,.75fr)_minmax(0,1fr)]"
-                >
-                  <li class="row-span-3">
-                    <NavigationMenuLink as-child>
-                      <router-link
-                        to="/landlords"
-                        class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-brand-1100 p-6 no-underline outline-none focus:shadow-md"
-                      >
-                        <Home class="h-6 w-6" />
-                        <div class="mb-2 mt-4 font-manrope text-lg font-medium">Арендодателям</div>
-                        <p class="para-xs leading-tight text-muted-foreground">
-                          Упростите процесс управления вашей недвижимостью
-                        </p>
-                      </router-link>
-                    </NavigationMenuLink>
-                  </li>
-                  <NavigationMenuListItem
-                    v-for="component in landlordsLinks"
-                    :key="component.title"
-                    :title="component.title"
-                    :description="component.description"
-                    :href="component.href"
+
+    <Transition name="menu">
+      <div class="absolute left-0 right-0 top-full z-[5] w-full" v-show="isOpen">
+        <div class="menu__mobile">
+          <NavigationMenu class="block">
+            <NavigationMenuList class="nav-list">
+              <NavigationMenuItem>
+                <NavigationMenuTrigger class="nav-trigger">
+                  <p class="menu-link menu-link__mobile">Арендодателям</p>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent class="backdrop-blur-sm">
+                  <ul
+                    class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[minmax(0,.75fr)_minmax(0,1fr)]"
                   >
-                  </NavigationMenuListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+                    <li class="row-span-3">
+                      <NavigationMenuLink as-child>
+                        <router-link
+                          to="/landlords"
+                          class="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-white/50 to-brand-1100 p-6 no-underline outline-none focus:shadow-md"
+                        >
+                          <Home class="h-6 w-6" />
+                          <div class="mb-2 mt-4 font-manrope text-lg font-medium">
+                            Арендодателям
+                          </div>
+                          <p class="para-xs leading-tight text-muted-foreground">
+                            Упростите процесс управления вашей недвижимостью
+                          </p>
+                        </router-link>
+                      </NavigationMenuLink>
+                    </li>
+                    <NavigationMenuListItem
+                      v-for="component in landlordsLinks"
+                      :key="component.title"
+                      :title="component.title"
+                      :description="component.description"
+                      :href="component.href"
+                    >
+                    </NavigationMenuListItem>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <NavigationMenuTrigger class="nav-trigger">
-                <p class="menu-link menu-link__mobile">О проекте</p>
-              </NavigationMenuTrigger>
-              <NavigationMenuContent class="backdrop-blur-sm">
-                <ul class="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
-                  <NavigationMenuListItem
-                    v-for="component in aboutLinks"
-                    :key="component.title"
-                    :title="component.title"
-                    :description="component.description"
-                    :href="component.href"
-                  >
-                  </NavigationMenuListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger class="nav-trigger">
+                  <p class="menu-link menu-link__mobile">О проекте</p>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent class="backdrop-blur-sm">
+                  <ul class="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
+                    <NavigationMenuListItem
+                      v-for="component in aboutLinks"
+                      :key="component.title"
+                      :title="component.title"
+                      :description="component.description"
+                      :href="component.href"
+                    >
+                    </NavigationMenuListItem>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <NavigationMenuLink :class="navigationMenuTriggerStyle()" class="nav-trigger">
-                <router-link to="/pricing">
-                  <p class="menu-link menu-link__mobile">Подписка</p>
-                </router-link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink :class="navigationMenuTriggerStyle()" class="nav-trigger">
+                  <router-link to="/pricing">
+                    <p class="menu-link menu-link__mobile">Подписка</p>
+                  </router-link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <NavigationMenuLink :class="navigationMenuTriggerStyle()" class="nav-trigger">
-                <router-link to="/faq">
-                  <p class="menu-link menu-link__mobile">FAQ</p>
-                </router-link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+              <NavigationMenuItem>
+                <NavigationMenuLink :class="navigationMenuTriggerStyle()" class="nav-trigger">
+                  <router-link to="/faq">
+                    <p class="menu-link menu-link__mobile">FAQ</p>
+                  </router-link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
       </div>
-    </div>
+    </Transition>
+    <Transition name="overlay">
+      <div
+        v-show="isOpen"
+        class="fixed inset-0 z-[4] bg-black bg-opacity-50"
+        @click="closeMenu"
+      ></div>
+    </Transition>
   </div>
 </template>
+
+<style scoped>
+.menu-enter-active,
+.menu-leave-active {
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+.menu-enter-to,
+.menu-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.overlay-enter-active,
+.overlay-leave-active {
+  transition: opacity 0.5s;
+}
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
+}
+.overlay-enter-to,
+.overlay-leave-from {
+  opacity: 1;
+}
+</style>
