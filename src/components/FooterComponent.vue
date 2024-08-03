@@ -1,8 +1,4 @@
 <script setup>
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { onMounted } from 'vue'
-
 import { NotificationsForm } from '@/components/ui/form'
 import { TelegramPlane } from '@/components/ui/icons'
 import LogoComponent from '@/components/ui/logo/LogoComponent.vue'
@@ -10,33 +6,10 @@ import { Mail } from 'lucide-vue-next'
 
 const year = new Date().getFullYear()
 
-gsap.registerPlugin(ScrollTrigger)
-
-onMounted(() => {
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: 'footer',
-      start: '-30% center',
-      end: '-30% center'
-    }
-  })
-
-  tl.from('.footer__logo', { opacity: 0, duration: 1 })
-    .from('.footer-links', { opacity: 0, stagger: 0.3 })
-    .from('.footer-links .footer-link', { opacity: 0, stagger: 0.1 })
-    .from('#notifications', { x: 50, opacity: 0, duration: 1 }, 1)
-    .from('.footer__contacts li', { opacity: 0, stagger: 0.2 })
-    .from('.footer__copyright', { opacity: 0, duration: 1 })
-})
-
 const footerLinks = [
   {
     name: 'Продукт',
     links: [
-      {
-        name: 'Преимущества',
-        href: '/#advantages'
-      },
       {
         name: 'Особенности',
         href: '/#features'
@@ -44,6 +17,10 @@ const footerLinks = [
       {
         name: 'Арендодателям',
         href: '/landlords'
+      },
+      {
+        name: 'Стоимость',
+        href: '/#pricing'
       },
       {
         name: 'Подписка',

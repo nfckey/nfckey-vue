@@ -12,8 +12,8 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { AdvantagesList, AdvantagesListItem } from '@/components/ui/advantages'
 import { AvatarList } from '@/components/ui/avatar'
+import { BentoGrid } from '@/components/ui/grid'
 import { Button } from '@/components/ui/button'
 import {
   Carousel,
@@ -77,11 +77,7 @@ const initializeAnimations = () => {
     .from('.hero__content-subtitle', { y: 50, opacity: 0, duration: 1 }, 1.5)
     .from('.hero__content-btn-group', { y: 50, opacity: 0, duration: 1 }, 1.7)
 
-  animateOnScroll('#advantages', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
-  animateOnScroll('#advantages', '.advantages-item', { opacity: 0, stagger: 0.3, duration: 1 })
-  animateOnScroll('#features', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
-  animateOnScroll('#features', '.feature', { opacity: 0, x: -50, stagger: 0.4, duration: 1 })
-  animateOnScroll('#features', '.features__image', { opacity: 0, y: 100, duration: 1 })
+  animateOnScroll('#features', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#how-it-works', '.how-it-works__title', { duration: 2, text: '' }, '30%')
   animateOnScroll('#how-it-works', '.how-it-works__video', { opacity: 0, x: 25, duration: 2 })
   animateOnScroll('#pricing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
@@ -256,7 +252,7 @@ const faqItems = [
       </div>
     </div>
   </section>
-  <section id="advantages">
+  <section id="features">
     <div class="flex flex-col items-center gap-24">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
@@ -267,81 +263,7 @@ const faqItems = [
           безопасности для частных лиц и арендодателей
         </p>
       </div>
-      <AdvantagesList>
-        <AdvantagesListItem
-          v-for="(item, index) in advantages"
-          :key="index"
-          :title="item.title"
-          :description="item.description"
-        >
-          <div class="icon_big text-brand-400" v-html="item.icon"></div>
-        </AdvantagesListItem>
-      </AdvantagesList>
-    </div>
-  </section>
-  <section id="features">
-    <div class="flex flex-col items-center justify-center gap-8 xl:flex-row">
-      <div class="features__content">
-        <div class="subtitle_la text-center xl:text-left">
-          <h2 class="subtitle_la__title subtitle_la__title_gradient">
-            Откройте новые возможности с помощью умных замков
-          </h2>
-          <p class="subtitle_la__text">
-            Замки NFCKEY созданы для тех, кто хочет нового уровня комфорта, удобства и безопасности.
-            Вы легко сможете контролировать, кто и когда открывает дверь вашего дома. Всегда.
-          </p>
-        </div>
-        <div class="features__list">
-          <div class="feature">
-            <Sparkles class="shrink-0 text-brand-400" />
-            <div class="feature__content">
-              <p class="feature__title">Технология NFC</p>
-              <p class="feature__text">
-                Открывайте двери одним касанием телефона с помощью технологии Near Field
-                Communication
-              </p>
-            </div>
-          </div>
-          <div class="feature">
-            <Sparkles class="shrink-0 text-brand-400" />
-            <div class="feature__content">
-              <p class="feature__title">Удобное мобильное приложение</p>
-              <p class="feature__text">
-                Наше интуитивно понятное мобильное приложение создано для беспрепятственного
-                управления доступом и множеством других функций вашего замка
-              </p>
-            </div>
-          </div>
-          <div class="feature">
-            <Sparkles class="shrink-0 text-brand-400" />
-            <div class="feature__content">
-              <p class="feature__title">Открытие дверей без интернета</p>
-              <p class="feature__text">
-                Вы можете открывать двери без подключения к интернету, получая бесперебойный доступ
-                при любых ситуациях
-              </p>
-            </div>
-          </div>
-          <div class="feature">
-            <Sparkles class="shrink-0 text-brand-400" />
-            <div class="feature__content">
-              <p class="feature__title">Эффективность и элегантность</p>
-              <p class="feature__text">
-                Наш умный замок сочетает в себе длительное время работы от батареек и утонченный
-                дизайн, позволяющий придать вашей двери современный шарм
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="flex max-w-2xl xl:w-1/2 xl:max-w-full xl:self-stretch">
-        <img
-          src="@/assets/images/waves-mockup.webp"
-          alt="Мобильный телефон с технологией NFC"
-          class="features__image"
-          loading="lazy"
-        />
-      </div>
+      <BentoGrid />
     </div>
   </section>
   <section id="how-it-works" class="flex items-center">
