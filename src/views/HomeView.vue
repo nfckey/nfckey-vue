@@ -60,11 +60,9 @@ const initializeAnimations = () => {
     .fromTo(
       '.hero__image',
       {
-        x: 50,
         opacity: 0
       },
       {
-        x: 0,
         opacity: 1,
         duration: 1.5,
         onComplete: function () {
