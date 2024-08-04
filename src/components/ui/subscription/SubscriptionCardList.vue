@@ -212,7 +212,11 @@ const warrantyCard = {
         </p>
         <div class="flex items-center gap-2">
           <p class="sub-card__price">
-            {{ formatPrice(isAnnual ? item.annual_price : item.price) }}
+            {{
+              item.alt_name == 'Free'
+                ? 'Бесплатно'
+                : formatPrice(isAnnual ? item.annual_price : item.price)
+            }}
           </p>
           <div
             v-if="item.type !== 'Универсальная' && item.alt_name !== 'Endless'"

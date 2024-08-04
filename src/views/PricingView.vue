@@ -41,7 +41,7 @@ watch(subscriptions, () => {
         onEnter: (elements) => {
           gsap.to(elements, {
             opacity: 1,
-            stagger: 0.3
+            stagger: 0.2
           })
         }
       })
@@ -57,7 +57,7 @@ watch(isFamily, () => {
         onEnter: (elements) => {
           gsap.to(elements, {
             opacity: 1,
-            stagger: 0.3
+            stagger: 0.2
           })
         }
       })

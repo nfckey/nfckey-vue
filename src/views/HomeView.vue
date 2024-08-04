@@ -1,10 +1,9 @@
 <script setup>
-import axios from 'axios'
 import { gsap } from 'gsap'
 import mediumZoom from 'medium-zoom'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
-import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 import {
   Accordion,
@@ -25,9 +24,9 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { NotificationsForm } from '@/components/ui/form'
 import { PublishingList } from '@/components/ui/publishing'
-import { OpportunitiesCard, SubscriptionCardList } from '@/components/ui/subscription'
+import { OpportunitiesCard } from '@/components/ui/subscription'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { ArrowRight, Bell, ChevronRight, Sparkles } from 'lucide-vue-next'
+import { ArrowRight, Bell, ChevronRight } from 'lucide-vue-next'
 
 gsap.registerPlugin(ScrollTrigger)
 gsap.registerPlugin(TextPlugin)
@@ -56,7 +55,7 @@ const animateOnScroll = (trigger, elements, options, triggerPos) => {
 const initializeAnimations = () => {
   const tl = gsap.timeline()
   tl.from('.hero__gradient', { opacity: 0, duration: 1.5 }, 0.5)
-    .from('.hero__content-title', { x: -50, opacity: 0, duration: 1.5 }, 0.5)
+    .from('.hero__content-title', { opacity: 0, duration: 1.5 }, 0.5)
     .fromTo(
       '.hero__image',
       {
@@ -70,51 +69,22 @@ const initializeAnimations = () => {
           document.querySelector('.hero__image-container').style.setProperty('--opt', '100')
         }
       },
-      1
+      0.5
     )
-    .from('.hero__content-subtitle', { y: 50, opacity: 0, duration: 1 }, 1.5)
-    .from('.hero__content-btn-group', { y: 50, opacity: 0, duration: 1 }, 1.7)
+    .from('.hero__content-subtitle', { y: 50, opacity: 0, duration: 0.8 }, 0.8)
+    .from('.hero__content-btn-group', { y: 50, opacity: 0, duration: 0.8 }, 1)
 
   animateOnScroll('#features', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#how-it-works', '.how-it-works__title', { duration: 2, text: '' }, '30%')
   animateOnScroll('#how-it-works', '.how-it-works__video', { opacity: 0, x: 25, duration: 2 })
   animateOnScroll('#pricing', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#pricing', '.bullet-point', { opacity: 0, stagger: 0.3 })
-  animateOnScroll('#subscription', '.subtitle_ca', { opacity: 0, y: 25, duration: 1 }, '-30%')
   animateOnScroll('#team', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
   animateOnScroll('#team', '.team__person', { opacity: 0, stagger: 0.2 })
   animateOnScroll('#faq', '.subtitle_la', { opacity: 0, x: -50, duration: 1 }, '-30%')
   animateOnScroll('#faq', '.faq-list div', { opacity: 0, x: -50, stagger: 0.1 })
   animateOnScroll('#pre-order', '.subtitle_ca', { opacity: 0, y: 50, duration: 1 }, '-30%')
 }
-
-const subscriptions = ref([])
-
-onMounted(async () => {
-  try {
-    const { data } = await axios.get(
-      'https://api.nfckey.tech/api/v1/subscriptions?type=Семьям&limits=1'
-    )
-    subscriptions.value = data
-  } catch (error) {
-    console.log(error)
-  }
-})
-
-watch(subscriptions, () => {
-  nextTick(() => {
-    ctx.add(() => {
-      ScrollTrigger.batch('#subscription .sub-card', {
-        onEnter: (elements) => {
-          gsap.to(elements, {
-            opacity: 1,
-            stagger: 0.3
-          })
-        }
-      })
-    })
-  })
-})
 
 onUnmounted(() => {
   ctx.revert()
@@ -127,45 +97,6 @@ const scrollToCTA = () => {
 function getImageUrl(name) {
   return new URL(`/src/assets/images/${name}`, import.meta.url).href
 }
-
-const advantages = [
-  {
-    title: 'Доступ без препятствий',
-    description:
-      'Попрощайтесь с поиском ключей – телефон позволит мгновенно получить доступ к вашему пространству',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>'
-  },
-  {
-    title: 'Временный ключ одной кнопкой',
-    description:
-      'Вы можете выдать ключ вашим гостям или арендаторам и отозвать его в удобное для вас время',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
-  },
-  {
-    title: 'Полная безопасность',
-    description:
-      'Мы используем современные и проверенные технологии шифрования данных и механической защиты замков',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
-  },
-  {
-    title: 'Мгновенные оповещения',
-    description:
-      'Получайте уведомления, кто и когда<br> открывает дверь, в режиме <br>реального времени',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-dot"><path d="M19.4 14.9C20.2 16.4 21 17 21 17H3s3-2 3-9c0-3.3 2.7-6 6-6 .7 0 1.3.1 1.9.3"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><circle cx="18" cy="8" r="3"/></svg>'
-  },
-  {
-    title: 'Дистанционное управление',
-    description:
-      'Легко управляйте доступом на расстоянии и гибко настраивайте расписание доступа к замку',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>'
-  },
-  {
-    title: 'Снижение ответственности',
-    description:
-      'Избавьтесь от неудобств и рисков несанкционированного доступа при использовании физических ключей',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>'
-  }
-]
 
 const faqItems = [
   {
@@ -251,15 +182,11 @@ const faqItems = [
     </div>
   </section>
   <section id="features">
-    <div class="flex flex-col items-center gap-24">
+    <div class="flex flex-col items-center gap-16">
       <div class="subtitle_ca">
         <h2 class="subtitle_ca__title subtitle_ca__title_gradient">
-          Открывайте дверь одним касанием смартфона
+          Открывайте двери одним касанием вашего смартфона
         </h2>
-        <p class="subtitle_ca__text">
-          Переосмысляем традиционные способы открытия дверей и расширяем возможности удобства и
-          безопасности для частных лиц и арендодателей
-        </p>
       </div>
       <BentoGrid />
     </div>
@@ -353,26 +280,6 @@ const faqItems = [
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="subscription" class="min-h-max">
-    <div class="flex flex-col items-center gap-8">
-      <div class="subtitle_ca">
-        <h2 class="subtitle_ca__title subtitle_ca__title_gradient sm:h400 text-4xl">
-          Раскройте весь потенциал умного замка с помощью подписки
-        </h2>
-        <p class="subtitle_ca__text">
-          Дополните преимущества бесплатного тарифа, выбрав вариант подписки под ваши уникальные
-          потребности
-        </p>
-        <router-link to="/pricing">
-          <Button variant="link" class="subtitle_ca__action">
-            <p>Посмотреть все варианты</p>
-            <ArrowRight class="h-5 w-5 text-brand-400" />
-          </Button>
-        </router-link>
-      </div>
-      <SubscriptionCardList :items="subscriptions.data" />
     </div>
   </section>
   <section id="faq" class="min-h-max">

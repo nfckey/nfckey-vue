@@ -1,7 +1,35 @@
 <script setup>
-import { ArrowUpRight, Home, Lock, Sparkles } from '@/components/ui/icons'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { onMounted, onUnmounted } from 'vue'
+
 import { ControlCenter } from '@/components/ui/control-center'
+import { ArrowUpRight, Home, Lock, Sparkles } from '@/components/ui/icons'
 import DotGrid from './DotGrid.vue'
+
+gsap.registerPlugin(ScrollTrigger)
+const ctx = gsap.context(() => {})
+
+onMounted(() => {
+  ctx.add(() => {
+    document.querySelectorAll('.card').forEach((card) => {
+      gsap.from(card, {
+        opacity: 0,
+        duration: 1,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+          toggleActions: 'play none none none'
+        }
+      })
+    })
+  })
+})
+
+onUnmounted(() => {
+  ctx.revert()
+})
 </script>
 
 <template>
