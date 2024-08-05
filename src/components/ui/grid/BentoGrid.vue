@@ -1,16 +1,20 @@
 <script setup>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 import { ControlCenter } from '@/components/ui/control-center'
 import { ArrowUpRight, Home, Lock, Sparkles } from '@/components/ui/icons'
 import DotGrid from './DotGrid.vue'
 
 gsap.registerPlugin(ScrollTrigger)
+
 const ctx = gsap.context(() => {})
+const isTouchScreen = ref(false)
 
 onMounted(() => {
+  isTouchScreen.value = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
   ctx.add(() => {
     document.querySelectorAll('.card').forEach((card) => {
       gsap.from(card, {
@@ -86,7 +90,14 @@ onUnmounted(() => {
     <div class="card col-span-1 overflow-hidden xl:row-span-2">
       <div class="card__content relative h-full">
         <div class="flex h-full items-center justify-center">
-          <DotGrid class="absolute -top-20" />
+          <DotGrid v-if="!isTouchScreen" class="absolute -top-20" />
+          <img
+            v-else
+            src="@/assets/images/card-security.webp"
+            class="absolute max-w-[400px]"
+            alt=""
+            role="presentation"
+          />
           <div class="card_security__icon">
             <Lock class="size-16 text-vneutral-100" />
           </div>
